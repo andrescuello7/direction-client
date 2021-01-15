@@ -1,0 +1,22 @@
+.Login {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.LoginCard {
+  text-align: left;
+  margin: 8% 0px;
+  background-color: aliceblue;
+  width: 40%;
+  padding: 3%;
+  border: 1px solid rgba(0, 0, 0, 0.719);
+  border-radius: 1rem;
+}
+@media (max-width: 700px) {
+  .LoginCard {
+    margin: 35% 0px;
+    width: 95%;
+    font-size: 20px;
+    padding: 8%;
+  }
+}

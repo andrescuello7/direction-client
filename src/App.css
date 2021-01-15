@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: rgba(3, 3, 3, 0.849);
+  height: 100%;
 }
 
 .App-logo {
@@ -34,5 +36,107 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.CarrucelCard {
+  width: 100%;
+  height: 600px;
+}
+.sticky-top {
+  background-color: #000000a4;
+  color: white;
+}
+.card {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(133, 5, 5, 0.534);
+  width: 50%;
+  border-radius: 2rem;
+  padding: 2%;
+  margin: 0% 25%;
+  color: white;
+}
+.pad {
+  width: 300px;
+  padding: 8px;
+  border-radius: 10px;
+  margin: 0px 1%;
+}
+.CardDePeli {
+  margin: 1%;
+  width: 20%;
+  background-color: rgba(4, 52, 83, 0.568);
+  border-radius: 1rem;
+  padding: 1%;
+}
+.CardKeyPeli {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.imgPeli {
+  width: 90%;
+  border-radius: 1rem;
+  border: solid 2px black;
+}
+.CardDePeli {
+  color: rgb(231, 222, 222);
+  font-family: revert;
+  font-size: 22px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.931);
+  transition-property: all;
+  transition-duration: 1s;
+  transition-delay: 0s, 0s;
+}
+.CardDePeli:hover {
+  transform: scale(1.1);
+  transform-origin: center;
+}
+.busquedaInput {
+  padding: 1%;
+  background-color: rgb(26, 25, 25);
+}
+.pod {
+  margin: 0% 0% 0% 66%;
+}
+.headerForm {
+  margin: 0px 25%;
+  font-size: 20px;
+}
+.headerForm:hover {
+  margin: 0px 25%;
+  border-bottom: 1px solid rgb(172, 99, 4);
+}
+.main-footer {
+  color: white;
+  background-color: #151616;
+  padding: 2%;
+}
+@media (max-width: 700px) {
+  .pad {
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+    margin: 0px 0%;
+  }
+  .pod {
+    display: flex;
+    margin: 0% 0% 0% 6%;
+  }
+  .busquedaInput {
+    padding: 4%;
+    background-color: rgb(26, 25, 25);
+  }
+  .CarrucelCard {
+    width: 100%;
+    height: 50%;
+  }
+  .CardDePeli {
+    margin: 1%;
+    width: 45%;
+    background-color: rgba(4, 52, 83, 0.568);
+    border-radius: 1rem;
+    padding: 1%;
   }
 }
