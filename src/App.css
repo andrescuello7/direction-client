@@ -1,0 +1,62 @@
+.landPageOrden {
+  display: flex;
+}
+.titulo {
+  font-family: monospace;
+  font-size: 24px;
+  color: rgb(20, 20, 20);
+}
+.perfil {
+  margin: 2% 0%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+.bodyLandPage {
+  background-color: rgb(15, 15, 15);
+  color: blanchedalmond;
+}
+.footerAuto {
+  color: blanchedalmond;
+  margin-top: 3%;
+}
+.foto {
+  width: 12rem;
+  border-radius: 50%;
+}
+.FotoDePerfil {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.CardDiv {
+  margin: 2% 6%;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+.CardPublica {
+  width: 700px;
+  height: 180px;
+}
+@media (max-width: 780px) {
+  .landPageOrden {
+    display: flex;
+    flex-direction: column;
+  }
+  .foto {
+    width: 12rem;
+    border-radius: 50%;
+  }
+  .FotoDePerfil {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+  .perfil {
+    margin: 4% 0%;
+    width: 100%;
+    display: flex;
+  }
+}
