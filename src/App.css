@@ -14,8 +14,9 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background-color: rgb(15, 15, 15);
+  background-color: rgba(0, 0, 0, 0.932);
   color: blanchedalmond;
+  min-height: 100vh;
 }
 .footerAuto {
   color: blanchedalmond;
@@ -40,6 +41,9 @@
   width: 700px;
   height: 180px;
 }
+.NavbarBackground{
+  background-color: rgba(245, 245, 247, 0.76);
+}
 @media (max-width: 780px) {
   .landPageOrden {
     display: flex;
@@ -47,6 +51,7 @@
   }
   .foto {
     width: 12rem;
+    height: 12rem;
     border-radius: 50%;
   }
   .FotoDePerfil {
@@ -58,5 +63,12 @@
     margin: 4% 0%;
     width: 100%;
     display: flex;
+  }
+  .CardPublica {
+    width: 700px;
+    height: 240px;
+  }
+  .footerDateResponsive{
+    display: none;
   }
 }

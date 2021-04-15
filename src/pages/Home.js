@@ -10,9 +10,11 @@ const Home = () => {
       <div>
         <LandPage />
       </div>
-      <hr className="bg-light" />
-      <div>
-        <Footer />
+      <div className="footerDateResponsive">
+        <hr className="bg-light" />
+        <div>
+          <Footer />
+        </div>
       </div>
     </div>
   );

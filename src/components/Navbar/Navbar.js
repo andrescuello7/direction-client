@@ -3,7 +3,7 @@ import { Navbar, NavDropdown, Button, Form, Nav, FormControl } from "react-boots
 const NavbarPage = () => {
   return (
     <div>
-      <Navbar bg="dark" expand="lg">
+      <Navbar className="NavbarBackground" expand="lg">
         <div className="titulo"><b>Network</b></div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
       </Navbar>
