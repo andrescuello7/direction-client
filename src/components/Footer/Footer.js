@@ -1,6 +1,7 @@
 const Footer = () => {
     return (
         <div className="footerAuto p-2">
+            <hr className="bg-light" />
             <div className="Footer">
                 <div className="main-footer">
                     <div className="container">

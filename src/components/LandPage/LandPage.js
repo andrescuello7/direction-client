@@ -23,34 +23,35 @@ const LandPage = () => {
           <div className="text-center mt-2">
             <ul className="list-unstyled">
               <li>
-                <a href="https://www.instagram.com">
+                <a href="https://www.instagram.com/4ndres_cuello/">
                   <i class="fab fa-instagram p-2"></i>
                 </a>
                 4ndres_cuello
               </li>
               <li>
-                <a href="https://www.facebook.com">
+                <a href="https://www.facebook.com/andres.cuello.14/">
                   <i class="fab fa-facebook-f p-2"></i>
                 </a>
                 Andres Cuello
               </li>
               <li>
-                <a href="https://github.com">
+                <a href="https://www.linkedin.com/in/silvio-andres-cuello-a9a1b11bb/">
                   <i class="fab fa-linkedin p-2"></i>
                 </a>
                 Andres Cuello
               </li>
               <li>
-                <a href="https://github.com">
+                <a href="https://github.com/andrescuello7">
                   <i class="fab fa-github p-2"></i>
                 </a>
                 andrescuello7
               </li>
             </ul>
+            <hr className="bg-light" />
           </div>
         </div>
       </div>
-      <div className="w-100 mt-5">{MapDataBase}</div>
+      <div className="w-100 mt-5 d-flex flex-column-reverse">{MapDataBase}</div>
     </div>
   );
 };
