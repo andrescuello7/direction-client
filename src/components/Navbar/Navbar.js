@@ -49,9 +49,9 @@ const NavbarPage = () => {
           {token && (
             <div>
               <NavDropdown
-                className="btn btn-dark"
                 title={usuario.usuario}
                 id="basic-nav-dropdown"
+                className="btn btn-dark"
               >
                 <NavDropdown.Item>Perfil</NavDropdown.Item>
                 <NavDropdown.Item onClick={handleLogOut}>

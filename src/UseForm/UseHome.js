@@ -45,6 +45,7 @@ const UseHome = () => {
       await axios.delete(
         `home/${identificador}`
       );
+      window.location.href = "/";
     } catch (error) {
       console.log(error);
     }

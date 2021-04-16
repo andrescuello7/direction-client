@@ -55,6 +55,9 @@
   padding: 3%;
   border-radius: 2%;
 }
+.PuclicarEmail{
+  width: 90%;
+}
 @media (max-width: 780px) {
   .landPageOrden {
     display: flex;

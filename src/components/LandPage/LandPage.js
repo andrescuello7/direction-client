@@ -1,8 +1,10 @@
 import { Card } from "react-bootstrap";
 import UseHome from "../../UseForm/UseHome";
+import Publicacion from "../Publicacion/Publicacion";
 
 const LandPage = () => {
-  const { MapDataBase, input } = UseHome();
+  const { MapDataBase, input, usuario } = UseHome();
+
   return (
     <div className="landPageOrden">
       <div className="perfil">
@@ -16,7 +18,7 @@ const LandPage = () => {
         <div>
           <div className="w-100 text-center mt-2">
             <b>
-              <i>Conteo Network</i>
+              <i>{usuario.usuario}</i>
             </b>
           </div>
           <div className="text-center mt-2">
@@ -50,7 +52,14 @@ const LandPage = () => {
           </div>
         </div>
       </div>
-      <div className="w-100 mt-5 d-flex flex-column-reverse">{MapDataBase}</div>
+      <div>
+        <div className="w-100 mt-5 d-flex justify-content-center">
+          <Publicacion />
+        </div>
+        <div className="w-100 mt-5 d-flex flex-column-reverse">
+          {MapDataBase}
+        </div>
+      </div>
     </div>
   );
 };
