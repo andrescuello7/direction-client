@@ -3,8 +3,10 @@ import UseHome from "../../UseForm/UseHome";
 import Publicacion from "../Publicacion/Publicacion";
 
 const LandPage = () => {
-  const { MapDataBase, input, usuario } = UseHome();
-
+  //Declaracion de datos traidos de Hook Home y Token de LocalStorage
+  const { MapDataBase, usuario } = UseHome();
+  const token = localStorage.getItem("token");
+  
   return (
     <div className="landPageOrden">
       <div className="perfil">
@@ -53,9 +55,9 @@ const LandPage = () => {
         </div>
       </div>
       <div>
-        <div className="w-100 mt-5 d-flex justify-content-center">
+        {token &&<div className="w-100 mt-5 d-flex justify-content-center">
           <Publicacion />
-        </div>
+        </div>}
         <div className="w-100 mt-5 d-flex flex-column-reverse">
           {MapDataBase}
         </div>

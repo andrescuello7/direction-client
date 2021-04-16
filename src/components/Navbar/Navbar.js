@@ -25,12 +25,6 @@ const NavbarPage = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/">
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/login">
-              Login
-            </Nav.Link>
           </Nav>
           {!token && (
             <div className="d-flex">
@@ -53,7 +47,7 @@ const NavbarPage = () => {
                 id="basic-nav-dropdown"
                 className="btn btn-dark"
               >
-                <NavDropdown.Item>Perfil</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/perfil">Perfil</NavDropdown.Item>
                 <NavDropdown.Item onClick={handleLogOut}>
                   Cerrar Sesion
                 </NavDropdown.Item>

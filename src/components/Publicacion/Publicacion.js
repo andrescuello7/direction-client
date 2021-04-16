@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 const Publicacion = () => {
   const [input, setInput] = useState({});
+  const token = localStorage.getItem("token");
 
   const HandleChange = (e) => {
     const { name, value } = e.target;
@@ -13,7 +14,8 @@ const Publicacion = () => {
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("home", input);
+      const headers = { "x-auth-token": token };
+      await axios.post("home", input, { headers });
       window.location.href = "/";
     } catch (error) {
       console.log(error);
