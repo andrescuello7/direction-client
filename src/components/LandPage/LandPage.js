@@ -3,7 +3,6 @@ import UseHome from "../../UseForm/UseHome";
 
 const LandPage = () => {
   const { MapDataBase, input } = UseHome();
-  console.log(input);
   return (
     <div className="landPageOrden">
       <div className="perfil">

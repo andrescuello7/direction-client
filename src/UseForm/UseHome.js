@@ -4,18 +4,36 @@ import { Card, NavDropdown, Spinner } from "react-bootstrap";
 
 const UseHome = () => {
   const [input, setInput] = useState([]);
+  const [usuario, setUsuario] = useState([]);
   const [identificador, setIdentificador] = useState("");
 
   useEffect(() => {
     Publicacion();
+    Usuario();
     if (identificador.length !== undefined) {
       Delete();
     }
   }, [identificador]);
+
+  const Usuario = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const headers = { "x-auth-token": token };
+      const {
+        data,
+      } = await axios.get("auth", {
+        headers,
+      });
+      setUsuario(data.usuario)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const Publicacion = async () => {
     try {
       const { data } = await axios.get(
-        "https://vlog-conteo-app.herokuapp.com/api/home"
+        "home"
       );
       setInput(data);
     } catch (error) {
@@ -25,9 +43,8 @@ const UseHome = () => {
   const Delete = async () => {
     try {
       await axios.delete(
-        `https://vlog-conteo-app.herokuapp.com/api/home/${identificador}`
+        `home/${identificador}`
       );
-      console.log("Borrado");
     } catch (error) {
       console.log(error);
     }
@@ -60,6 +77,7 @@ const UseHome = () => {
     ));
   return {
     MapDataBase,
+    usuario,
     input,
   };
 };

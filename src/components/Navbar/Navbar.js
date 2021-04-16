@@ -6,34 +6,60 @@ import {
   Nav,
   FormControl,
 } from "react-bootstrap";
+import { NavLink, Link } from "react-router-dom";
+import UseHome from "../../UseForm/UseHome";
 
 const NavbarPage = () => {
+  const token = localStorage.getItem("token");
+  const { usuario } = UseHome();
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  };
   return (
     <div>
       <Navbar bg="primary" expand="lg">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={Link} to="/">
           <b>Network</b>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/login">
+              Login
+            </Nav.Link>
           </Nav>
-          <div>
-            <Button variant="outline-dark">Usuario</Button>
-          </div>
+          {!token && (
+            <div className="d-flex">
+              <div className="ml-2">
+                <Button as={Link} to="/login" variant="outline-light">
+                  Login
+                </Button>
+              </div>
+              <div className="ml-2">
+                <Button as={Link} to="/register" variant="outline-light">
+                  Registarse
+                </Button>
+              </div>
+            </div>
+          )}
+          {token && (
+            <div>
+              <NavDropdown
+                className="btn btn-dark"
+                title={usuario.usuario}
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item>Perfil</NavDropdown.Item>
+                <NavDropdown.Item onClick={handleLogOut}>
+                  Cerrar Sesion
+                </NavDropdown.Item>
+              </NavDropdown>
+            </div>
+          )}
         </Navbar.Collapse>
       </Navbar>
     </div>

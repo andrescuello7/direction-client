@@ -1,14 +1,16 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import axios from "axios";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./App.css";
 
 import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+
+axios.defaults.baseURL = 'https://vlog-conteo-app.herokuapp.com/api/';
 
 function App() {
   return (
