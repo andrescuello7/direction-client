@@ -14,13 +14,13 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background-color: rgba(0, 0, 0, 0.932);
-  color: blanchedalmond;
+  background-color: #fdfdfd;
+  color: rgb(10, 10, 10);
   min-height: 100vh;
 }
 .footerAuto {
-  color: blanchedalmond;
-  margin-top: 3%;
+  background-color: #007bff;
+  color: rgb(26, 25, 24);
 }
 .foto {
   width: 12rem;
@@ -43,6 +43,17 @@
 }
 .NavbarBackground{
   background-color: rgba(245, 245, 247, 0.76);
+}
+.login{
+  margin: 4% 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.FormLogin{
+  width: 40%;
+  padding: 3%;
+  border-radius: 2%;
 }
 @media (max-width: 780px) {
   .landPageOrden {
@@ -70,5 +81,16 @@
   }
   .footerDateResponsive{
     display: none;
+  }
+  .login{
+    margin: 4% 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .FormLogin{
+    width: 90%;
+    padding: 3%;
+    border-radius: 2%;
   }
 }
