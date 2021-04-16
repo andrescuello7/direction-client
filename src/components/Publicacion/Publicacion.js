@@ -22,7 +22,7 @@ const Publicacion = () => {
     }
   };
   return (
-    <div className="card p-2 PuclicarEmail">
+    <div className="card mt-5 p-2 PuclicarEmail">
       <form onSubmit={HandleSubmit}>
         <div>
           <input

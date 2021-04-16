@@ -14,9 +14,12 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background-color: #fdfdfd;
+  background-color: #272525;
   color: rgb(10, 10, 10);
   min-height: 100vh;
+}
+.ColorDePerfil{
+  background-color: #272525;
 }
 .footerAuto {
   background-color: #007bff;
@@ -32,7 +35,7 @@
   align-self: center;
 }
 .CardDiv {
-  margin: 2% 6%;
+  margin: 5px 6%;
   display: flex;
   justify-content: center;
   color: black;
@@ -56,7 +59,7 @@
   border-radius: 2%;
 }
 .PuclicarEmail{
-  width: 90%;
+  width: 52%;
 }
 @media (max-width: 780px) {
   .landPageOrden {
@@ -95,5 +98,8 @@
     width: 90%;
     padding: 3%;
     border-radius: 2%;
+  }
+  .PuclicarEmail{
+    width: 90%;
   }
 }

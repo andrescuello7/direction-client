@@ -1,0 +1,11 @@
+.NavbarTwo{
+    background-color: rgba(15, 21, 27, 0.904)
+}
+.NavbarTitulo{
+    color: cornsilk;
+    font-size: 2rem;
+    font-family: 'Shadows Into Light', cursive;
+}
+.NavbarButtonUser{
+    right: 0;
+}
