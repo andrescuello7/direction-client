@@ -1,9 +1,38 @@
-import { Card, NavDropdown, Spinner } from "react-bootstrap";
+import { Modal, Button, Form } from "react-bootstrap";
+import { useState } from "react";
 import Portada from "./Portada.css";
 import UseHome from "../../UseForm/UseHome";
+import { beforeUpload, getBase64 } from "../../utils/index";
+import axios from "axios";
 
 const Perfil = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const token = localStorage.getItem("token");
   const { usuario } = UseHome();
+  const exampleImage =
+    "http://trimatrixlab.com/store/flatrica/images/profile/profile.png";
+
+  //Codigo para foto base 64
+  console.log(usuario);
+  const onChangeImg = async (e) => {
+    const img = e.target.files[0];
+    if (!beforeUpload(img)) return;
+    const base64 = await getBase64(img);
+    const headers = { "x-auth-token": token };
+    axios
+      .put(
+        `usuario/${usuario._id}`,
+        { imagen: base64 },
+        {
+          headers,
+        }
+      )
+      .then((response) => console.log(response.data));
+  };
+
   return (
     <div className="w-100 d-flex justify-content-center">
       <div className="PortadaPrincipal">
@@ -53,17 +82,63 @@ const Perfil = () => {
                 </svg>
                 <p className="pl-2"> Andres Cuello</p>
               </div>
+              <div>
+                <Button variant="primary" onClick={handleShow}>
+                  Actalizar Datos
+                </Button>
+              </div>
             </div>
           </div>
         </div>
         <div>
           <img
             className="PortadaFoto"
-            src="http://trimatrixlab.com/store/flatrica/images/profile/profile.png"
+            src={usuario.imagen || exampleImage}
             alt=""
           />
           <div className="diagonal"></div>
         </div>
+      </div>
+      <div>
+        <Form>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header className="w-100" closeButton>
+              <Modal.Title className="text-center">
+                Actualizar Datos
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="d-flex">
+                <label htmlFor="file-input" style={{ cursor: "pointer" }}>
+                  <img
+                    src="https://icongr.am/feather/camera.svg?size=128&color=293f8e"
+                    alt="camera edit"
+                    width="20"
+                  />
+                </label>
+                <i className="m-2">Cambiar foto de perfil</i>
+              </div>
+              <div>
+                <input
+                  id="file-input"
+                  className="d-none"
+                  name="img"
+                  accept="image/png, image/jpeg"
+                  type="file"
+                  onChange={onChangeImg}
+                />
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Cerrar
+              </Button>
+              <Button className="btn btn-primary" onClick={handleClose}>
+                Guardar Cambios
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </Form>
       </div>
     </div>
   );
