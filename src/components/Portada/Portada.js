@@ -108,20 +108,10 @@ const Perfil = () => {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <div className="d-flex">
-                <label htmlFor="file-input" style={{ cursor: "pointer" }}>
-                  <img
-                    src="https://icongr.am/feather/camera.svg?size=128&color=293f8e"
-                    alt="camera edit"
-                    width="20"
-                  />
-                </label>
-                <i className="m-2">Cambiar foto de perfil</i>
-              </div>
               <div>
                 <input
                   id="file-input"
-                  className="d-none"
+                  className="d-block"
                   name="img"
                   accept="image/png, image/jpeg"
                   type="file"
