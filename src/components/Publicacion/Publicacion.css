@@ -1,0 +1,25 @@
+input{
+    margin: 1% 2%;
+    color: azure;
+    background-color: azure;
+    width: 96%;
+    border: none;
+}
+textarea{
+    color: azure;
+    background-color: azure;
+    margin: 2%;
+    border: none;
+    width: 96%;
+    height: 100px;
+}
+.PuclicarEmail {
+    border-radius: 1rem;
+    background-color: azure;
+    width: 52%;
+}
+@media (max-width: 780px) {
+    .PuclicarEmail {
+      width: 90%;
+    }
+  }

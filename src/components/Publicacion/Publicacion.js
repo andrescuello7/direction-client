@@ -1,3 +1,4 @@
+import "./Publicacion.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -27,24 +28,22 @@ const Publicacion = () => {
         <div>
           <input
             onChange={(e) => HandleChange(e)}
-            className="w-100 form-control"
             placeholder="Titulo..."
             type="text"
             name="titulo"
           />
         </div>
         <div>
-          <input
+          <textarea
             onChange={(e) => HandleChange(e)}
-            className="w-100 form-control"
-            placeholder="Publicaion..."
+            placeholder="Publicacion..."
             type="text"
             name="contenido"
           />
         </div>
         <hr />
         <div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit ml-5" className="btn btn-primary">
             Publicar
           </button>
         </div>

@@ -2,10 +2,17 @@
     background-color: rgba(15, 21, 27, 0.904)
 }
 .NavbarTitulo{
-    color: cornsilk;
+    color: rgb(124, 123, 116);
     font-size: 2rem;
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Zen Dots', cursive;
 }
 .NavbarButtonUser{
     right: 0;
+}
+@media (max-Width: 780px){
+    .NavbarTitulo{
+        color: rgb(124, 123, 116);
+        font-size: 1rem;
+        font-family: 'Zen Dots', cursive;
+    }
 }

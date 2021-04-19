@@ -14,12 +14,16 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background-color: #272525;
+  background: rgb(225, 226, 228) ;
+  background-size: 100%;
+  background-repeat: unset;
   color: rgb(10, 10, 10);
   min-height: 100vh;
 }
-.ColorDePerfil{
-  background-color: #272525;
+.ColorDePerfil {
+  background: rgb(225, 226, 228);
+  background-size: 100%;
+  background-repeat: unset;
 }
 .footerAuto {
   background-color: #007bff;
@@ -38,30 +42,40 @@
   margin: 5px 6%;
   display: flex;
   justify-content: center;
-  color: black;
+  color: rgb(26, 25, 25);
 }
 .CardPublica {
+  border-radius: 12px;
+  background-color: rgba(216, 221, 221, 0.527);
   width: 700px;
   height: 180px;
 }
-.NavbarBackground{
+.NavbarBackground {
   background-color: rgba(245, 245, 247, 0.76);
 }
-.login{
+.login {
   margin: 4% 0px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.FormLogin{
+.FormLogin {
   width: 40%;
   padding: 3%;
   border-radius: 2%;
 }
-.PuclicarEmail{
-  width: 52%;
+.descripcionPublicacion {
+  font-family: 'Bebas Neue', cursive;
 }
 @media (max-width: 780px) {
+  .bodyLandPage {
+    background: rgb(225, 226, 228);
+    color: rgb(10, 10, 10);
+    min-height: 100vh;
+  }
+  .ColorDePerfil {
+    background: rgb(225, 226, 228);
+  }
   .landPageOrden {
     display: flex;
     flex-direction: column;
@@ -85,21 +99,21 @@
     width: 700px;
     height: 240px;
   }
-  .footerDateResponsive{
+  .footerDateResponsive {
     display: none;
   }
-  .login{
+  .login {
     margin: 4% 0px;
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  .FormLogin{
+  .FormLogin {
     width: 90%;
     padding: 3%;
     border-radius: 2%;
   }
-  .PuclicarEmail{
+  .PuclicarEmail {
     width: 90%;
   }
 }

@@ -71,18 +71,22 @@ const UseHome = () => {
       <div className="CardDiv" key={i}>
         <Card className="CardPublica">
           <div className="d-flex justify-content-between">
-            <Card.Header>{date.titulo}</Card.Header>
-            {date.creador === usuario._id &&<div>
-              <NavDropdown title="Opciones" id="basic-nav-dropdown">
-                <NavDropdown.Item>Editar</NavDropdown.Item>
-                <NavDropdown.Item onClick={() => setIdentificador(date._id)}>
-                  Eliminar
-                </NavDropdown.Item>
-              </NavDropdown>
-            </div>}
+            <Card.Header className="descripcionPublicacion">{date.titulo}</Card.Header>
+            {date.creador === usuario._id && (
+              <div>
+                <NavDropdown title="Opciones" id="basic-nav-dropdown">
+                  <NavDropdown.Item>Editar</NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => setIdentificador(date._id)}>
+                    Eliminar
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </div>
+            )}
           </div>
           <Card.Body>
-            <Card.Text>{date.contenido}</Card.Text>
+            <div>
+              <i>{date.contenido}</i>
+            </div>
           </Card.Body>
         </Card>
       </div>
@@ -102,7 +106,7 @@ const UseHome = () => {
           <div className="CardDiv" key={i}>
             <Card className="CardPublica">
               <div className="d-flex justify-content-between">
-                <Card.Header>{date.titulo}</Card.Header>
+                <Card.Header className="descripcionPublicacion">{date.titulo}</Card.Header>
                 <div>
                   <NavDropdown title="Opciones" id="basic-nav-dropdown">
                     <NavDropdown.Item>Editar</NavDropdown.Item>
