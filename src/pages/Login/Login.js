@@ -23,9 +23,9 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="w-100 mt-5">
-        <h2 className="text-center">Vlog Primer Amor</h2>
+    <div className="FondoDeForm">
+      <div className="w-100">
+        <h1 className="text-center PortadaTituloForm"><b><i>Blog-LugarSecreto</i></b></h1>
       </div>
       <div className="login">
         <Form onSubmit={HandleSubmit} className="FormLogin card">
@@ -49,7 +49,7 @@ const Login = () => {
             />
           </Form.Group>
           <div>
-            <a href="">No tienes cuenta?, create una cuenta</a>
+            <a href="/register">No tienes cuenta?, create una cuenta</a>
           </div>
           <Button variant="primary" type="submit">
             Iniciar Sesion

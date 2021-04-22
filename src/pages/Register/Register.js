@@ -23,9 +23,9 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <div className="w-100 mt-5">
-        <h2 className="text-center">Registrate</h2>
+    <div className="FondoDeForm">
+      <div className="w-100">
+        <h1 className="text-center PortadaTituloForm"><b><i>Registrate</i></b></h1>
       </div>
       <div className="login">
         <Form onSubmit={HandleSubmit} className="FormLogin card">
@@ -42,7 +42,7 @@ const Register = () => {
             <Form.Control onChange={(e) => HandleChange(e)} type="password" name="password" placeholder="Password" />
           </Form.Group>
           <div>
-            <a href="">Ya me registre, iniciar sesion</a>
+            <a href="/login">Ya me registre, iniciar sesion</a>
           </div>
           <Button variant="primary" type="submit">
             Registarse

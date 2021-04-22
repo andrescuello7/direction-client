@@ -3,15 +3,35 @@ import { useState } from "react";
 import Portada from "./Portada.css";
 import UseHome from "../../UseForm/UseHome";
 import UsePerfil from "../../UseForm/UsePerfil";
+import axios from "axios";
 
 const Perfil = () => {
+  const token = localStorage.getItem("token");
   const { usuario } = UseHome();
-  const { onChangeImg, exampleImage, HandleChange, onChangeDate } = UsePerfil();
+  const { onChangeImg, exampleImage } = UsePerfil();
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [input, setInput] = useState({});
 
+  const HandleChange = (e) => {
+    const { name, value } = e.target;
+    const changedInput = { ...input, [name]: value };
+    setInput(changedInput);
+  };
+
+  const onChangeDate = async (e) => {
+    const headers = { "x-auth-token": token };
+    try {
+      const { data } = await axios.put("usuario", input, { headers });
+      console.log("DATA ENTRANTE", data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(input)
   return (
     <div className="w-100 d-flex justify-content-center">
       <div className="PortadaPrincipal">
@@ -32,7 +52,7 @@ const Perfil = () => {
                 </svg>
                 <p className="pl-2"> {usuario.email}</p>
               </div>
-              <div className="d-flex">
+              {usuario.celular !== undefined && <div className="d-flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -46,9 +66,9 @@ const Perfil = () => {
                     d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
                   />
                 </svg>
-                <p className="pl-2"> +543815615474</p>
-              </div>
-              <div className="d-flex">
+                <p className="pl-2"> {usuario.celular}</p>
+              </div>}
+              {usuario.facebook !== undefined && <div className="d-flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="25"
@@ -59,8 +79,8 @@ const Perfil = () => {
                 >
                   <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
                 </svg>
-                <p className="pl-2"> Andres Cuello</p>
-              </div>
+                <p className="pl-2"> {usuario.facebook}</p>
+              </div>}
               <div>
                 <Button variant="primary" onClick={handleShow}>
                   Actalizar Datos
@@ -88,8 +108,8 @@ const Perfil = () => {
             </Modal.Header>
             <Modal.Body>
               <div className="pl-2">
-                <div className="d-flex">
-                  <p>Facebook</p>
+              <div className="d-flex">
+                  <p>Nombre</p>
                   <input
                     className="form-control"
                     name="usuario"
@@ -99,7 +119,17 @@ const Perfil = () => {
                   />
                 </div>
                 <div className="d-flex">
-                  <p>Cel/Telefono</p>
+                  <p>Facebook</p>
+                  <input
+                    className="form-control"
+                    name="facebook"
+                    type="text"
+                    placeholder="facebook..."
+                    onChange={(e) => HandleChange(e)} 
+                  />
+                </div>
+                <div className="d-flex">
+                  <p>Cel/Telef</p>
                   <input
                     className="form-control"
                     name="celular"
