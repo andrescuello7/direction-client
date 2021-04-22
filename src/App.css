@@ -14,7 +14,7 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background: rgb(225, 226, 228) ;
+  background: linear-gradient(rgba(168, 49, 197, 0.671),rgba(49, 138, 197, 0.808));
   background-size: 100%;
   background-repeat: unset;
   color: rgb(10, 10, 10);
@@ -90,7 +90,7 @@
     min-height: 100vh;
   }
   .bodyLandPage {
-    background: url(https://hips.hearstapps.com/es.h-cdn.co/mcres/images/mi-casa/dormitorios/dormitorios-en-verde/esperanza-blanco-y-negro/1402945-1-esl-ES/esperanza-blanco-y-negro.jpg);
+    background: linear-gradient(rgba(168, 49, 197, 0.671),rgba(49, 138, 197, 0.808));
     color: rgb(10, 10, 10);
     min-height: 100vh;
   }
