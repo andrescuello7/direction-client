@@ -1,17 +1,30 @@
 .NavbarTwo{
-    background-color: rgba(15, 21, 27, 0.904)
+    background-color: rgba(239, 238, 240, 0.938)
 }
 .NavbarTitulo{
-    color: rgb(124, 123, 116);
-    font-size: 2rem;
+    color: rgb(15, 15, 15);
+    font-size: 20px;
     font-family: 'Zen Dots', cursive;
 }
 .NavbarButtonUser{
     right: 0;
+    left: none;
+}
+.NavbarFoto{
+    padding: 0%;
+    width: 35px;
+    border-radius: 50%;
+}
+.NavbarButton{
+    margin: 0% 0px;
+}
+.dropdown-menu{
+    right: 0;
+    left: none;
 }
 @media (max-Width: 780px){
     .NavbarTitulo{
-        color: rgb(124, 123, 116);
+        color: rgb(27, 26, 26);
         font-size: 1rem;
         font-family: 'Zen Dots', cursive;
     }

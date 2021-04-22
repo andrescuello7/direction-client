@@ -2,36 +2,15 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import Portada from "./Portada.css";
 import UseHome from "../../UseForm/UseHome";
-import { beforeUpload, getBase64 } from "../../utils/index";
-import axios from "axios";
+import UsePerfil from "../../UseForm/UsePerfil";
 
 const Perfil = () => {
+  const { usuario } = UseHome();
+  const { onChangeImg, exampleImage, HandleChange, onChangeDate } = UsePerfil();
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const token = localStorage.getItem("token");
-  const { usuario } = UseHome();
-  const exampleImage =
-    "http://trimatrixlab.com/store/flatrica/images/profile/profile.png";
-
-  //Codigo para foto base 64
-  console.log(usuario);
-  const onChangeImg = async (e) => {
-    const img = e.target.files[0];
-    if (!beforeUpload(img)) return;
-    const base64 = await getBase64(img);
-    const headers = { "x-auth-token": token };
-    axios
-      .put(
-        `usuario/${usuario._id}`,
-        { imagen: base64 },
-        {
-          headers,
-        }
-      )
-      .then((response) => console.log(response.data));
-  };
 
   return (
     <div className="w-100 d-flex justify-content-center">
@@ -108,22 +87,45 @@ const Perfil = () => {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <div>
-                <input
-                  id="file-input"
-                  className="d-block"
-                  name="img"
-                  accept="image/png, image/jpeg"
-                  type="file"
-                  onChange={onChangeImg}
-                />
+              <div className="pl-2">
+                <div className="d-flex">
+                  <p>Facebook</p>
+                  <input
+                    className="form-control"
+                    name="usuario"
+                    type="text"
+                    placeholder="facebook..."
+                    onChange={(e) => HandleChange(e)} 
+                  />
+                </div>
+                <div className="d-flex">
+                  <p>Cel/Telefono</p>
+                  <input
+                    className="form-control"
+                    name="celular"
+                    type="number"
+                    placeholder="telefono..."
+                    onChange={(e) => HandleChange(e)} 
+                  />
+                </div>
+                <div className="d-flex">
+                  <p>Foto de perfil</p>
+                  <input
+                    id="file-input"
+                    className="d-block"
+                    name="img"
+                    accept="image/png, image/jpeg"
+                    type="file"
+                    onChange={onChangeImg}
+                  />
+                </div>
               </div>
             </Modal.Body>
             <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
                 Cerrar
               </Button>
-              <Button className="btn btn-primary" onClick={handleClose}>
+              <Button className="btn btn-primary" onClick={onChangeDate}>
                 Guardar Cambios
               </Button>
             </Modal.Footer>

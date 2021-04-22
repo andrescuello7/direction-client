@@ -1,17 +1,18 @@
 import "./Publicacion.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import UseHome from "../../UseForm/UseHome";
 
 const Publicacion = () => {
   const [input, setInput] = useState({});
   const token = localStorage.getItem("token");
+  const { proveedor } = UseHome();
 
   const HandleChange = (e) => {
     const { name, value } = e.target;
-    const changedInput = { ...input, [name]: value };
+    const changedInput = { ...input, [name]: value, "proveedor": proveedor };
     setInput(changedInput);
   };
-
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,8 +23,9 @@ const Publicacion = () => {
       console.log(error);
     }
   };
+  console.log(input)
   return (
-    <div className="card mt-5 p-2 PuclicarEmail">
+    <div className="mt-2 card p-2 PuclicarEmail">
       <form onSubmit={HandleSubmit}>
         <div>
           <input

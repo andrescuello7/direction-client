@@ -10,6 +10,7 @@ const UseHome = () => {
 
   //UseStates de Aplicacion
   const [usuario, setUsuario] = useState([]);
+  const [proveedor, setProveedor] = useState("");
   const [publicaciones, setPublicaciones] = useState([]);
   const [identificador, setIdentificador] = useState("");
   const token = localStorage.getItem("token");
@@ -31,6 +32,7 @@ const UseHome = () => {
         headers,
       });
       setUsuario(data.usuario);
+      setProveedor(data.usuario.usuario);
     } catch (error) {
       console.log(error);
     }
@@ -46,9 +48,7 @@ const UseHome = () => {
       console.log(error);
     }
   };
-
   //Funcion de Eliminar Publicacion
-
   const Delete = async () => {
     try {
       const headers = { "x-auth-token": token };
@@ -60,7 +60,6 @@ const UseHome = () => {
   };
 
   //Aqui se hacemos el map de todos las publicaciones
-
   const MapDataBase =
     (publicaciones.length === 0 && (
       <div className="d-flex justify-content-center align-items-center">
@@ -71,23 +70,32 @@ const UseHome = () => {
       <div className="CardDiv" key={i}>
         <Card className="CardPublica">
           <div className="d-flex justify-content-between">
-            <Card.Header className="descripcionPublicacion">{date.titulo}</Card.Header>
+            <Card.Header>
+              {date.proveedor}
+            </Card.Header>
             {date.creador === usuario._id && (
               <div>
-                <NavDropdown title="Opciones" id="basic-nav-dropdown">
-                  <NavDropdown.Item>Editar</NavDropdown.Item>
-                  <NavDropdown.Item onClick={() => setIdentificador(date._id)}>
-                    Eliminar
-                  </NavDropdown.Item>
-                </NavDropdown>
+                <div>
+                  <NavDropdown title="Opciones" id="basic-nav-dropdown">
+                    <NavDropdown.Item>Editar</NavDropdown.Item>
+                    <NavDropdown.Item
+                      onClick={() => setIdentificador(date._id)}
+                    >
+                      Eliminar
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </div>
               </div>
             )}
           </div>
-          <Card.Body>
-            <div>
-              <i>{date.contenido}</i>
-            </div>
-          </Card.Body>
+          <div>
+            <div className="m-2 descripcionPublicacion">{date.titulo}</div>
+            <Card.Body>
+              <div>
+                <i>{date.contenido}</i>
+              </div>
+            </Card.Body>
+          </div>
         </Card>
       </div>
     ));
@@ -106,7 +114,11 @@ const UseHome = () => {
           <div className="CardDiv" key={i}>
             <Card className="CardPublica">
               <div className="d-flex justify-content-between">
-                <Card.Header className="descripcionPublicacion">{date.titulo}</Card.Header>
+                <div>
+                  <Card.Header>
+                    {date.proveedor}
+                  </Card.Header>
+                </div>
                 <div>
                   <NavDropdown title="Opciones" id="basic-nav-dropdown">
                     <NavDropdown.Item>Editar</NavDropdown.Item>
@@ -118,6 +130,9 @@ const UseHome = () => {
                   </NavDropdown>
                 </div>
               </div>
+              <div>
+                <div className="m-2 descripcionPublicacion">{date.titulo}</div>
+              </div>
               <Card.Body>
                 <Card.Text>{date.contenido}</Card.Text>
               </Card.Body>
@@ -126,12 +141,12 @@ const UseHome = () => {
         )}
       </div>
     ));
-
   return {
-    MapDataBase,
     MapComparatePublic,
-    usuario,
     publicaciones,
+    MapDataBase,
+    proveedor,
+    usuario,
   };
 };
 export default UseHome;

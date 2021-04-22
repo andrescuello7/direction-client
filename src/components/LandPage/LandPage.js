@@ -16,7 +16,7 @@ const LandPage = () => {
             <Publicacion />
           </div>
         )}
-        <div className="w-100 mt-5 d-flex flex-column-reverse">
+        <div className="w-100 d-flex flex-column-reverse">
           {MapDataBase}
         </div>
       </div>
