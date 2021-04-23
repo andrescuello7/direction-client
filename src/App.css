@@ -90,6 +90,18 @@
 .marginPublicacion{
   margin-top: 150px;
 }
+.PublicacionFoto{
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.datosTitular{
+  background-color: rgba(37, 36, 36, 0.151);
+  padding: 1% 3%;
+  display: flex;
+  align-items: center;
+}
 @media (max-width: 780px) {
   .FondoDeForm{
     padding-top: 10%;

@@ -1,3 +1,7 @@
+.ModalPublicacion{
+    width: 52%;
+    border-radius: 10px;
+}
 input{
     margin: 1% 2%;
     color: rgb(30, 31, 31);
@@ -21,5 +25,8 @@ textarea{
 @media (max-width: 780px) {
     .PuclicarEmail {
       width: 90%;
+    }
+    .ModalPublicacion{
+        width: 90%;
     }
 }

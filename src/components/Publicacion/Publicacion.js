@@ -6,11 +6,11 @@ import UseHome from "../../UseForm/UseHome";
 const Publicacion = () => {
   const [input, setInput] = useState({});
   const token = localStorage.getItem("token");
-  const { proveedor } = UseHome();
+  const { proveedor, usuario } = UseHome();
 
   const HandleChange = (e) => {
     const { name, value } = e.target;
-    const changedInput = { ...input, [name]: value, "proveedor": proveedor };
+    const changedInput = { ...input, [name]: value, "proveedor": proveedor , "perfil": usuario.imagen};
     setInput(changedInput);
   };
   const HandleSubmit = async (e) => {

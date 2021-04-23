@@ -20,6 +20,7 @@ const NavbarPage = () => {
     localStorage.removeItem("token");
     window.location.href = "/login";
   };
+  
   return (
     <div className="sticky-top">
       <Navbar className="NavbarTwo">

@@ -16,13 +16,15 @@ const UseHome = () => {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    Publicacion();
     Usuario();
     if (identificador.length !== undefined) {
       Delete();
     }
   }, [identificador]);
 
+  useEffect(() => {
+    Publicacion();
+  }, []);
   //Consulta el usuario activo actualmente
 
   const Usuario = async () => {
@@ -60,6 +62,7 @@ const UseHome = () => {
   };
 
   //Aqui se hacemos el map de todos las publicaciones
+
   const MapDataBase =
     (publicaciones.length === 0 && (
       <div className="d-flex justify-content-center align-items-center">
@@ -70,9 +73,12 @@ const UseHome = () => {
       <div className="CardDiv" key={i}>
         <Card className="CardPublica">
           <div className="d-flex justify-content-between">
-            <Card.Header>
-              {date.proveedor}
-            </Card.Header>
+            <div className="datosTitular">
+              <div>
+                <img className="PublicacionFoto" src={date.perfil} alt="" />
+              </div>
+              <div>{date.proveedor}</div>
+            </div>
             {date.creador === usuario._id && (
               <div>
                 <div>
@@ -88,19 +94,15 @@ const UseHome = () => {
               </div>
             )}
           </div>
-          <div>
+          <div className="d-flex flex-column">
             <div className="m-2 descripcionPublicacion">{date.titulo}</div>
-            <Card.Body>
-              <div>
-                <i>{date.contenido}</i>
-              </div>
-            </Card.Body>
+            <div className="ml-2">{date.contenido}</div>
           </div>
         </Card>
       </div>
     ));
 
-  //Aqui hacemos el map y compara con el id del producto y el del usuario
+  //Aqui hacemos el map y compara con el id del producto y es del usuario
 
   const MapComparatePublic =
     (publicaciones.length === 0 && (
@@ -114,10 +116,11 @@ const UseHome = () => {
           <div className="CardDiv" key={i}>
             <Card className="CardPublica">
               <div className="d-flex justify-content-between">
-                <div>
-                  <Card.Header>
-                    {date.proveedor}
-                  </Card.Header>
+                <div className="datosTitular">
+                  <div>
+                    <img className="PublicacionFoto" src={date.perfil} alt="" />
+                  </div>
+                  <div>{date.proveedor}</div>
                 </div>
                 <div>
                   <NavDropdown title="Opciones" id="basic-nav-dropdown">
@@ -130,12 +133,10 @@ const UseHome = () => {
                   </NavDropdown>
                 </div>
               </div>
-              <div>
+              <div className="d-flex flex-column">
                 <div className="m-2 descripcionPublicacion">{date.titulo}</div>
+                <div className="ml-2">{date.contenido}</div>
               </div>
-              <Card.Body>
-                <Card.Text>{date.contenido}</Card.Text>
-              </Card.Body>
             </Card>
           </div>
         )}
