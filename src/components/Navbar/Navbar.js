@@ -21,7 +21,7 @@ const NavbarPage = () => {
     window.location.href = "/login";
   };
   return (
-    <div>
+    <div className="sticky-top">
       <Navbar className="NavbarTwo">
         <Navbar.Brand as={Link} to="/">
           <b className="NavbarTitulo">Blog-Secreto</b>
@@ -31,12 +31,12 @@ const NavbarPage = () => {
           {!token && (
             <div className="d-flex">
               <div className="ml-2">
-                <Button as={Link} to="/login" variant="secondary">
+                <Button as={Link} to="/login" variant="outline-dark">
                   Login
                 </Button>
               </div>
               <div className="ml-2">
-                <Button as={Link} to="/register" variant="secondary">
+                <Button as={Link} to="/register" variant="outline-dark">
                   Registarse
                 </Button>
               </div>

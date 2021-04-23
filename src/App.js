@@ -11,7 +11,8 @@ import Register from "./pages/Register/Register";
 import Perfil from "./pages/Perfil/Perfil";
 //Componentes
 import Navbar from "./components/Navbar/Navbar";
-axios.defaults.baseURL = 'https://vlog-conteo-app.herokuapp.com/api/';
+import NavbarOpcion from "./components/NavbarOpcion/NavbarOpcion";
+axios.defaults.baseURL = "https://vlog-conteo-app.herokuapp.com/api/";
 
 function App() {
   return (

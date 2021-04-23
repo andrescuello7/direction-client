@@ -25,7 +25,7 @@ const Publicacion = () => {
   };
   console.log(input)
   return (
-    <div className="mt-2 card p-2 PuclicarEmail">
+    <div className="mt-2 p-2 ModalPublicacion">
       <form onSubmit={HandleSubmit}>
         <div>
           <input
@@ -33,6 +33,7 @@ const Publicacion = () => {
             placeholder="Titulo..."
             type="text"
             name="titulo"
+            maxLength="30"
           />
         </div>
         <div>
@@ -41,6 +42,7 @@ const Publicacion = () => {
             placeholder="Publicacion..."
             type="text"
             name="contenido"
+            maxLength="141"
           />
         </div>
         <hr />
