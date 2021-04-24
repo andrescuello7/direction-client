@@ -7,6 +7,7 @@ const UseBusqueda = () => {
   //UseStates de Aplicacion
   const [usuarioBusqueda, setUsuarioBusqueda] = useState([]);
   const [publicacionesBusqueda, setPublicacionesBusqueda] = useState([]);
+  const identBusqueda = localStorage.getItem("identBusqueda");
 
   useEffect(() => {
     if (usuarioBusqueda.length !== undefined) {
@@ -18,7 +19,7 @@ const UseBusqueda = () => {
   //Consulta el usuario activo actualmente
   const UsuarioBusqueda = async () => {
     try {
-      const { data } = await axios.get(`publicacion/60789f90f033f0395e89d383`);
+      const { data } = await axios.get(`publicacion/${identBusqueda}`);
       setUsuarioBusqueda(data[0]);
     } catch (error) {
       console.log(error);
@@ -29,13 +30,13 @@ const UseBusqueda = () => {
 
   const PublicacionBusqueda = async () => {
     try {
-      const { data } = await axios.get(`publicacion/usuario/60789f90f033f0395e89d383`);
+      const { data } = await axios.get(`publicacion/usuario/${identBusqueda}`);
       setPublicacionesBusqueda(data);
     } catch (error) {
       console.log(error);
     }
   };
-
+  
   //Aqui se hacemos el map de todas las publicaciones del Usuario buscado
 
   const MapDataBaseBuscado =

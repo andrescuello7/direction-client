@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, NavDropdown, Spinner } from "react-bootstrap";
 import UseBusqueda from "../../UseForm/UseBusqueda";
+import UseHome from "../../UseForm/UseHome";
 import PortadaBuscada from "../../components/PortadaBuscada/PortadaBuscada";
 
 const Perfil = () => {

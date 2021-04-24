@@ -15,17 +15,23 @@ const UseHome = () => {
   const [identificador, setIdentificador] = useState("");
   const [identBusqueda, setIdentBusqueda] = useState("");
   const token = localStorage.getItem("token");
-  
+
   useEffect(() => {
     Usuario();
+    Publicacion();
+  }, []);
+
+  useEffect(() => {
     if (identificador.length !== undefined) {
       Delete();
     }
   }, [identificador]);
 
-  useEffect(() => {
-    Publicacion();
-  }, []);
+  if (identBusqueda.length !== 0) {
+    localStorage.setItem("identBusqueda", identBusqueda);
+    window.location.href = "/buscar";
+  }
+
   //Consulta el usuario activo actualmente
   const Usuario = async () => {
     try {
@@ -144,11 +150,10 @@ const UseHome = () => {
         )}
       </div>
     ));
-
   return {
     MapComparatePublic,
-    identBusqueda,
     publicaciones,
+    identBusqueda,
     MapDataBase,
     proveedor,
     usuario,
