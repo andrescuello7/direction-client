@@ -17,13 +17,12 @@ const Publicacion = () => {
     e.preventDefault();
     try {
       const headers = { "x-auth-token": token };
-      await axios.post("home", input, { headers });
+      await axios.post("publicacion", input, { headers });
       window.location.href = "/";
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(input)
   return (
     <div className="mt-2 p-2 ModalPublicacion">
       <form onSubmit={HandleSubmit}>

@@ -9,9 +9,10 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Perfil from "./pages/Perfil/Perfil";
+import PerfilBuscado from "./pages/PerfilBuscado/PerfilBuscado";
+
 //Componentes
 import Navbar from "./components/Navbar/Navbar";
-import NavbarOpcion from "./components/NavbarOpcion/NavbarOpcion";
 axios.defaults.baseURL = "https://vlog-conteo-app.herokuapp.com/api/";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/perfil">
             <Perfil />
+          </Route>
+          <Route path="/buscar">
+            <PerfilBuscado />
           </Route>
         </Switch>
       </Router>

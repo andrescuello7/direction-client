@@ -73,7 +73,7 @@
 }
 .FondoDeForm{
   padding: 4%;
-  background: url(https://c.pxhere.com/images/48/88/55c3a539a0963d669052f753ec75-1446503.jpg!d);
+  background: linear-gradient(rgba(21, 87, 231, 0.74),rgba(14, 9, 11, 0.829));
   background-size: cover;
   background-repeat: no-repeat;
   text-shadow: 5px 5px 10px #000000;

@@ -13,8 +13,9 @@ const UseHome = () => {
   const [proveedor, setProveedor] = useState("");
   const [publicaciones, setPublicaciones] = useState([]);
   const [identificador, setIdentificador] = useState("");
+  const [identBusqueda, setIdentBusqueda] = useState("");
   const token = localStorage.getItem("token");
-
+  
   useEffect(() => {
     Usuario();
     if (identificador.length !== undefined) {
@@ -26,7 +27,6 @@ const UseHome = () => {
     Publicacion();
   }, []);
   //Consulta el usuario activo actualmente
-
   const Usuario = async () => {
     try {
       const headers = { "x-auth-token": token };
@@ -39,12 +39,11 @@ const UseHome = () => {
       console.log(error);
     }
   };
-
   //Consulta de Publicaiones
 
   const Publicacion = async () => {
     try {
-      const { data } = await axios.get("home");
+      const { data } = await axios.get("publicacion");
       setPublicaciones(data);
     } catch (error) {
       console.log(error);
@@ -54,10 +53,10 @@ const UseHome = () => {
   const Delete = async () => {
     try {
       const headers = { "x-auth-token": token };
-      await axios.delete(`home/${identificador}`, { headers });
+      await axios.delete(`publicacion/${identificador}`, { headers });
       window.location.href = "/";
     } catch (error) {
-      console.log(error);
+      console.log("Error en eliminar datos");
     }
   };
 
@@ -73,7 +72,10 @@ const UseHome = () => {
       <div className="CardDiv" key={i}>
         <Card className="CardPublica">
           <div className="d-flex justify-content-between">
-            <div className="datosTitular">
+            <div
+              className="datosTitular"
+              onClick={() => setIdentBusqueda(date.creador)}
+            >
               <div>
                 <img className="PublicacionFoto" src={date.perfil} alt="" />
               </div>
@@ -142,8 +144,10 @@ const UseHome = () => {
         )}
       </div>
     ));
+
   return {
     MapComparatePublic,
+    identBusqueda,
     publicaciones,
     MapDataBase,
     proveedor,

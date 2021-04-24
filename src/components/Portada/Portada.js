@@ -24,14 +24,12 @@ const Perfil = () => {
   const onChangeDate = async (e) => {
     const headers = { "x-auth-token": token };
     try {
-      const { data } = await axios.put("usuario", input, { headers });
-      console.log("DATA ENTRANTE", data);
+      await axios.put("usuario", input, { headers });
     } catch (error) {
       console.log(error);
     }
   };
-
-  console.log(input)
+  
   return (
     <div className="w-100 d-flex justify-content-center">
       <div className="PortadaPrincipal">
