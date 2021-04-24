@@ -1,6 +1,7 @@
 .ModalPublicacion{
     width: 52%;
     border-radius: 10px;
+    margin: 2% 0%;
 }
 input{
     margin: 1% 2%;
@@ -27,6 +28,6 @@ textarea{
       width: 90%;
     }
     .ModalPublicacion{
-        width: 90%;
+        width: 99%;
     }
 }

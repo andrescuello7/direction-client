@@ -11,10 +11,13 @@ const UseHome = () => {
   //UseStates de Aplicacion
   const [usuario, setUsuario] = useState([]);
   const [proveedor, setProveedor] = useState("");
+  const [admin, setAdmin] = useState("");
   const [publicaciones, setPublicaciones] = useState([]);
   const [identificador, setIdentificador] = useState("");
   const [identBusqueda, setIdentBusqueda] = useState("");
   const token = localStorage.getItem("token");
+  const exampleImage =
+    "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
 
   useEffect(() => {
     Usuario();
@@ -40,6 +43,7 @@ const UseHome = () => {
         headers,
       });
       setUsuario(data.usuario);
+      setAdmin(data.usuario.estado);
       setProveedor(data.usuario.usuario);
     } catch (error) {
       console.log(error);
@@ -67,7 +71,7 @@ const UseHome = () => {
   };
 
   //Aqui se hacemos el map de todos las publicaciones
-
+  console.log(admin);
   const MapDataBase =
     (publicaciones.length === 0 && (
       <div className="d-flex justify-content-center align-items-center">
@@ -83,11 +87,11 @@ const UseHome = () => {
               onClick={() => setIdentBusqueda(date.creador)}
             >
               <div>
-                <img className="PublicacionFoto" src={date.perfil} alt="" />
+                <img className="PublicacionFoto" src={date.perfil || exampleImage} alt="" />
               </div>
               <div>{date.proveedor}</div>
             </div>
-            {date.creador === usuario._id && (
+            {(date.creador === usuario._id && (
               <div>
                 <div>
                   <NavDropdown title="Opciones" id="basic-nav-dropdown">
@@ -100,7 +104,21 @@ const UseHome = () => {
                   </NavDropdown>
                 </div>
               </div>
-            )}
+            )) ||
+              (admin === "admin" && (
+                <div>
+                  <div>
+                    <NavDropdown title="Opciones" id="basic-nav-dropdown">
+                      <NavDropdown.Item>Editar</NavDropdown.Item>
+                      <NavDropdown.Item
+                        onClick={() => setIdentificador(date._id)}
+                      >
+                        Eliminar
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </div>
+                </div>
+              ))}
           </div>
           <div className="d-flex flex-column">
             <div className="m-2 descripcionPublicacion">{date.titulo}</div>

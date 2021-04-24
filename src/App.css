@@ -43,7 +43,7 @@
   margin: 5px 6%;
   display: flex;
   justify-content: center;
-  color: rgb(26, 25, 25);
+  color: rgb(46, 43, 43);
 }
 .CardPublica {
   border-radius: 12px;
@@ -61,7 +61,7 @@
   justify-content: center;
 }
 .FormLogin {
-  background-color: rgba(28, 29, 29, 0.185);
+  background-color: rgba(28, 29, 29, 0.61);
   text-shadow: 5px 5px 8px #000000;
   color: aliceblue;
   width: 40%;
@@ -73,10 +73,10 @@
 }
 .FondoDeForm{
   padding: 4%;
-  background: linear-gradient(rgba(21, 87, 231, 0.74),rgba(14, 9, 11, 0.829));
+  background: linear-gradient(rgba(49, 138, 197, 0.808), rgba(60, 66, 73, 0.671));
   background-size: cover;
   background-repeat: no-repeat;
-  text-shadow: 5px 5px 10px #000000;
+  text-shadow: 10px 10px 10px #000000;
 }
 .PortadaTituloForm {
   display: block;
@@ -105,9 +105,6 @@
 @media (max-width: 780px) {
   .FondoDeForm{
     padding-top: 10%;
-    background: linear-gradient(rgba(21, 87, 231, 0.74),rgba(14, 9, 11, 0.829));
-    background-size: cover;
-    background-repeat: no-repeat;
     min-height: 100vh;
   }
   .bodyLandPage {
@@ -136,9 +133,15 @@
     width: 100%;
     display: flex;
   }
+  .CardDiv {
+    position: relative;
+    margin: 1px 0%;
+    display: flex;
+    justify-content: center;
+  }
   .CardPublica {
     width: 700px;
-    height: 240px;
+    height: 200px;
   }
   .footerDateResponsive {
     display: none;

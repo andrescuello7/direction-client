@@ -24,7 +24,7 @@ const Publicacion = () => {
     }
   };
   return (
-    <div className="mt-2 p-2 ModalPublicacion">
+    <div className="p-2 ModalPublicacion">
       <form onSubmit={HandleSubmit}>
         <div>
           <input
