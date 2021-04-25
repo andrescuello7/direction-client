@@ -5,7 +5,7 @@
   width: 60%;
 }
 .PortadaDatos {
-  background-color: #1d1f1e;
+  background-color: #fffffff6;
   width: 60%;
 }
 .PortadaNombre {
@@ -13,7 +13,7 @@
   display: block;
   width: 100%;
   font-weight: 900;
-  color: #e6e1e1;
+  color: #3a3535;
   font-size: 3em;
   text-shadow: 2px 2px 4px #7b7b7b;
 }
@@ -23,7 +23,7 @@
   font-weight: 300;
   margin: 10% 0;
   font-size: 1em;
-  color: #d6cece;
+  color: #3a3535;
   text-shadow: 2px 2px 4px #7b7b7b;
 }
 .PortadaFoto{
@@ -39,13 +39,12 @@
     flex-direction: column-reverse;
     width: 100%;
     padding: 4%;
-    background: rgb(240, 237, 237);
+    background: rgba(221, 216, 216, 0);
     background-repeat: no-repeat;
     background-size: cover;
   }
   .PortadaDatos {
     border-radius: 5px;
-    background-color: #232525d5;
     width: 100%;
   }
   .PortadaFoto{

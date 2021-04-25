@@ -71,7 +71,6 @@ const UseHome = () => {
   };
 
   //Aqui se hacemos el map de todos las publicaciones
-  console.log(admin);
   const MapDataBase =
     (publicaciones.length === 0 && (
       <div className="d-flex justify-content-center align-items-center">
@@ -94,7 +93,7 @@ const UseHome = () => {
             {(date.creador === usuario._id && (
               <div>
                 <div>
-                  <NavDropdown title="Opciones" id="basic-nav-dropdown">
+                  <NavDropdown id="basic-nav-dropdown">
                     <NavDropdown.Item>Editar</NavDropdown.Item>
                     <NavDropdown.Item
                       onClick={() => setIdentificador(date._id)}
@@ -108,7 +107,7 @@ const UseHome = () => {
               (admin === "admin" && (
                 <div>
                   <div>
-                    <NavDropdown title="Opciones" id="basic-nav-dropdown">
+                    <NavDropdown id="basic-nav-dropdown">
                       <NavDropdown.Item>Editar</NavDropdown.Item>
                       <NavDropdown.Item
                         onClick={() => setIdentificador(date._id)}
@@ -149,7 +148,7 @@ const UseHome = () => {
                   <div>{date.proveedor}</div>
                 </div>
                 <div>
-                  <NavDropdown title="Opciones" id="basic-nav-dropdown">
+                  <NavDropdown id="basic-nav-dropdown">
                     <NavDropdown.Item>Editar</NavDropdown.Item>
                     <NavDropdown.Item
                       onClick={() => setIdentificador(date._id)}

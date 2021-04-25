@@ -9,7 +9,7 @@ const LandPage = () => {
   const handleClose = () => setShow(false);
 
   //Declaracion de datos traidos de Hook Home y Token de LocalStorage
-  const { MapDataBase } = UseHome();
+  const { MapDataBase, usuario } = UseHome();
   const token = localStorage.getItem("token");
 
   const BoleanBotton = () => {
@@ -32,9 +32,9 @@ const LandPage = () => {
   return (
     <div className="body">
       <div>
-        <div className="w-100 d-flex justify-content-center">
+        {token &&<div className="w-100 d-flex justify-content-center">
           <Publicacion />
-        </div>
+        </div>}
         <div className="w-100 d-flex flex-column-reverse">{MapDataBase}</div>
       </div>
     </div>
