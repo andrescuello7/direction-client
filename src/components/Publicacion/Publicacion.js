@@ -41,7 +41,6 @@ const Publicacion = () => {
             placeholder="Publicacion..."
             type="text"
             name="contenido"
-            maxLength="141"
           />
         </div>
         <hr />

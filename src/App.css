@@ -52,7 +52,9 @@
   border-radius: 12px;
   background-color: rgba(12, 11, 11, 0.623);
   width: 700px;
-  height: 180px;
+  height: 100%;
+  min-height: 180px;
+  padding-bottom: 2%;
 }
 .NavbarBackground {
   background-color: rgba(245, 245, 247, 0.76);
@@ -151,7 +153,9 @@
   .CardPublica {
     border-radius: 0px;
     width: 700px;
-    height: 200px;
+    height: 100%;
+    min-height: 180px;
+    padding: 2% 0%;
   }
   .footerDateResponsive {
     display: none;
