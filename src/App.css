@@ -114,10 +114,6 @@
   }
   .bodyLandPage {
     background-image: url(https://www.wallpapertip.com/wmimgs/14-141646_road-ends.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: rgb(10, 10, 10);
   }
   .ColorDePerfil {
     background-image: url(https://www.wallpapertip.com/wmimgs/14-141646_road-ends.jpg);
@@ -146,7 +142,7 @@
   }
   .CardDiv {
     position: relative;
-    margin: 1px 0%;
+    margin: 3px 0%;
     display: flex;
     justify-content: center;
   }

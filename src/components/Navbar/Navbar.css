@@ -1,8 +1,8 @@
 .NavbarTwo{
-    background-color: rgba(239, 238, 240, 0.938)
+    background-color: rgba(240, 232, 232, 0.733)
 }
 .NavbarTitulo{
-    color: rgb(15, 15, 15);
+    color: rgb(12, 12, 12);
     font-size: 20px;
     font-family: 'Zen Dots', cursive;
 }
@@ -12,8 +12,8 @@
 }
 .NavbarFoto{
     padding: 0%;
-    width: 35px;
-    height: 35px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
 }
 .NavbarButton{
