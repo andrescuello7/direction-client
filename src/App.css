@@ -78,10 +78,7 @@
 }
 .FondoDeForm {
   padding: 4%;
-  background: linear-gradient(
-    rgba(49, 138, 197, 0.808),
-    rgba(60, 66, 73, 0.671)
-  );
+  background: linear-gradient(rgba(197, 49, 74, 0.808), rgb(21, 22, 24));
   background-size: cover;
   background-repeat: no-repeat;
   text-shadow: 10px 10px 10px #000000;
@@ -113,10 +110,13 @@
     min-height: 100vh;
   }
   .bodyLandPage {
-    background-image: url(https://www.wallpapertip.com/wmimgs/14-141646_road-ends.jpg);
+    background: linear-gradient(rgba(185, 49, 197, 0.808), rgb(21, 22, 24));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   .ColorDePerfil {
-    background-image: url(https://www.wallpapertip.com/wmimgs/14-141646_road-ends.jpg);
+    background: linear-gradient(rgba(197, 49, 74, 0.808), rgb(21, 22, 24));
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -157,13 +157,13 @@
     display: none;
   }
   .login {
-    margin: 4% 0px;
+    margin: 15% 0px;
     width: 100%;
     display: flex;
     justify-content: center;
   }
   .FormLogin {
-    width: 90%;
+    width: 95%;
     padding: 5%;
     border-radius: 2%;
   }

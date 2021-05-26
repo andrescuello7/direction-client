@@ -31,11 +31,11 @@ const Register = () => {
         <Form onSubmit={HandleSubmit} className="FormLogin card">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Nombre</Form.Label>
-            <Form.Control onChange={(e) => HandleChange(e)} type="text" name="usuario" placeholder="Enter email" />
+            <Form.Control onChange={(e) => HandleChange(e)} type="text" name="usuario" placeholder="Usuario" />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Correo Electronico</Form.Label>
-            <Form.Control onChange={(e) => HandleChange(e)} type="email" name="email" placeholder="Enter email" />
+            <Form.Control onChange={(e) => HandleChange(e)} type="email" name="email" placeholder="Email" />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Contraseña</Form.Label>

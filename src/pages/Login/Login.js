@@ -25,12 +25,12 @@ const Login = () => {
   return (
     <div className="FondoDeForm">
       <div className="w-100">
-        <h1 className="text-center PortadaTituloForm"><b><i>Blog-LugarSecreto</i></b></h1>
+        <h1 className="text-center PortadaTituloForm"><b><i>Lugar Secreto</i></b></h1>
       </div>
       <div className="login">
         <Form onSubmit={HandleSubmit} className="FormLogin card">
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Correo Electronico</Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="email"
@@ -40,7 +40,7 @@ const Login = () => {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Contraseña</Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="password"
