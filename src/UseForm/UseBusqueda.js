@@ -8,6 +8,8 @@ const UseBusqueda = () => {
   const [usuarioBusqueda, setUsuarioBusqueda] = useState([]);
   const [publicacionesBusqueda, setPublicacionesBusqueda] = useState([]);
   const identBusqueda = localStorage.getItem("identBusqueda");
+  const exampleImage =
+    "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
 
   useEffect(() => {
     if (usuarioBusqueda.length !== undefined) {
@@ -25,7 +27,7 @@ const UseBusqueda = () => {
       console.log(error);
     }
   };
-  
+
   //Consulta de Publicaiones
 
   const PublicacionBusqueda = async () => {
@@ -36,7 +38,7 @@ const UseBusqueda = () => {
       console.log(error);
     }
   };
-  
+
   //Aqui se hacemos el map de todas las publicaciones del Usuario buscado
 
   const MapDataBaseBuscado =
@@ -51,7 +53,11 @@ const UseBusqueda = () => {
           <div className="d-flex justify-content-between">
             <div className="datosTitular">
               <div>
-                <img className="PublicacionFoto" src={date.perfil} alt="" />
+                <img
+                  className="PublicacionFoto"
+                  src={date.perfil || exampleImage}
+                  alt=""
+                />
               </div>
               <div>{date.proveedor}</div>
             </div>
@@ -59,13 +65,20 @@ const UseBusqueda = () => {
           <div className="d-flex flex-column">
             <div className="m-2 descripcionPublicacion">{date.titulo}</div>
             <div className="ml-2">{date.contenido}</div>
+            <div className="d-flex justify-content-center">
+              <img
+                className="PublicacionFotoPublicada"
+                src={date.imagenPublicada}
+                alt=""
+              />
+            </div>
           </div>
         </Card>
       </div>
     ));
   return {
     MapDataBaseBuscado,
-    usuarioBusqueda
+    usuarioBusqueda,
   };
 };
 export default UseBusqueda;

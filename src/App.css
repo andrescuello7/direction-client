@@ -98,6 +98,16 @@
   height: 35px;
   border-radius: 50%;
 }
+.PublicacionFotoImg {
+  width: 50px;
+  height: 50px;
+  border: none;
+}
+.PublicacionFotoPublicada{
+  margin-right: 10px;
+  width: 70%;
+  height: 70%;
+}
 .datosTitular {
   background-color: rgba(37, 36, 36, 0.151);
   padding: 1% 3%;
@@ -110,7 +120,7 @@
     min-height: 100vh;
   }
   .bodyLandPage {
-    background: linear-gradient(rgba(185, 49, 197, 0.808), rgb(21, 22, 24));
+    background: linear-gradient(rgba(49, 84, 197, 0.808), rgb(21, 22, 24));
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
