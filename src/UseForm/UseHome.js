@@ -5,31 +5,32 @@ import UsePostPublic from "../UseForm/UsePostPublic";
 
 const UseHome = () => {
   //UseStates de modal
+  const token = localStorage.getItem("token");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const [publicacionActual, setPublicacionActual] = useState(false);
   //UseStates de Aplicacion
+  const [admin, setAdmin] = useState("");
   const [usuario, setUsuario] = useState([]);
   const [proveedor, setProveedor] = useState("");
-  const [admin, setAdmin] = useState("");
   const [publicaciones, setPublicaciones] = useState([]);
   const [identificador, setIdentificador] = useState("");
   const [identBusqueda, setIdentBusqueda] = useState("");
-  const token = localStorage.getItem("token");
   const exampleImage =
     "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
 
   useEffect(() => {
-    Usuario();
-    Publicacion();
-  }, []);
+      Usuario();
+      Publicacion();
+  }, [publicaciones]);
+  
   useEffect(() => {
     if (identificador.length !== undefined) {
       Delete();
     }
   }, [identificador]);
-  
+
   if (identBusqueda.length !== 0) {
     localStorage.setItem("identBusqueda", identBusqueda);
     window.location.href = "/buscar";
@@ -64,7 +65,6 @@ const UseHome = () => {
     try {
       const headers = { "x-auth-token": token };
       await axios.delete(`publicacion/${identificador}`, { headers });
-      window.location.href = "/";
     } catch (error) {
       console.log("Error en eliminar datos");
     }
@@ -227,11 +227,13 @@ const UseHome = () => {
       </div>
     ));
   return {
+    setPublicacionActual,
     MapComparatePublic,
+    publicacionActual,
     publicaciones,
     identBusqueda,
-    MapDataBase,
     Publicacion,
+    MapDataBase,
     proveedor,
     usuario,
   };

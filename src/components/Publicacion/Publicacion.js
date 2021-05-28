@@ -3,10 +3,12 @@ import { NavDropdown, Modal, Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { getBase644, beforeUpload4 } from "../../utils/index";
 import UsePostPublic from "../../UseForm/UsePostPublic";
+import UseHome from "../../UseForm/UseHome";
 import axios from "axios";
 
 const Publicacion = () => {
   const {
+    publicacionActual,
     validation,
     base64,
     HandleSubmit,
@@ -16,7 +18,6 @@ const Publicacion = () => {
     handleShow,
     show,
   } = UsePostPublic();
-
   return (
     <div className="p-2 ModalPublicacion">
       <form onSubmit={HandleSubmit}>
@@ -37,9 +38,11 @@ const Publicacion = () => {
             name="contenido"
           />
         </div>
-        {(validation === true &&(<div className="ml-2 text-danger">
-          <p>No se puede publicar, modifica los datos!</p>
-        </div>))}
+        {validation === true && (
+          <div className="ml-2 text-danger">
+            <p>No se puede publicar, modifica los datos!</p>
+          </div>
+        )}
         <div className="w-100 d-flex justify-content-center">
           {base64 && (
             <div>

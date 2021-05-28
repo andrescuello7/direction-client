@@ -10,23 +10,17 @@ const UsePostPublic = () => {
   const handleShow = () => setShow(true);
 
   //States
-  const [publicacionActual, setPublicacionActual] = useState(false);
+  const { proveedor, usuario, setPublicacionActual, publicacionActual } = UseHome();
+  const [dataextr, setDataextr] = useState();
   const [base64, setBase64] = useState("");
   const [input, setInput] = useState({});
   const [validation, setValidation] = useState(false);
   const [publicacionEntrante, setPublicacionEntrante] = useState({});
   const token = localStorage.getItem("token");
-  const { proveedor, usuario } = UseHome();
 
   useEffect(() => {
     PublicarDataEntrante();
   }, [input, base64]);
-
-  useEffect(() => {
-    if (publicacionActual === true){
-      Publicacion()
-    }
-  }, [publicacionActual]);
 
   //Subir
   const PublicarDataEntrante = () => {
@@ -35,15 +29,6 @@ const UsePostPublic = () => {
       imagenPublicada: base64,
     };
     setPublicacionEntrante(datos);
-  };
-
-  const Publicacion = async () => {
-    try {
-      await axios.get("publicacion");
-      console.log('funcion')
-    } catch (error) {
-      console.log(error);
-    }
   };
   
   //Funcions
