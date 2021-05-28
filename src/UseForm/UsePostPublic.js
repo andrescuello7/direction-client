@@ -10,8 +10,10 @@ const UsePostPublic = () => {
   const handleShow = () => setShow(true);
 
   //States
+  const [publicacionActual, setPublicacionActual] = useState(false);
   const [base64, setBase64] = useState("");
   const [input, setInput] = useState({});
+  const [validation, setValidation] = useState(false);
   const [publicacionEntrante, setPublicacionEntrante] = useState({});
   const token = localStorage.getItem("token");
   const { proveedor, usuario } = UseHome();
@@ -19,6 +21,12 @@ const UsePostPublic = () => {
   useEffect(() => {
     PublicarDataEntrante();
   }, [input, base64]);
+
+  useEffect(() => {
+    if (publicacionActual === true){
+      Publicacion()
+    }
+  }, [publicacionActual]);
 
   //Subir
   const PublicarDataEntrante = () => {
@@ -29,6 +37,15 @@ const UsePostPublic = () => {
     setPublicacionEntrante(datos);
   };
 
+  const Publicacion = async () => {
+    try {
+      await axios.get("publicacion");
+      console.log('funcion')
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   //Funcions
   const HandleChange = (e) => {
     const { name, value } = e.target;
@@ -54,19 +71,22 @@ const UsePostPublic = () => {
     try {
       const headers = { "x-auth-token": token };
       await axios.post("publicacion", publicacionEntrante, { headers });
-      window.location.href = "/";
+      setPublicacionActual(true)
     } catch (error) {
       console.log(error);
+      setValidation(true)
     }
   };
   return {
-    input,
-    base64,
-    HandleSubmit,
-    onChangeImg,
+    publicacionActual,
     HandleChange,
+    HandleSubmit,
     handleClose,
+    onChangeImg,
     handleShow,
+    validation,
+    base64,
+    input,
     show,
   };
 };

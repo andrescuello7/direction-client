@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, NavDropdown, Spinner, Modal, Button } from "react-bootstrap";
+import UsePostPublic from "../UseForm/UsePostPublic";
 
 const UseHome = () => {
   //UseStates de modal
@@ -28,7 +29,7 @@ const UseHome = () => {
       Delete();
     }
   }, [identificador]);
-
+  
   if (identBusqueda.length !== 0) {
     localStorage.setItem("identBusqueda", identBusqueda);
     window.location.href = "/buscar";
@@ -230,6 +231,7 @@ const UseHome = () => {
     publicaciones,
     identBusqueda,
     MapDataBase,
+    Publicacion,
     proveedor,
     usuario,
   };

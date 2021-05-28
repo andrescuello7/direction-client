@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const Login = () => {
   const [input, setInput] = useState({});
+  const [validation, setValidation] = useState(false);
 
   const HandleChange = (e) => {
     const { name, value } = e.target;
@@ -19,6 +20,7 @@ const Login = () => {
       window.location.href = "/";
     } catch (error) {
       console.log(error);
+      setValidation(true)
     }
   };
 
@@ -48,6 +50,9 @@ const Login = () => {
               placeholder="Password"
             />
           </Form.Group>
+          {(validation === true &&(<div className="ml-2 text-danger">
+          <p>No se puede iniciar sesion, modifica los datos!</p>
+        </div>))}
           <div>
             <a href="/register">No tienes cuenta?, create una cuenta</a>
           </div>

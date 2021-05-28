@@ -7,7 +7,7 @@ import axios from "axios";
 
 const Publicacion = () => {
   const {
-    input,
+    validation,
     base64,
     HandleSubmit,
     onChangeImg,
@@ -37,6 +37,9 @@ const Publicacion = () => {
             name="contenido"
           />
         </div>
+        {(validation === true &&(<div className="ml-2 text-danger">
+          <p>No se puede publicar, modifica los datos!</p>
+        </div>))}
         <div className="w-100 d-flex justify-content-center">
           {base64 && (
             <div>
