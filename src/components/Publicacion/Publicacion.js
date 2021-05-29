@@ -8,7 +8,7 @@ import axios from "axios";
 
 const Publicacion = () => {
   const {
-    publicacionActual,
+    onInputClick,
     validation,
     base64,
     HandleSubmit,
@@ -72,25 +72,38 @@ const Publicacion = () => {
       </form>
       <div>
         <Modal show={show} onHide={handleClose}>
-          <Modal.Footer>
+          <Modal.Body>
             <div>
+              <div className="w-100 d-flex justify-content-center mb-3">
+                <p className="text-center">Seleccionar Imagen a subir</p>
+              </div>
               <div>
-                <Form.Group controlId="formFileMultiple" className="mb-3">
-                  <Form.Label>Seleccionar Imagen a subir</Form.Label>
-                  <Form.Control type="file" onChange={onChangeImg} multiple />
+                <Form.Group
+                  controlId="formFileMultiple"
+                  className="w-100 d-flex justify-content-center mb-3"
+                >
+                  <Form.Control
+                    name="img"
+                    accept="image/png, image/jpeg"
+                    type="file"
+                    onChange={onChangeImg}
+                    onClick={onInputClick}
+                    multiple
+                  />
                 </Form.Group>
               </div>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <div className="w-100 d-flex justify-content-between">
+              <Button variant="primary" onClick={handleClose}>
+                Seleccionar
+              </Button>
               {base64 && (
                 <div>
                   <img className="PublicacionFotoImg" src={base64} alt="" />
                 </div>
               )}
-            </div>
-            <hr />
-            <div>
-              <Button variant="primary" onClick={handleClose}>
-                Seleccionar
-              </Button>
             </div>
           </Modal.Footer>
         </Modal>

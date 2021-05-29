@@ -21,12 +21,15 @@ const UseHome = () => {
     "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
 
   useEffect(() => {
-      Usuario();
       Publicacion();
   }, [publicaciones]);
+
+  useEffect(() => {
+    Usuario();
+}, []);
   
   useEffect(() => {
-    if (identificador.length !== undefined) {
+    if (identificador.length !== 0) {
       Delete();
     }
   }, [identificador]);

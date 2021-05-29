@@ -1,36 +1,52 @@
-.ModalPublicacion{
-    background: rgba(20, 20, 20, 0.74);
-    border-radius: 6px;
-    margin: 1%;
-    width: 700px;
+.ModalPublicacion {
+  background: rgba(20, 20, 20, 0.74);
+  border-radius: 6px;
+  margin: 1%;
+  width: 700px;
 }
-input{
-    margin: 1% 2%;
-    color: rgb(122, 126, 126);
-    background-color: rgba(240, 255, 255, 0);
-    width: 96%;
-    border: none;
+input {
+  margin: 1% 2%;
+  color: rgb(122, 126, 126);
+  background-color: rgba(240, 255, 255, 0);
+  width: 96%;
+  border: none;
 }
-textarea{
-    color: rgb(122, 126, 126);
-    background-color: rgba(240, 255, 255, 0);
-    margin: 2%;
-    border: none;
-    width: 96%;
-    height: 50px;
+textarea {
+  color: rgb(122, 126, 126);
+  background-color: rgba(240, 255, 255, 0);
+  margin: 2%;
+  border: none;
+  width: 96%;
+  height: 50px;
 }
 .PuclicarEmail {
-    border-radius: 1rem;
-    background-color: azure;
-    width: 52%;
+  border-radius: 1rem;
+  background-color: azure;
+  width: 52%;
+}
+.PublicacionFoto {
+  margin-right: 10px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.PublicacionFotoPublicada {
+  margin-right: 10px;
+  width: 70%;
+  height: 70%;
+}
+.PublicacionFotoImg {
+  border: rgba(0, 0, 0, 0.692) solid 1px;
+  width: 50px;
+  height: 50px;
 }
 @media (max-width: 780px) {
-    .PuclicarEmail {
-      width: 90%;
-    }
-    .ModalPublicacion{
-        margin: 5% 1%;
-        border-radius: 6px;
-        width: 99%;
-    }
+  .PuclicarEmail {
+    width: 90%;
+  }
+  .ModalPublicacion {
+    margin: 5% 1%;
+    border-radius: 6px;
+    width: 99%;
+  }
 }

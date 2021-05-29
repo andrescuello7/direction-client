@@ -10,27 +10,13 @@ const UsePostPublic = () => {
   const handleShow = () => setShow(true);
 
   //States
-  const { proveedor, usuario, setPublicacionActual, publicacionActual } = UseHome();
-  const [dataextr, setDataextr] = useState();
+  const { proveedor, usuario, setPublicacionActual, publicacionActual } =
+    UseHome();
   const [base64, setBase64] = useState("");
   const [input, setInput] = useState({});
   const [validation, setValidation] = useState(false);
-  const [publicacionEntrante, setPublicacionEntrante] = useState({});
   const token = localStorage.getItem("token");
 
-  useEffect(() => {
-    PublicarDataEntrante();
-  }, [input, base64]);
-
-  //Subir
-  const PublicarDataEntrante = () => {
-    const datos = {
-      ...input,
-      imagenPublicada: base64,
-    };
-    setPublicacionEntrante(datos);
-  };
-  
   //Funcions
   const HandleChange = (e) => {
     const { name, value } = e.target;
@@ -46,24 +32,29 @@ const UsePostPublic = () => {
   //Codigo para foto base 64
   const onChangeImg = async (e) => {
     const img = e.target.files[0];
-    if (!beforeUpload4(img)) return;
     const base64img = await getBase644(img);
+    const pack = { ...input, imagenPublicada: base64img };
     setBase64(base64img);
+    setInput(pack);
   };
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
       const headers = { "x-auth-token": token };
-      await axios.post("publicacion", publicacionEntrante, { headers });
-      setPublicacionActual(true)
+      await axios.post("publicacion", input, { headers });
+      setPublicacionActual(true);
     } catch (error) {
       console.log(error);
-      setValidation(true)
+      setValidation(true);
     }
+  };
+  const onInputClick = (event) => {
+    event.target.value = "";
   };
   return {
     publicacionActual,
+    onInputClick,
     HandleChange,
     HandleSubmit,
     handleClose,
