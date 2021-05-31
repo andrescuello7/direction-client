@@ -4,6 +4,7 @@ import Publicacion from "../Publicacion/Publicacion";
 import { NavLink, Link } from "react-router-dom";
 import Precentacion from "../Precentacion/Precentacion";
 import { useState } from "react";
+
 const LandPage = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);

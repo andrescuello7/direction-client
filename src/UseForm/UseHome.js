@@ -21,13 +21,13 @@ const UseHome = () => {
     "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
 
   useEffect(() => {
-      Publicacion();
+    Publicacion();
   }, [publicaciones]);
-
+  
   useEffect(() => {
     Usuario();
-}, []);
-  
+  }, [usuario]);
+
   useEffect(() => {
     if (identificador.length !== 0) {
       Delete();
@@ -54,7 +54,6 @@ const UseHome = () => {
     }
   };
   //Consulta de Publicaiones
-
   const Publicacion = async () => {
     try {
       const { data } = await axios.get("publicacion");
@@ -76,7 +75,7 @@ const UseHome = () => {
   //Aqui se hacemos el map de todos las publicaciones
   const MapDataBase =
     (publicaciones.length === 0 && (
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center mt-5">
         <Spinner animation="border" variant="primary" />
       </div>
     )) ||
@@ -169,7 +168,7 @@ const UseHome = () => {
 
   const MapComparatePublic =
     (publicaciones.length === 0 && (
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center mt-5">
         <Spinner animation="border" variant="primary" />
       </div>
     )) ||

@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
 //Rutas de Pages
 import Home from "./pages/Home/Home";
@@ -18,9 +19,16 @@ import Navbar from "./components/Navbar/Navbar";
 axios.defaults.baseURL = "https://vlog-conteo-app.herokuapp.com/api/";
 
 function App() {
+  const [screen, setScreen] = useState("Home");
   return (
     <div className="App">
-      <Router>
+      <Navbar setScreen={setScreen} />
+      {screen === "Home" && <Home setScreen={setScreen} />}
+      {screen === "Login" && <Login setScreen={setScreen} />}
+      {screen === "Register" && <Register setScreen={setScreen} />}
+      {screen === "Perfil" && <Perfil setScreen={setScreen} />}
+      {screen === "PerfilBuscado" && <PerfilBuscado setScreen={setScreen} />}
+      {/* <Router>
         <Navbar />
         <Switch>
           <Route path="/" exact>
@@ -42,7 +50,7 @@ function App() {
             <Prueba />
           </Route>
         </Switch>
-      </Router>
+      </Router> */}
     </div>
   );
 }

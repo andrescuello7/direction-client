@@ -25,6 +25,7 @@ const Perfil = () => {
     const headers = { "x-auth-token": token };
     try {
       await axios.put("usuario", input, { headers });
+      handleClose()
     } catch (error) {
       console.log(error);
     }

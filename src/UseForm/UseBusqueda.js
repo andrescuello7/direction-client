@@ -43,7 +43,7 @@ const UseBusqueda = () => {
 
   const MapDataBaseBuscado =
     (publicacionesBusqueda.length === 0 && (
-      <div className="d-flex justify-content-center align-items-center">
+      <div className="d-flex justify-content-center align-items-center mt-5">
         <Spinner animation="border" variant="primary" />
       </div>
     )) ||
