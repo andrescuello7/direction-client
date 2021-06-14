@@ -12,10 +12,41 @@ const UsePostPublic = () => {
   //States
   const { proveedor, usuario, setPublicacionActual, publicacionActual } =
     UseHome();
-  const [base64, setBase64] = useState("");
   const [input, setInput] = useState({});
   const [validation, setValidation] = useState(false);
   const token = localStorage.getItem("token");
+  const [ imagenPublicada, setImagenPublicada] = useState("")
+  const [base64, setBase64] = useState("");
+  const [ file, setFile ] = useState(null)
+
+//Codigo de imagenes
+const handlePic = async (e) => {
+  const pic = e.target.files[0];
+  const base64img = await getBase644(pic);
+  const changedInput = { ...input, imagenPublicada: imagenPublicada };
+  setInput(changedInput);
+  setBase64(base64img);
+  setFile(pic)
+
+  const formData = new FormData()
+  formData.append('file', pic)
+  formData.append('upload_preset', 'wkuf5yo4')
+  fetch('https://api.cloudinary.com/v1_1/five-drive/upload', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(res => res.json())
+  .then(res => setImagenPublicada(res.url))
+}
+
+useEffect(() => {
+  const changedInput = { ...input, imagenPublicada: imagenPublicada };
+  setInput(changedInput);
+},[imagenPublicada])
+
+const handleUpload = () => {
+  handleClose()
+}
 
   //Funcions
   const HandleChange = (e) => {
@@ -30,13 +61,13 @@ const UsePostPublic = () => {
   };
 
   //Codigo para foto base 64
-  const onChangeImg = async (e) => {
+  /*const onChangeImg = async (e) => {
     const img = e.target.files[0];
     const base64img = await getBase644(img);
     const pack = { ...input, imagenPublicada: base64img };
     setBase64(base64img);
     setInput(pack);
-  };
+  };*/
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -58,7 +89,8 @@ const UsePostPublic = () => {
     HandleChange,
     HandleSubmit,
     handleClose,
-    onChangeImg,
+    handleUpload,
+    handlePic,
     handleShow,
     validation,
     base64,

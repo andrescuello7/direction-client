@@ -16,6 +16,8 @@ const Publicacion = () => {
     HandleChange,
     handleClose,
     handleShow,
+    handleUpload,
+    handlePic,
     show,
   } = UsePostPublic();
   return (
@@ -75,7 +77,7 @@ const Publicacion = () => {
           <Modal.Body>
             <div>
               <div className="w-100 d-flex justify-content-center mb-3">
-                <p className="text-center">Seleccionar Imagen a subir</p>
+                <h4 className="text-center">Seleccionar Imagen a subir</h4>
               </div>
               <div>
                 <Form.Group
@@ -86,24 +88,25 @@ const Publicacion = () => {
                     name="img"
                     accept="image/png, image/jpeg"
                     type="file"
-                    onChange={onChangeImg}
-                    onClick={onInputClick}
+                    onChange={handlePic}
                     multiple
                   />
                 </Form.Group>
+              </div>
+              <div className="w-100 d-flex justify-content-center">
+                {base64 && (
+                  <div>
+                    <img className="PublicacionFotoImg" src={base64} alt="" />
+                  </div>
+                )}
               </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
             <div className="w-100 d-flex justify-content-between">
-              <Button variant="primary" onClick={handleClose}>
+              <Button variant="primary" onClick={handleUpload}>
                 Seleccionar
               </Button>
-              {base64 && (
-                <div>
-                  <img className="PublicacionFotoImg" src={base64} alt="" />
-                </div>
-              )}
             </div>
           </Modal.Footer>
         </Modal>

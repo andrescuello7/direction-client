@@ -16,7 +16,7 @@ import Prueba from "./pages/Prueba/Prueba";
 
 //Componentes
 import Navbar from "./components/Navbar/Navbar";
-axios.defaults.baseURL = "https://vlog-conteo-app.herokuapp.com/api/";
+axios.defaults.baseURL = "http://localhost:5000/api/";
 
 function App() {
   const [screen, setScreen] = useState("Home");

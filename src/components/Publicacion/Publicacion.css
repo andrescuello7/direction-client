@@ -36,9 +36,8 @@ textarea {
   height: 70%;
 }
 .PublicacionFotoImg {
-  border: rgba(0, 0, 0, 0.692) solid 1px;
-  width: 50px;
-  height: 50px;
+  border-radius: 6px;
+  height: 150px;
 }
 @media (max-width: 780px) {
   .PuclicarEmail {
