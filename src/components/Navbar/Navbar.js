@@ -1,20 +1,13 @@
 import {
   Navbar,
-  Dropdown,
-  NavDropdown,
   Container,
   Button,
   Nav,
 } from "react-bootstrap";
-import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
-import UseHome from "../../UseForm/UseHome";
-import UsePerfil from "../../UseForm/UsePerfil";
 
 const NavbarPage = ({ setScreen }) => {
   const token = localStorage.getItem("token");
-  const { usuario } = UseHome();
-  const { exampleImage } = UsePerfil();
   const handleLogOut = () => {
     localStorage.removeItem("token");
     setScreen('Login')

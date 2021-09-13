@@ -1,23 +1,17 @@
 import "./Publicacion.css";
-import { NavDropdown, Modal, Button, Form } from "react-bootstrap";
-import { useState, useEffect } from "react";
-import { getBase644, beforeUpload4 } from "../../utils/index";
+import { Modal, Button, Form } from "react-bootstrap";
 import UsePostPublic from "../../UseForm/UsePostPublic";
-import UseHome from "../../UseForm/UseHome";
-import axios from "axios";
 
 const Publicacion = () => {
   const {
-    onInputClick,
-    validation,
-    base64,
     HandleSubmit,
-    onChangeImg,
+    handleUpload,
     HandleChange,
     handleClose,
     handleShow,
-    handleUpload,
     handlePic,
+    validation,
+    base64,
     show,
   } = UsePostPublic();
   return (
@@ -60,7 +54,7 @@ const Publicacion = () => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-card-image"
+              className="bi bi-card-image"
               viewBox="0 0 16 16"
             >
               <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />

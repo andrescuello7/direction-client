@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, NavDropdown, Spinner, Modal, Button } from "react-bootstrap";
-import UsePostPublic from "../UseForm/UsePostPublic";
+import { Card, Spinner, Button } from "react-bootstrap";
 
 const UseHome = () => {
   //UseStates de modal
   const token = localStorage.getItem("token");
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const [publicacionActual, setPublicacionActual] = useState(false);
   //UseStates de Aplicacion
   const [admin, setAdmin] = useState("");
@@ -108,7 +104,7 @@ const UseHome = () => {
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-trash"
+                      className="bi bi-trash"
                       viewBox="0 0 16 16"
                     >
                       <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -133,7 +129,7 @@ const UseHome = () => {
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-trash"
+                        className="bi bi-trash"
                         viewBox="0 0 16 16"
                       >
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -198,7 +194,7 @@ const UseHome = () => {
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-trash"
+                      className="bi bi-trash"
                       viewBox="0 0 16 16"
                     >
                       <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />

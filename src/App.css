@@ -14,11 +14,11 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.918) 70.71%),
+  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.863) 70.71%),
     linear-gradient(
       127deg,
-      rgb(207, 0, 248),
-      rgb(0, 255, 157) 80.71%
+      rgb(112, 248, 0),
+      rgb(0, 238, 255) 80.71%
     );
   background-size: cover;
   background-attachment: fixed;
@@ -26,11 +26,11 @@
   min-height: 100vh;
 }
 .ColorDePerfil {
-  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.918) 70.71%),
+  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.863) 70.71%),
     linear-gradient(
       127deg,
-      rgb(207, 0, 248),
-      rgb(0, 255, 157) 80.71%
+      rgb(112, 248, 0),
+      rgb(0, 238, 255) 80.71%
     );
   background-size: cover;
   background-attachment: fixed;
@@ -86,11 +86,11 @@
 }
 .FondoDeForm {
   padding: 4%;
-  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.918) 70.71%),
+  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.863) 70.71%),
     linear-gradient(
       127deg,
-      rgb(207, 0, 248),
-      rgb(0, 255, 157) 80.71%
+      rgb(112, 248, 0),
+      rgb(0, 238, 255) 80.71%
     );
   background-size: cover;
   background-attachment: fixed;

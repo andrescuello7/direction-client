@@ -13,11 +13,11 @@ const UsePostPublic = () => {
   const { proveedor, usuario, setPublicacionActual, publicacionActual } =
     UseHome();
   const [input, setInput] = useState({});
+  const [base64, setBase64] = useState("");
+  const [ file, setFile ] = useState(null)
   const [validation, setValidation] = useState(false);
   const token = localStorage.getItem("token");
   const [ imagenPublicada, setImagenPublicada] = useState("")
-  const [base64, setBase64] = useState("");
-  const [ file, setFile ] = useState(null)
 
 //Codigo de imagenes
 const handlePic = async (e) => {

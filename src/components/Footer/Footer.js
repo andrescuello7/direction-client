@@ -28,19 +28,19 @@ const Footer = () => {
                                     <ul className="list-unstyled">
                                         <li>
                                             <a href="https://www.instagram.com">
-                                                <i class="fab fa-instagram p-2"></i>
+                                                <i className="fab fa-instagram p-2"></i>
                                             </a>
                                             Imm_empress
                                         </li>
                                         <li>
                                             <a href="https://www.facebook.com">
-                                                <i class="fab fa-facebook-f p-2"></i>
+                                                <i className="fab fa-facebook-f p-2"></i>
                                             </a>
                                             Imm_empress
                                         </li>
                                         <li>
                                             <a href="https://github.com">
-                                                <i class="fab fa-github p-2"></i>
+                                                <i className="fab fa-github p-2"></i>
                                             </a>
                                             Imm_emprese
                                         </li>

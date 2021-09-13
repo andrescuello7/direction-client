@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Card, NavDropdown, Spinner, Modal, Button } from "react-bootstrap";
-import UseHome from "./UseHome";
+import { Card, Spinner } from "react-bootstrap";
 
 const UseBusqueda = () => {
   //UseStates de Aplicacion
@@ -29,7 +28,6 @@ const UseBusqueda = () => {
   };
 
   //Consulta de Publicaiones
-
   const PublicacionBusqueda = async () => {
     try {
       const { data } = await axios.get(`publicacion/usuario/${identBusqueda}`);
@@ -40,7 +38,6 @@ const UseBusqueda = () => {
   };
 
   //Aqui se hacemos el map de todas las publicaciones del Usuario buscado
-
   const MapDataBaseBuscado =
     (publicacionesBusqueda.length === 0 && (
       <div className="d-flex justify-content-center align-items-center mt-5">
