@@ -1,10 +1,11 @@
 .NavbarTwo{
-    background-color: rgba(240, 232, 232, 0.733)
+    background-color: rgba(14, 14, 14, 0.986)
 }
 .NavbarTitulo{
-    color: rgb(12, 12, 12);
+    color: rgb(235, 226, 226);
     font-size: 20px;
     font-family: 'Zen Dots', cursive;
+    margin-left: 4%;
 }
 .NavbarButtonUser{
     right: 0;
@@ -24,9 +25,4 @@
     left: none;
 }
 @media (max-Width: 780px){
-    .NavbarTitulo{
-        color: rgb(27, 26, 26);
-        font-size: 1rem;
-        font-family: 'Zen Dots', cursive;
-    }
 }

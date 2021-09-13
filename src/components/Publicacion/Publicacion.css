@@ -31,9 +31,9 @@ textarea {
   border-radius: 50%;
 }
 .PublicacionFotoPublicada {
-  margin-right: 10px;
-  width: 70%;
-  height: 70%;
+  margin: 20px 0px;
+  width: 95%;
+  height: 95%;
 }
 .PublicacionFotoImg {
   border-radius: 6px;

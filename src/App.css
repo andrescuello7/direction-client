@@ -14,17 +14,25 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background: linear-gradient(rgba(49, 84, 197, 0.808), rgb(21, 22, 24));
+  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.918) 70.71%),
+    linear-gradient(
+      127deg,
+      rgb(207, 0, 248),
+      rgb(0, 255, 157) 80.71%
+    );
   background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
   color: rgb(10, 10, 10);
   min-height: 100vh;
 }
 .ColorDePerfil {
-  background: linear-gradient(rgba(197, 49, 74, 0.808), rgb(21, 22, 24));
+  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.918) 70.71%),
+    linear-gradient(
+      127deg,
+      rgb(207, 0, 248),
+      rgb(0, 255, 157) 80.71%
+    );
   background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -78,9 +86,14 @@
 }
 .FondoDeForm {
   padding: 4%;
-  background: linear-gradient(rgba(197, 49, 74, 0.808), rgb(21, 22, 24));
+  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.918) 70.71%),
+    linear-gradient(
+      127deg,
+      rgb(207, 0, 248),
+      rgb(0, 255, 157) 80.71%
+    );
   background-size: cover;
-  background-repeat: no-repeat;
+  background-attachment: fixed;
   text-shadow: 10px 10px 10px #000000;
 }
 .PortadaTituloForm {
@@ -102,18 +115,6 @@
   .FondoDeForm {
     padding-top: 10%;
     min-height: 100vh;
-  }
-  .bodyLandPage {
-    background: linear-gradient(rgba(49, 84, 197, 0.808), rgb(21, 22, 24));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
-  .ColorDePerfil {
-    background: linear-gradient(rgba(197, 49, 74, 0.808), rgb(21, 22, 24));
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
   }
   .landPageOrden {
     display: flex;
