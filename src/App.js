@@ -14,7 +14,7 @@ import PerfilBuscado from "./pages/PerfilBuscado/PerfilBuscado";
 
 //Componentes
 import Navbar from "./components/Navbar/Navbar";
-axios.defaults.baseURL = "https://vlog-conteo-app.herokuapp.com/api/";
+axios.defaults.baseURL = "https://direction-server-production.up.railway.app/api/";
 
 function App() {
   const [screen, setScreen] = useState("Home");
