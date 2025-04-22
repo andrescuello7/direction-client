@@ -1,6 +1,6 @@
 import "./Publicacion.css";
 import { Modal, Button, Form } from "react-bootstrap";
-import UsePostPublic from "../../UseForm/UsePostPublic";
+import UsePostPublic from "../../hooks/UsePostPublic";
 
 const Publicacion = () => {
   const {

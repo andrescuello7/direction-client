@@ -1,4 +1,4 @@
-import UseBusqueda from "../../UseForm/UseBusqueda";
+import UseBusqueda from "../../hooks/UseBusqueda";
 import PortadaBuscada from "../../components/PortadaBuscada/PortadaBuscada";
 
 const Perfil = () => {

@@ -1,4 +1,4 @@
-import UseHome from "../../UseForm/UseHome";
+import UseHome from "../../hooks/UseHome";
 
 const Precentacion = () => {
   //Declaracion de datos traidos de Hook Home y Token de LocalStorage

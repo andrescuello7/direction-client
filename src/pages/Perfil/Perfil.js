@@ -1,5 +1,5 @@
-import UseHome from "../../UseForm/UseHome";
-import Portada from "../../components/Portada/Portada";
+import UseHome from "../../hooks/UseHome";
+import BannerProfile from "../../components/Portada/Portada";
 
 const Perfil = () => {
   const { MapComparatePublic } = UseHome();
@@ -7,7 +7,7 @@ const Perfil = () => {
   return (
     <div className="ColorDePerfil">
       <div>
-        <Portada />
+        <BannerProfile />
       </div>
       <div className="w-100 d-flex flex-column-reverse">{MapComparatePublic}</div>
     </div>
