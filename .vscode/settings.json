@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/1edbe7aa-12ce-4450-8450-70f09affdd4e/resourceGroups/pi-rg-dev-lab-acuello/providers/Microsoft.Web/sites/front-direction-eastus",
+    "appService.deploySubpath": "."
+}
