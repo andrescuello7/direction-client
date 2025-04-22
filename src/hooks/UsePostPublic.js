@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import UseHome from "../UseForm/UseHome";
+import UseHome from "../hooks/UseHome";
 import axios from "axios";
 
 const UsePostPublic = () => {

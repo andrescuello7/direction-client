@@ -1,8 +1,8 @@
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 import Portada from "./Portada.css";
-import UseHome from "../../UseForm/UseHome";
-import UsePerfil from "../../UseForm/UsePerfil";
+import UseHome from "../../hooks/UseHome";
+import UsePerfil from "../../hooks/UsePerfil";
 import axios from "axios";
 
 const Perfil = () => {

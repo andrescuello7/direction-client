@@ -1,5 +1,5 @@
-import UseBusqueda from "../../UseForm/UseBusqueda";
-import UsePerfil from "../../UseForm/UsePerfil";
+import UseBusqueda from "../../hooks/UseBusqueda";
+import UsePerfil from "../../hooks/UsePerfil";
 
 const Perfil = () => {
   const { usuarioBusqueda } = UseBusqueda();

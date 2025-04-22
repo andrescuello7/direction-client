@@ -1,4 +1,4 @@
-import LandPage from "../../Components/LandPage/LandPage";
+import LandPage from "../../components/LandPage/LandPage";
 
 const Home = () => {
   return (

@@ -1,4 +1,4 @@
-import UseHome from "../UseForm/UseHome";
+import UseHome from "../hooks/UseHome";
 import { useState, useEffect } from "react";
 import axios from "axios";
 

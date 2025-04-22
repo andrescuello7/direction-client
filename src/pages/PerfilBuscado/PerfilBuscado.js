@@ -1,5 +1,5 @@
-import UseBusqueda from "../../UseForm/UseBusqueda";
-import PortadaBuscada from "../../Components/PortadaBuscada/PortadaBuscada";
+import UseBusqueda from "../../hooks/UseBusqueda";
+import PortadaBuscada from "../../components/PortadaBuscada/PortadaBuscada";
 
 const Perfil = () => {
   const { MapDataBaseBuscado } = UseBusqueda();

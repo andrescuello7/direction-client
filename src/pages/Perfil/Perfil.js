@@ -1,5 +1,5 @@
-import UseHome from "../../UseForm/UseHome";
-import BannerProfile from "../../Components/Portada/Portada";
+import UseHome from "../../hooks/UseHome";
+import BannerProfile from "../../components/Portada/Portada";
 
 const Perfil = () => {
   const { MapComparatePublic } = UseHome();
