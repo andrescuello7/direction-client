@@ -13,21 +13,11 @@ const UseHome = () => {
   const [publicaciones, setPublicaciones] = useState([]);
   const [identificador, setIdentificador] = useState("");
   const [identBusqueda, setIdentBusqueda] = useState("");
-  const exampleImage =
-    "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
+  const exampleImage = "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
 
-  useEffect(() => {
-    Publicacion();
-  }, []);
-  
   useEffect(() => {
     Usuario();
-  }, []);
-
-  useEffect(() => {
-    if (identificador.length !== 0) {
-      Delete();
-    }
+    Publicacion();
   }, []);
 
   if (identBusqueda.length !== 0) {
@@ -59,10 +49,11 @@ const UseHome = () => {
     }
   };
   //Funcion de Eliminar Publicacion
-  const Delete = async () => {
+  const Delete = async (idPost) => {
     try {
       const headers = { "x-auth-token": token };
-      await axios.delete(`publicacion/${identificador}`, { headers });
+      await axios.delete(`publicacion/${idPost}`, { headers });
+      Publicacion();
     } catch (error) {
       console.log("Error en eliminar datos");
     }
@@ -97,7 +88,7 @@ const UseHome = () => {
                 <div className="m-2">
                   <Button
                     variant="outline-light"
-                    onClick={() => setIdentificador(date._id)}
+                    onClick={() => Delete(date._id)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
