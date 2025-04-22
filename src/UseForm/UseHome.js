@@ -18,17 +18,17 @@ const UseHome = () => {
 
   useEffect(() => {
     Publicacion();
-  }, [publicaciones]);
+  }, []);
   
   useEffect(() => {
     Usuario();
-  }, [usuario]);
+  }, []);
 
   useEffect(() => {
     if (identificador.length !== 0) {
       Delete();
     }
-  }, [identificador]);
+  }, []);
 
   if (identBusqueda.length !== 0) {
     localStorage.setItem("identBusqueda", identBusqueda);
