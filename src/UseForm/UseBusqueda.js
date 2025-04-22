@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Card, Spinner } from "react-bootstrap";
+import axios from "axios";
 
 const UseBusqueda = () => {
   //UseStates de Aplicacion
   const [usuarioBusqueda, setUsuarioBusqueda] = useState([]);
   const [publicacionesBusqueda, setPublicacionesBusqueda] = useState([]);
   const identBusqueda = localStorage.getItem("identBusqueda");
-  const exampleImage =
-    "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
+  const exampleImage = "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
 
   useEffect(() => {
-    if (usuarioBusqueda.length !== undefined) {
+    if (usuarioBusqueda.length) {
       UsuarioBusqueda();
     }
     PublicacionBusqueda();

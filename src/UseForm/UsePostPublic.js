@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { getBase644, beforeUpload4 } from "../utils/index";
 import UseHome from "../UseForm/UseHome";
 import axios from "axios";
 
@@ -13,8 +12,6 @@ const UsePostPublic = () => {
   const { proveedor, usuario, setPublicacionActual, publicacionActual } =
     UseHome();
   const [input, setInput] = useState({});
-  const [base64, setBase64] = useState("");
-  const [ file, setFile ] = useState(null)
   const [validation, setValidation] = useState(false);
   const token = localStorage.getItem("token");
   const [ imagenPublicada, setImagenPublicada] = useState("")
@@ -22,11 +19,8 @@ const UsePostPublic = () => {
 //Codigo de imagenes
 const handlePic = async (e) => {
   const pic = e.target.files[0];
-  const base64img = await getBase644(pic);
   const changedInput = { ...input, imagenPublicada: imagenPublicada };
   setInput(changedInput);
-  setBase64(base64img);
-  setFile(pic)
 
   const formData = new FormData()
   formData.append('file', pic)
@@ -60,15 +54,6 @@ const handleUpload = () => {
     setInput(changedInput);
   };
 
-  //Codigo para foto base 64
-  /*const onChangeImg = async (e) => {
-    const img = e.target.files[0];
-    const base64img = await getBase644(img);
-    const pack = { ...input, imagenPublicada: base64img };
-    setBase64(base64img);
-    setInput(pack);
-  };*/
-
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -93,7 +78,6 @@ const handleUpload = () => {
     handlePic,
     handleShow,
     validation,
-    base64,
     input,
     show,
   };

@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
+import { useState } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
 
 const Login = () => {
   const [input, setInput] = useState({});

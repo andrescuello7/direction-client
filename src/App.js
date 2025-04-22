@@ -6,14 +6,14 @@ import { useState } from "react";
 import "./App.css";
 
 //Rutas de Pages
-import Home from "./pages/Home/Home";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
-import Perfil from "./pages/Perfil/Perfil";
-import PerfilBuscado from "./pages/PerfilBuscado/PerfilBuscado";
+import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
+import Perfil from "./Pages/Perfil/Perfil";
+import PerfilBuscado from "./Pages/PerfilBuscado/PerfilBuscado";
 
 //Componentes
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 axios.defaults.baseURL = `${process.env.REACT_APP_SERVER_URL_PRODUCTION}/api/`;
 
 function App() {
