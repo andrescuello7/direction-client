@@ -50,7 +50,7 @@ const NavbarPage = ({ setScreen }) => {
                 )}
                 {token && (
                   <div className="d-flex">
-                    <Nav.Link onClick={() => setScreen('Perfil')} className="text-light">Perfil</Nav.Link>
+                    <Nav.Link onClick={() => setScreen('Perfil')} className="text-light">Profile Full Game</Nav.Link>
                     <Nav.Link onClick={handleLogOut} className="text-light">Cerrar Sesion</Nav.Link>
                   </div>
                 )}
