@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import { useState } from "react";
+import "./Styles.css";
 
 const Register = () => {
   const [input, setInput] = useState({});
@@ -26,40 +27,37 @@ const Register = () => {
 
   return (
     <div className="FondoDeForm">
-      <div className="w-100">
-        <h1 className="text-center PortadaTituloForm">
-          <b>
-            <i>Registrate</i>
-          </b>
-        </h1>
-      </div>
       <div className="login">
         <Form onSubmit={HandleSubmit} className="FormLogin card">
+          <h1 className="text-center PortadaTituloForm">Registrate</h1>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Nombre</Form.Label>
+            {/* <Form.Label>Nombre</Form.Label> */}
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="text"
               name="usuario"
+              className="input"
               placeholder="Usuario"
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Correo Electronico</Form.Label>
+            {/* <Form.Label>Correo Electronico</Form.Label> */}
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="email"
               name="email"
-              placeholder="Email"
+              className="input"
+              placeholder="Correo Electronico"
             />
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Contraseña</Form.Label>
+            {/* <Form.Label>Contraseña</Form.Label> */}
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="password"
               name="password"
-              placeholder="Password"
+              className="input"
+              placeholder="Contraseña"
             />
           </Form.Group>
           {validation === true && (
@@ -67,10 +65,10 @@ const Register = () => {
               <p>No se puede registrar, modifica los datos!</p>
             </div>
           )}
-          <div>
-            <a href="/login">Ya me registre, iniciar sesion</a>
-          </div>
-          <Button variant="primary" type="submit">
+          <a className="mx-2 mb-2" href="/login">
+            Ya me registre, iniciar sesion
+          </a>
+          <Button className="button" variant="outline-primary" type="submit">
             Registarse
           </Button>
         </Form>

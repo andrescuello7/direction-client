@@ -1,0 +1,62 @@
+.login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.PortadaTituloForm {
+  display: block;
+  width: 100%;
+  color: #fffdfd;
+  font-weight: 700;
+  font-size: 3.5rem;
+  text-shadow: 2px 2px 10px #2b2929;
+  font-family: "Bebas Neue", cursive;
+}
+
+.FormLogin {
+    background-color: rgba(28, 29, 29, 0.61);
+    text-shadow: 5px 5px 8px #000000;
+    color: aliceblue;
+    width: 40%;
+    padding: 3%;
+    border-radius: 2%;
+}
+
+.FormLogin .input {
+  background-color: rgba(28, 29, 29, 0.61);
+  margin: 0px 10px;
+}
+.FormLogin .button {
+  width: 100%;
+  margin: 0px 10px;
+}
+
+.FondoDeForm {
+  padding: 4%;
+  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.863) 70.71%),
+    linear-gradient(
+      127deg,
+      rgb(0, 145, 248),
+      rgb(0, 238, 255) 80.71%
+    );
+  background-size: cover;
+  background-attachment: fixed;
+  text-shadow: 10px 10px 10px #000000;
+  min-height: 100vh;
+}
+
+@media (max-width: 780px) {
+    .login {
+        display: flex;
+        justify-content: center;
+    }
+
+    .FormLogin {
+        width: 95%;
+        padding: 5%;
+        border-radius: 2%;
+    }
+}

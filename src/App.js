@@ -8,7 +8,7 @@ import "./App.css";
 //Rutas de Pages
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
+import Register from "./pages/Login/Register";
 import Perfil from "./pages/Perfil/Perfil";
 import PerfilBuscado from "./pages/PerfilBuscado/PerfilBuscado";
 

@@ -37,12 +37,12 @@ const NavbarPage = ({ setScreen }) => {
                 {!token && (
                   <div className="d-flex">
                     <div className="ml-2">
-                      <Button onClick={() => setScreen('Login')} variant="outline-primary">
+                      <Button onClick={() => setScreen('Login')} variant="outline-light">
                         Sing In
                       </Button>
                     </div>
                     <div className="ml-2">
-                      <Button onClick={() => setScreen('Register')} variant="outline-primary">
+                      <Button onClick={() => setScreen('Register')} variant="outline-light">
                         Sing Out
                       </Button>
                     </div>
