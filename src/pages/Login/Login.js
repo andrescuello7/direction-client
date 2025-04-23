@@ -69,7 +69,7 @@ const Login = () => {
               className="mb-3 btn btn-primary btn-login d-flex justify-content-center"
               type="submit"
             >
-              <div>Registarse</div>
+              <div>Iniciar Sesion</div>
             </Button>
           </div>
         </Form>
