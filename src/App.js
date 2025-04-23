@@ -2,7 +2,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import React from "react";
-import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 
 //Rutas de Pages
@@ -14,18 +14,34 @@ import PerfilBuscado from "./pages/PerfilBuscado/PerfilBuscado";
 
 //Componentes
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 axios.defaults.baseURL = `${process.env.REACT_APP_SERVER_URL_PRODUCTION}/api/`;
 
 function App() {
-  const [screen, setScreen] = useState("Home");
   return (
     <div className="App">
-      <Navbar setScreen={setScreen} />
-      {screen === "Home" && <Home setScreen={setScreen} />}
-      {screen === "Login" && <Login setScreen={setScreen} />}
-      {screen === "Register" && <Register setScreen={setScreen} />}
-      {screen === "Perfil" && <Perfil setScreen={setScreen} />}
-      {screen === "PerfilBuscado" && <PerfilBuscado setScreen={setScreen} />}
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+            <Footer />
+          </Route>
+          <Route path="/register">
+            <Register />
+            <Footer />
+          </Route>
+          <Route path="/profile">
+            <Perfil />
+          </Route>
+          <Route path="/find">
+            <PerfilBuscado />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+footer {
+    bottom: 0px;
+    width: 100%;
+    background: #111;
+    color: azure;
+}
+
+@media (max-width: 780px) {
+    .main-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
