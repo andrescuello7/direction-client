@@ -3,9 +3,11 @@
 }
 .NavbarTitulo{
     color: rgb(235, 226, 226);
-    font-size: 20px;
-    font-family: 'Zen Dots', cursive;
+    font-size: 25px;
+    font-weight: 800;
+    font-family: var(--font-family-nunito);
     margin-left: 4%;
+    padding: 8px 0px;
 }
 .NavbarButtonUser{
     right: 0;

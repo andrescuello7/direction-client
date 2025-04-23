@@ -2,7 +2,6 @@ import UseHome from "../../hooks/UseHome";
 import Publicacion from "../Publicacion/Publicacion";
 
 const LandPage = () => {
-  //Declaracion de datos traidos de Hook Home y Token de LocalStorage
   const { MapDataBase } = UseHome();
   const token = localStorage.getItem("token");
 

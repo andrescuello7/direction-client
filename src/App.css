@@ -2,8 +2,6 @@
   display: flex;
 }
 .titulo {
-  font-family: monospace;
-  font-size: 24px;
   color: rgb(20, 20, 20);
 }
 .perfil {
@@ -14,24 +12,14 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.863) 70.71%),
-    linear-gradient(
-      127deg,
-      rgb(0, 128, 248),
-      rgb(0, 238, 255) 80.71%
-    );
+  background-color: var(--background-color-dark);
   background-size: cover;
   background-attachment: fixed;
   color: rgb(10, 10, 10);
   min-height: 100vh;
 }
 .ColorDePerfil {
-  background: linear-gradient(217deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.863) 70.71%),
-    linear-gradient(
-      127deg,
-      rgb(112, 248, 0),
-      rgb(0, 238, 255) 80.71%
-    );
+  background-color: var(--background-color-dark);
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;
@@ -55,20 +43,23 @@
   display: flex;
   justify-content: center;
   color: rgb(211, 199, 199);
+  font-family: var(--font-family-nunito);
+  font-size: 18px;
+  font-optical-sizing: auto;
 }
 .CardPublica {
   border-radius: 12px;
   background-color: rgba(12, 11, 11, 0.623);
-  width: 700px;
-  height: 100%;
+  width: 880px;
   min-height: 180px;
+  padding: 0px 10px;
   padding-bottom: 2%;
 }
 .NavbarBackground {
   background-color: rgba(245, 245, 247, 0.76);
 }
 .descripcionPublicacion {
-  font-family: "Bebas Neue", cursive;
+  font-weight: 800;
 }
 .marginPublicacion {
   margin-top: 150px;
@@ -80,10 +71,6 @@
   align-items: center;
 }
 @media (max-width: 780px) {
-  .FondoDeForm {
-    padding-top: 10%;
-    min-height: 100vh;
-  }
   .landPageOrden {
     display: flex;
     flex-direction: column;

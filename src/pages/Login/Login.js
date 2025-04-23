@@ -55,10 +55,23 @@ const Login = () => {
               <p>No se puede iniciar sesion, modifica los datos!</p>
             </div>
           )}
-          <a className="mx-2 mb-2" href="/register">No tienes cuenta?, create una cuenta</a>
-          <Button className="button" variant="outline-primary" type="submit">
-            Iniciar Sesion
-          </Button>
+          <div className="mt-3 d-flex justify-content-between">
+            <a
+              href="/register"
+              className="mb-3 btn btn-info btn-login d-flex justify-content-center"
+              type="submit"
+            >
+              <div>Crear Cuenta</div>
+            </a>
+            <div className="mx-2"></div>
+            <Button
+              disabled={false}
+              className="mb-3 btn btn-primary btn-login d-flex justify-content-center"
+              type="submit"
+            >
+              <div>Registarse</div>
+            </Button>
+          </div>
         </Form>
       </div>
     </div>
