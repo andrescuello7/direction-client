@@ -1,6 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
+import "./Styles.css";
 
 const Login = () => {
   const [input, setInput] = useState({});
@@ -11,7 +12,7 @@ const Login = () => {
     const changedInput = { ...input, [name]: value };
     setInput(changedInput);
   };
-  
+
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -20,45 +21,57 @@ const Login = () => {
       window.location.href = "/";
     } catch (error) {
       console.log(error);
-      setValidation(true)
+      setValidation(true);
     }
   };
 
   return (
     <div className="FondoDeForm">
-      <div className="w-100">
-        <h1 className="text-center PortadaTituloForm"><b><i>Lugar Secreto</i></b></h1>
-      </div>
       <div className="login">
         <Form onSubmit={HandleSubmit} className="FormLogin card">
+          <h1 className="text-center PortadaTituloForm">Lugar Secreto</h1>
+          <br/>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Correo Electronico</Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="email"
               name="email"
-              placeholder="Enter email"
+              className="input"
+              placeholder="Correo Electronico"
             />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Contraseña</Form.Label>
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="password"
               name="password"
-              placeholder="Password"
+              className="input"
+              placeholder="Contraseña"
             />
           </Form.Group>
-          {(validation === true &&(<div className="ml-2 text-danger">
-          <p>No se puede iniciar sesion, modifica los datos!</p>
-        </div>))}
-          <div>
-            <a href="/register">No tienes cuenta?, create una cuenta</a>
+          {validation === true && (
+            <div className="ml-2 text-danger">
+              <p>No se puede iniciar sesion, modifica los datos!</p>
+            </div>
+          )}
+          <div className="mt-3 d-flex justify-content-between">
+            <a
+              href="/register"
+              className="mb-3 btn btn-info btn-login d-flex justify-content-center"
+              type="submit"
+            >
+              <div>Crear Cuenta</div>
+            </a>
+            <div className="mx-2"></div>
+            <Button
+              disabled={false}
+              className="mb-3 btn btn-primary btn-login d-flex justify-content-center"
+              type="submit"
+            >
+              <div>Registarse</div>
+            </Button>
           </div>
-          <Button variant="primary" type="submit">
-            Iniciar Sesion
-          </Button>
         </Form>
       </div>
     </div>
