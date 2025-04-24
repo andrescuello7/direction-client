@@ -7,8 +7,8 @@ const UseHome = () => {
   //UseStates de modal
   const token = localStorage.getItem("token");
   const [publicacionActual, setPublicacionActual] = useState(false);
+  
   //UseStates de Aplicacion
-  const [admin, setAdmin] = useState("");
   const [usuario, setUsuario] = useState([]);
   const [proveedor, setProveedor] = useState("");
   const [publicaciones, setPublicaciones] = useState([]);
@@ -30,7 +30,6 @@ const UseHome = () => {
       const headers = { "x-auth-token": token };
       const { data } = await axios.get("auth", { headers });
       setUsuario(data.usuario);
-      setAdmin(data.usuario.estado);
       setProveedor(data.usuario.usuario);
       return data?.usuario;
     } catch (error) {

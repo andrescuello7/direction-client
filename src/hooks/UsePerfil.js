@@ -1,20 +1,19 @@
 import UseHome from "../hooks/UseHome";
 import axios from "axios";
+import { REACT_APP_API_CLOUDINARY, REACT_APP_API_CLOUDINARY_KEY, exampleImage } from "../utils/values";
 
 const UsePerfil = () => {
-  const exampleImage = "https://www.webespacio.com/wp-content/uploads/2010/12/perfil-facebook.jpg";
   const token = localStorage.getItem("token");
   const { usuario } = UseHome();
 
-  //Codigo de imagenes
+  // Codigo de imagenes
   const handlePic = async (e) => {
     const file = e.target.files[0];
     const formData = new FormData()
     formData.append('file', file)
-    formData.append('upload_preset', 'wkuf5yo4')
+    formData.append('upload_preset', REACT_APP_API_CLOUDINARY_KEY)
 
-    // fetch(`${process.env.REACT_API_CLOUDINARY}/v1_1/five-drive/upload`, {
-    fetch('https://api.cloudinary.com/v1_1/five-drive/upload', {
+    fetch(`${REACT_APP_API_CLOUDINARY}/v1_1/five-drive/upload`, {
       method: 'POST',
       body: formData,
     })

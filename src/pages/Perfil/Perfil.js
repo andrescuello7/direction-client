@@ -11,34 +11,37 @@ const Perfil = () => {
   const { Delete, usuario, Usuario } = UseHome();
   const location = useLocation();
   let findUserById = location?.pathname.replace("/profile/", "");
-  let _user = usuarioBusqueda;
+  let userFindById = usuarioBusqueda;
 
-  useEffect(async () => {
+  useEffect(() => {
+    findDateUser()
+  }, [])
+
+  const findDateUser = async () => {
     if (findUserById === "/profile") {
-      _user = await Usuario();
-      PublicacionBusqueda({ idFindUser: _user?._id })
-      console.log(_user);
+      userFindById = await Usuario();
+      PublicacionBusqueda({ idFindUser: userFindById?._id })
       return;
     }
     PublicacionBusqueda({ idFindUser: findUserById })
-  }, [])
+  }
 
   return (
     <div className="ColorDePerfil">
-      <BannerProfile usuario={_user} />
-      <div className="mt-5 w-100 d-flex flex-column-reverse">{
-        publicacionesBusqueda.length === 0 &&
-        publicacionesBusqueda.length === 0 &&
-        <div className="d-flex justify-content-center align-items-center mt-5">
-          <Spinner
-            animation="border"
-            variant="primary" />
-        </div> || publicacionesBusqueda.map((date, i) =>
+      <BannerProfile usuario={userFindById} whoami={findUserById === "/profile"} />
+      <div className="mt-5 w-100 d-flex flex-column-reverse"> {
+        publicacionesBusqueda.length > 0 &&
+        publicacionesBusqueda.map((date, i) =>
           <PostComponent
             date={date}
             usuario={usuario}
             key={i}
-            Delete={Delete} />)
+            Delete={Delete} />) ||
+        <div className="d-flex justify-content-center align-items-center mt-5">
+          <Spinner
+            animation="border"
+            variant="primary" />
+        </div>
       }
       </div>
     </div>
