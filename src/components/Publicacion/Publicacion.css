@@ -45,6 +45,16 @@ textarea {
   border-radius: 6px;
   height: 150px;
 }
+.ModalPublicacion input:focus {
+  background-color: transparent;
+  outline: none; 
+  color: #b4b2b2;
+}
+.ModalPublicacion textarea:focus {
+  background-color: transparent;
+  outline: none; 
+  color: #b4b2b2;
+}
 @media (max-width: 780px) {
   .PuclicarEmail {
     width: 90%;

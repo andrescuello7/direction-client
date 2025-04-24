@@ -57,6 +57,10 @@ const PostComponent = ({ date, usuario, Delete, FindUserById }) => {
                                 </div>
                             )}
                         </div>
+                        <hr />
+                        <div className="w-100 commentForm">
+                            <input className="m-0 form-control" placeholder="Comentar..."/>
+                        </div>
                     </Card>
                 </div>
             </div>

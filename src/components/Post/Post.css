@@ -14,7 +14,7 @@
     background-color: rgba(12, 11, 11, 0.623);
     width: 880px;
     min-height: 180px;
-    padding: 0px 10px;
+    padding: 0px 15px;
     padding-bottom: 2%;
 }
 .datosTitular {
@@ -23,7 +23,15 @@
   display: flex;
   align-items: center;
 }
-
+.commentForm input{
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+}
+.commentForm input:focus {
+    background-color: transparent;
+    outline: none; 
+    color: #b4b2b2;
+}
 @media (max-width: 780px) {
     .CardDiv {
         position: relative;
