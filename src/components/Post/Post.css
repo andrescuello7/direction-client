@@ -1,0 +1,42 @@
+.CardDiv {
+    position: relative;
+    margin: 5px 6%;
+    display: flex;
+    justify-content: center;
+    color: rgb(211, 199, 199);
+    font-family: var(--font-family-nunito);
+    font-size: 18px;
+    font-optical-sizing: auto;
+}
+
+.CardPublica {
+    border-radius: 12px;
+    background-color: rgba(12, 11, 11, 0.623);
+    width: 880px;
+    min-height: 180px;
+    padding: 0px 10px;
+    padding-bottom: 2%;
+}
+.datosTitular {
+  background-color: rgba(37, 36, 36, 0.151);
+  padding: 1% 3%;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 780px) {
+    .CardDiv {
+        position: relative;
+        margin: 3px 0%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .CardPublica {
+        border-radius: 0px;
+        width: 700px;
+        height: 100%;
+        min-height: 180px;
+        padding: 2% 0%;
+    }
+}

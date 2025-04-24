@@ -9,38 +9,41 @@ const UsePostPublic = () => {
   const handleShow = () => setShow(true);
 
   //States
-  const { proveedor, usuario, setPublicacionActual, publicacionActual } =
-    UseHome();
+  const {
+    proveedor,
+    usuario,
+    setPublicacionActual,
+    publicacionActual } = UseHome();
   const [input, setInput] = useState({});
   const [validation, setValidation] = useState(false);
   const token = localStorage.getItem("token");
-  const [ imagenPublicada, setImagenPublicada] = useState("")
+  const [imagenPublicada, setImagenPublicada] = useState("")
 
-//Codigo de imagenes
-const handlePic = async (e) => {
-  const pic = e.target.files[0];
-  const changedInput = { ...input, imagenPublicada: imagenPublicada };
-  setInput(changedInput);
+  //Codigo de imagenes
+  const handlePic = async (e) => {
+    const pic = e.target.files[0];
+    const changedInput = { ...input, imagenPublicada: imagenPublicada };
+    setInput(changedInput);
 
-  const formData = new FormData()
-  formData.append('file', pic)
-  formData.append('upload_preset', 'wkuf5yo4')
-  fetch('https://api.cloudinary.com/v1_1/five-drive/upload', {
-    method: 'POST',
-    body: formData,
-  })
-  .then(res => res.json())
-  .then(res => setImagenPublicada(res.url))
-}
+    const formData = new FormData()
+    formData.append('file', pic)
+    formData.append('upload_preset', 'wkuf5yo4')
+    fetch('https://api.cloudinary.com/v1_1/five-drive/upload', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(res => res.json())
+      .then(res => setImagenPublicada(res.url))
+  }
 
-useEffect(() => {
-  const changedInput = { ...input, imagenPublicada: imagenPublicada };
-  setInput(changedInput);
-},[imagenPublicada])
+  useEffect(() => {
+    const changedInput = { ...input, imagenPublicada: imagenPublicada };
+    setInput(changedInput);
+  }, [imagenPublicada])
 
-const handleUpload = () => {
-  handleClose()
-}
+  const handleUpload = () => {
+    handleClose()
+  }
 
   //Funcions
   const HandleChange = (e) => {
@@ -60,6 +63,9 @@ const handleUpload = () => {
       const headers = { "x-auth-token": token };
       await axios.post("publicacion", input, { headers });
       setPublicacionActual(true);
+
+      // TODO: other fn for reload 
+      window.location.href = "/";
     } catch (error) {
       console.log(error);
       setValidation(true);

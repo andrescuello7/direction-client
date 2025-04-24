@@ -10,7 +10,6 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import Perfil from "./pages/Perfil/Perfil";
-import PerfilBuscado from "./pages/PerfilBuscado/PerfilBuscado";
 
 //Componentes
 import Navbar from "./components/Navbar/Navbar";
@@ -36,9 +35,6 @@ function App() {
           </Route>
           <Route path="/profile">
             <Perfil />
-          </Route>
-          <Route path="/find">
-            <PerfilBuscado />
           </Route>
         </Switch>
       </Router>
