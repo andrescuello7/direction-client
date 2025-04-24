@@ -23,7 +23,15 @@
   display: flex;
   align-items: center;
 }
+.commentForm {
+    display: flex;
+}
+.commentForm .PublicacionFoto{
+    padding: 0;
+    margin: 0;
+}
 .commentForm input{
+    cursor: pointer;
     background-color: rgba(240, 248, 255, 0);
     border: none;
 }
@@ -31,6 +39,13 @@
     background-color: transparent;
     outline: none; 
     color: #b4b2b2;
+}
+.CardPublica .comment {
+    color: #b4b2b2;
+    font-size: 14px;
+    width: 100%;
+    min-height: 10px;
+    padding: 3px 4px;
 }
 @media (max-width: 780px) {
     .CardDiv {
@@ -44,7 +59,6 @@
         border-radius: 0px;
         width: 700px;
         height: 100%;
-        min-height: 180px;
         padding: 2% 0%;
     }
 }
