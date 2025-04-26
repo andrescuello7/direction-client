@@ -25,6 +25,7 @@
 }
 .commentForm {
     display: flex;
+    align-items: center;
 }
 .commentForm .PublicacionFoto{
     padding: 0;
@@ -32,7 +33,7 @@
 }
 .commentForm input{
     cursor: pointer;
-    background-color: rgba(240, 248, 255, 0);
+    background-color: rgba(31, 130, 217, 0);
     border: none;
 }
 .commentForm input:focus {
@@ -40,12 +41,25 @@
     outline: none; 
     color: #b4b2b2;
 }
+.CardPublica .addComment {
+    cursor: pointer;
+    font-size: 14px;
+    color: #666666af;
+    font-weight: 500;
+    padding-top: 14px;
+    padding-left: 2px;
+}
 .CardPublica .comment {
+    display: flex;
+    align-items: center;
     color: #b4b2b2;
     font-size: 14px;
     width: 100%;
-    min-height: 10px;
-    padding: 3px 4px;
+    padding: 10px;
+}
+.CardPublica .comment div{
+    font-size: 14px;
+    font-weight: 500;
 }
 @media (max-width: 780px) {
     .CardDiv {
@@ -54,7 +68,6 @@
         display: flex;
         justify-content: center;
     }
-
     .CardPublica {
         border-radius: 0px;
         width: 700px;

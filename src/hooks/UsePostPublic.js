@@ -73,14 +73,14 @@ const UsePostPublic = () => {
     event.target.value = "";
   };
 
-  const AddCommentToPost = async ({ event, date }) => {
+  const AddCommentToPost = async ({ event, date, userId }) => {
     if (event.key === "Enter") {
       try {
         await axios
           .post(
             `publicacion/${date?._id}/comment`,
             {
-              author: date?.creador,
+              creador: userId,
               text: event?.target?.value,
             },
             { headers: { "x-auth-token": token } }
