@@ -10,8 +10,6 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
   const [viewComments, setViewComments] = useState(false);
   const switchEnable = () => setViewComments(!viewComments);
 
-  console.log(date.creador._id, usuario._id);
-
   return (
     <>
       <div className="CardDiv">
