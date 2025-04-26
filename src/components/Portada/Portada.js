@@ -37,7 +37,6 @@ const Perfil = ({ usuario, whoami }) => {
         <div className="PortadaDatos">
           <div className="ml-5">
             <h2 className="PortadaNombre">{usuario.usuario}</h2>
-            {usuario.celular !== undefined && (
               <div className="PortadaEmail">
                 {usuario.celular !== undefined && (
                   <div className="d-flex">
@@ -61,7 +60,7 @@ const Perfil = ({ usuario, whoami }) => {
                     <b>Email:</b> {usuario.email}
                   </p>
                 </div>
-                {whoami && (
+                {whoami  && (
                   <div>
                     <Button
                       variant="outline-secondary"
@@ -73,7 +72,6 @@ const Perfil = ({ usuario, whoami }) => {
                   </div>
                 )}
               </div>
-            )}
           </div>
         </div>
         <div>
