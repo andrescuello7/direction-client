@@ -64,4 +64,7 @@ textarea {
     border-radius: 6px;
     width: 99%;
   }
+  .PublicacionFotoPublicada {
+    padding: 0px 5px;
+  }
 }

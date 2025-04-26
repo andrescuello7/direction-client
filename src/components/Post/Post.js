@@ -19,7 +19,7 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
               className="datosTitular"
               onClick={() => {
                 if (FindUserById) {
-                  FindUserById(date.creador);
+                  FindUserById(date?.creador?._id);
                 }
               }}
             >
