@@ -28,12 +28,12 @@ const NavbarPage = () => {
                   <div className="d-flex">
                     <div className="ml-2">
                       <Button as={Link} to="/login" variant="outline-light">
-                        Sing In
+                        Entrar
                       </Button>
                     </div>
                     <div className="ml-2">
                       <Button as={Link} to="/register" variant="outline-light">
-                        Sing Out
+                        Registro
                       </Button>
                     </div>
                   </div>

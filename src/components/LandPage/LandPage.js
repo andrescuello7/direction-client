@@ -7,7 +7,7 @@ const LandPage = () => {
 
   return (
     <div className="body">
-      <div>
+      <div className="mx-2">
         {token &&<div className="w-100 d-flex justify-content-center">
           <Publicacion />
         </div>}
