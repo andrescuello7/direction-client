@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 const Perfil = () => {
   const { PublicacionBusqueda, publicacionesBusqueda, usuarioBusqueda } = UseBusqueda();
-  const { Delete, usuario, Usuario } = UseHome();
+  const { usuario, Usuario } = UseHome();
   const location = useLocation();
   let findUserById = location?.pathname.replace("/profile/", "");
   let userFindById = usuarioBusqueda;
@@ -35,8 +35,7 @@ const Perfil = () => {
           <PostComponent
             date={date}
             usuario={usuario}
-            key={i}
-            Delete={Delete} />) ||
+            key={i} />) ||
         <div className="d-flex justify-content-center align-items-center mt-5">
           <Spinner
             animation="border"

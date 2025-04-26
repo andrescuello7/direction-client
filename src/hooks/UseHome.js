@@ -49,7 +49,7 @@ const UseHome = () => {
   };
 
   //Funcion de Eliminar Publicacion
-  const Delete = async (idPost) => {
+  const Delete = async ({idPost}) => {
     try {
       const headers = { "x-auth-token": token };
       await axios.delete(`publicacion/${idPost}`, { headers });
@@ -72,11 +72,11 @@ const UseHome = () => {
         date={date}
         usuario={usuario}
         key={i}
-        Delete={Delete}
         FindUserById={setIdentBusqueda} />);
 
 
   return {
+    Delete,
     setPublicacionActual,
     publicacionActual,
     publicaciones,
