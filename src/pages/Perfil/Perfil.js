@@ -1,14 +1,14 @@
-import UseHome from "../../hooks/UseHome";
-import UseBusqueda from "../../hooks/UseBusqueda";
-import BannerProfile from "../../components/Portada/Portada";
-import PostComponent from "../../components/Post/Post";
+import UseHome from "../../hooks/home/useHome";
+import UseBusqueda from "../../hooks/search/useSearch";
+import BannerProfile from "../../components/profile/Portada/Portada";
+import PostComponent from "../../components/posts/Post";
 import { useLocation } from 'react-router-dom';
 import { Spinner } from "react-bootstrap";
 import { useEffect } from "react";
 
 const Perfil = () => {
   const { PublicacionBusqueda, publicacionesBusqueda, usuarioBusqueda } = UseBusqueda();
-  const { usuario, Usuario } = UseHome();
+  const { usuario, fetchUser } = UseHome();
   const location = useLocation();
   let findUserById = location?.pathname.replace("/profile/", "");
   let userFindById = usuarioBusqueda;
@@ -19,7 +19,7 @@ const Perfil = () => {
 
   const findDateUser = async () => {
     if (findUserById === "/profile") {
-      userFindById = await Usuario();
+      userFindById = await fetchUser();
       PublicacionBusqueda({ idFindUser: userFindById?._id })
       return;
     }

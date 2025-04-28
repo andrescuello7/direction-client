@@ -1,11 +1,9 @@
-import LandPage from "../../components/LandPage/LandPage";
+import LandPage from "../../components/landing/LandPage";
 
 const Home = () => {
   return (
     <div className="bodyLandPage">
-      <div>
-        <LandPage />
-      </div>
+      <LandPage />
     </div>
   );
 };

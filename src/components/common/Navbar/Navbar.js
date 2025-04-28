@@ -1,6 +1,6 @@
 import { Navbar, Container, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { DirectionIcon } from "../../utils/svg";
+import { DirectionIcon } from "../../../utils/svg";
 import "./Navbar.css";
 
 const NavbarPage = () => {

@@ -1,8 +1,8 @@
-import UsePerfil from "../../hooks/UsePerfil";
+import UsePerfil from "../../../hooks/profile/usePerfil";
 import axios from "axios";
 import "./Portada.css";
 
-import { EmailIcon, FacebookIcon, PhoneIcon } from "../../utils/svg";
+import { EmailIcon, FacebookIcon, PhoneIcon } from "../../../utils/svg";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 

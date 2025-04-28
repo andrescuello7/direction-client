@@ -75,7 +75,6 @@ export const LockIcon = ({ width, height, className, open }) => {
       height={height ?? "20"}
       fill="currentColor"
       className={`${open ? "bi bi-lock" : "bi bi-unlock"} ${className}`}
-      class="bi bi-lock"
       viewBox="0 0 16 16"
     >
       {open ? (

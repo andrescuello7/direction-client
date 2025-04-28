@@ -1,6 +1,6 @@
-import UseHome from "../hooks/UseHome";
+import UseHome from "../home/useHome";
 import axios from "axios";
-import { REACT_APP_API_CLOUDINARY, REACT_APP_API_CLOUDINARY_KEY, exampleImage } from "../utils/values";
+import { REACT_APP_API_CLOUDINARY, REACT_APP_API_CLOUDINARY_KEY, exampleImage } from "../../utils/values";
 
 const UsePerfil = () => {
   const token = localStorage.getItem("token");

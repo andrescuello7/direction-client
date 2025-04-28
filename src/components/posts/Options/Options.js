@@ -1,12 +1,11 @@
 import "./Options.css";
 import { DeleteIcon, OptionsPostIcon, LockIcon } from "../../../utils/svg";
-import UseHome from "../../../hooks/UseHome";
+import { deletePosts } from "../../../services/posts.services";
 import { useState } from "react";
 
 const OptionsItem = ({ idPost }) => {
   const [enable, setEnable] = useState(false);
   const switchEnable = () => setEnable(!enable);
-  const { Delete } = UseHome();
 
   return (
     <>
@@ -18,7 +17,7 @@ const OptionsItem = ({ idPost }) => {
           </div>
           <div
             className="px-2 w-100 d-flex align-items-center text-danger justify-content-start"
-            onClick={() => Delete({ idPost })}
+            onClick={() => deletePosts({ idPost: idPost })}
           >
             <DeleteIcon height={18} width={18} className="mr-2 " />
             <div>Eliminar</div>

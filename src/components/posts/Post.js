@@ -1,12 +1,12 @@
 import "./Post.css";
-import UsePostPublic from "../../hooks/UsePostPublic";
+import UsePostPublic from "../../hooks/posts/usePosts";
 import { Card } from "react-bootstrap";
 import { exampleImage } from "../../utils/values";
 import Options from "./Options/Options";
 import { useState } from "react";
 
 const PostComponent = ({ date, usuario, FindUserById }) => {
-  const { AddCommentToPost } = UsePostPublic();
+  const { addCommentToPost } = UsePostPublic();
   const [viewComments, setViewComments] = useState(false);
   const switchEnable = () => setViewComments(!viewComments);
 
@@ -18,7 +18,7 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
             <div
               className="datosTitular"
               onClick={() => {
-                if (FindUserById) {
+                if (FindUserById && date?.creador?._id) {
                   FindUserById(date?.creador?._id);
                 }
               }}
@@ -32,8 +32,8 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
               </div>
               <div>{date.proveedor}</div>
             </div>
-            {date?.creador?._id === usuario._id && (
-              <Options idPost={date._id} />
+            {date?.creador?._id === usuario?._id && (
+              <Options idPost={date?._id} />
             )}
           </div>
           <div className="d-flex flex-column">
@@ -48,27 +48,24 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
           <div className="mt-4 w-100 commentForm">
             <img
               className="PublicacionFoto"
-              src={usuario.imagen || exampleImage}
+              src={usuario?.imagen || exampleImage}
               alt=""
             />
             <input
               className="m-0 form-control"
               placeholder="Agregar Comentario..."
               onKeyDown={(event) =>
-                AddCommentToPost({
-                  event: event,
-                  date: date,
+                addCommentToPost({
+                  event,
                   userId: usuario?._id,
+                  post: date
                 })
               }
             />
           </div>
           {date?.comments?.length > 0 ? (
             !viewComments ? (
-              <div
-                className="addComment"
-                onClick={switchEnable}
-              >
+              <div className="addComment" onClick={switchEnable}>
                 Ver los {date?.comments?.length} comentarios
               </div>
             ) : (
