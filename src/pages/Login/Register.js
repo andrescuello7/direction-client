@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AppleIcon, GoogleIcon, FacebookIcon } from "../../utils/svg";
 import "./Styles.css";
 
+
 const Register = () => {
   const [input, setInput] = useState({});
   const [validation, setValidation] = useState(false);
