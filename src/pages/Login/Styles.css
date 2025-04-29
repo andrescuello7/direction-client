@@ -102,3 +102,19 @@
     border-radius: 2%;
   }
 }
+.blockEyeLogic{
+ display: flex;
+ width: 100%;
+
+}
+.blockEyeLogic svg{
+  display: flex;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  margin-left: 20px;
+  
+}
+.blockEyeLogic .input{
+  width: 130%;
+}
