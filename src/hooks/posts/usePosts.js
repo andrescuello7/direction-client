@@ -18,7 +18,7 @@ const usePosts = () => {
   const [formInput, setFormInput] = useState({
     titulo: "",
     contenido: "",
-    imagenPublicada: "https://res.cloudinary.com/five-drive/image/upload/v1745894779/noxxt2gxhgvw6cirmavc.jpg",
+    imagenPublicada: "",
   });
 
   const [identBusqueda, setIdentBusqueda] = useState("");
