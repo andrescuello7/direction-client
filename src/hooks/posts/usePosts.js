@@ -21,6 +21,7 @@ const usePosts = () => {
     imagenPublicada: "",
   });
 
+  const [saveLoading, setSaveLoading] = useState(false);
   const [identBusqueda, setIdentBusqueda] = useState("");
   const [validationError, setValidationError] = useState(false);
   const [publicacionActual, setPublicacionActual] = useState(false);
@@ -62,8 +63,10 @@ const usePosts = () => {
 
   // Codigo de imagenes
   const handlePic = async (e) => {
+    setSaveLoading(true);
     const url = await uploadImage({ event: e });
     const updatedInput = { ...formInput, imagenPublicada: url };
+    setSaveLoading(false);
     setFormInput(updatedInput);
   };
 
@@ -91,7 +94,9 @@ const usePosts = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      setSaveLoading(true);
       await savePost({ body: formInput });
+      setSaveLoading(false);
       fetchPosts();
       setFormInput({ titulo: "", contenido: "", imagenPublicada: "" });
     } catch (error) {
@@ -143,6 +148,7 @@ const usePosts = () => {
     publicacionActual,
     validationError,
     currentUser,
+    saveLoading,
     handlePic,
     fetchUser,
     fetchPosts,

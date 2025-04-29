@@ -8,8 +8,8 @@ const Login = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="30"
+        height="30"
         fill="currentColor"
         class="bi bi-eye-fill"
         viewBox="0 0 16 16"
@@ -23,8 +23,8 @@ const Login = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
+        width="30"
+        height="30"
         fill="currentColor"
         class="bi bi-eye-slash-fill"
         viewBox="0 0 16 16"
@@ -73,20 +73,18 @@ const Login = () => {
               placeholder="Correo Electronico"
             />
           </Form.Group>
-          <div class="blockEyeLogic">
-            <Form.Group controlId="formBasicPassword">
-              <Form.Control
-                onChange={(e) => HandleChange(e)}
-                type={openEye ? "text" : "password"}
-                name="password"
-                className="input"
-                placeholder="Contraseña"
-              />
-            </Form.Group>
-            <div onClick={buttomEye}>
+          <Form.Group className="blockEyeLogic" controlId="formBasicPassword">
+            <Form.Control
+              onChange={(e) => HandleChange(e)}
+              type={openEye ? "text" : "password"}
+              name="password"
+              className="input"
+              placeholder="Contraseña"
+            />
+            <div className="iconSvg" onClick={buttomEye}>
               {openEye ? <EyeOpen /> : <EyeClose />}
             </div>
-          </div>
+          </Form.Group>
           {validation === true && (
             <div className="ml-2 text-danger">
               <p>No se puede iniciar sesion, modifica los datos!</p>

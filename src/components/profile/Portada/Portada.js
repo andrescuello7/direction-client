@@ -2,12 +2,17 @@ import UsePerfil from "../../../hooks/profile/usePerfil";
 import axios from "axios";
 import "./Portada.css";
 
-import { EmailIcon, FacebookIcon, PhoneIcon, ImageIcon } from "../../../utils/svg";
-import { Modal, Button, Form } from "react-bootstrap";
+import {
+  EmailIcon,
+  FacebookIcon,
+  PhoneIcon,
+  ImageIcon,
+} from "../../../utils/svg";
+import { Modal, Button, Form, Spinner } from "react-bootstrap";
 import { useState } from "react";
 
 const Perfil = ({ usuario, whoami }) => {
-  const { exampleImage, handlePic, UpdateInfoUser } = UsePerfil();
+  const { exampleImage, handlePic, UpdateInfoUser, saveLoading } = UsePerfil();
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -115,7 +120,8 @@ const Perfil = ({ usuario, whoami }) => {
                 </div>
                 <div className="upload-wrapper">
                   <label htmlFor="file-upload" className="custom-upload-button">
-                    <ImageIcon height={20} width={20}/> <div className="mx-2">Subir Imagen</div>
+                    <ImageIcon height={20} width={20} />{" "}
+                    <div className="mx-2">Subir Imagen</div>
                   </label>
                   <input
                     id="file-upload"
@@ -134,6 +140,13 @@ const Perfil = ({ usuario, whoami }) => {
                   onClick={() => UpdateInfoUser({ input, handleClose })}
                 >
                   <b>Guardar Cambios</b>
+                  {saveLoading && (
+                    <Spinner
+                      className="spinnerSize"
+                      animation="border"
+                      variant="light"
+                    />
+                  )}
                 </Button>
               </div>
             </Modal.Body>

@@ -90,6 +90,11 @@
 .hidden-file-input {
   display: none;
 }
+.spinnerSize{
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+}
 
 @media (max-Width: 780px) {
   .PortadaPrincipal {

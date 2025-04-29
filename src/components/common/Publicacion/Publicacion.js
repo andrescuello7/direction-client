@@ -1,5 +1,5 @@
 import "./Publicacion.css";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form, Spinner } from "react-bootstrap";
 import { ImageIcon } from "../../../utils/svg";
 import UsePosts from "../../../hooks/posts/usePosts";
 
@@ -13,11 +13,12 @@ const Publicacion = () => {
     handleSubmit,
     showModal,
     formInput,
+    saveLoading
   } = UsePosts();
 
   return (
     <div className="p-2 ModalPublicacion">
-      <Form onSubmit={handleSubmit}>
+      <Form className="content" onSubmit={handleSubmit}>
         <div>
           <input
             onChange={(e) => handleChange(e)}
@@ -45,7 +46,11 @@ const Publicacion = () => {
         <div className="w-100 d-flex justify-content-start ml-3">
           {formInput?.imagenPublicada && (
             <div>
-              <img className="PublicacionFotoImg" src={formInput?.imagenPublicada} alt="" />
+              <img
+                className="PublicacionFotoImg"
+                src={formInput?.imagenPublicada}
+                alt=""
+              />
             </div>
           )}
         </div>
@@ -65,7 +70,14 @@ const Publicacion = () => {
             />
           </div>
           <Button type="submit" variant="btn btn-outline-secondary">
-            Publicar
+            <b>Publicar</b>
+            {saveLoading && (
+              <Spinner
+                className="spinnerSize"
+                animation="border"
+                variant="light"
+              />
+            )}
           </Button>
         </div>
       </Form>

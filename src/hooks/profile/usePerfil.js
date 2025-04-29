@@ -9,17 +9,21 @@ import axios from "axios";
 import { exampleImage } from "../../utils/values";
 
 import { usePostContext } from "../../context/PostContext";
+import { useState } from "react";
 
 const UsePerfil = () => {
   // Context Post
+  const [saveLoading, setSaveLoading] = useState(false);
   const token = localStorage.getItem("token");
   const { currentUser } = usePostContext();
   const { addCommentToPost } = UsePosts();
 
   // Codigo de imagenes
   const handlePic = async (e) => {
+    setSaveLoading(true)
     const url = await uploadImage({ event: e });
     await updateInfoOfAccountByToken({ body: { imagen: url } });
+    setSaveLoading(false)
     
     // TODO: reload bad
     window.location.href = "/profile";
@@ -27,7 +31,9 @@ const UsePerfil = () => {
 
   const UpdateInfoUser = async ({ input, handleClose }) => {
     try {
+      setSaveLoading(true)
       await updateInfoOfAccountByToken({ body: input });
+      setSaveLoading(false)
       handleClose();
 
       // TODO: reload bad
@@ -94,6 +100,7 @@ const UsePerfil = () => {
   };
 
   return {
+    saveLoading,
     GetUserAndPostById,
     PostsToComponent,
     GetUserAndPostLogged,

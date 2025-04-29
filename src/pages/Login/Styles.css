@@ -84,6 +84,19 @@
   background-color: #1b1b1b;
 }
 
+.blockEyeLogic {
+  position: relative;
+}
+
+.blockEyeLogic .iconSvg {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
 @media (max-width: 780px) {
   .FondoDeForm {
     padding-top: 10%;
@@ -101,20 +114,4 @@
     padding: 10%;
     border-radius: 2%;
   }
-}
-.blockEyeLogic{
- display: flex;
- width: 100%;
-
-}
-.blockEyeLogic svg{
-  display: flex;
-  width: 45px;
-  height: 45px;
-  padding: 10px;
-  margin-left: 20px;
-  
-}
-.blockEyeLogic .input{
-  width: 130%;
 }
