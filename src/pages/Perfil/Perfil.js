@@ -32,7 +32,7 @@ const Perfil = () => {
   return (
     <div className="ColorDePerfil">
       <BannerProfile usuario={user} whoami={findUserById === "/profile"} />
-      <div className="mt-5 w-100 d-flex flex-column-reverse">
+      <div className="mt-2 w-100 d-flex flex-column-reverse">
         {" "}
         <PostsToComponent postsList={posts} />
       </div>
