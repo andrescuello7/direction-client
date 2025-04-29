@@ -105,16 +105,16 @@
 .blockEyeLogic{
  display: flex;
  width: 100%;
+
 }
 .blockEyeLogic svg{
   display: flex;
   width: 45px;
   height: 45px;
-  border: white solid 1px;
   padding: 10px;
-  border-radius:4px ;
-  margin: 1px;
+  margin-left: 20px;
+  
 }
 .blockEyeLogic .input{
-  width: 100%;
+  width: 130%;
 }
