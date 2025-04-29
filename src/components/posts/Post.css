@@ -6,22 +6,32 @@
     color: rgb(211, 199, 199);
     font-family: var(--font-family-nunito);
     font-size: 18px;
+    font-weight: 600;
     font-optical-sizing: auto;
 }
-
 .CardPublica {
+    border: solid 1px var(--border-img-dark);
     border-radius: 12px;
     background-color: rgba(12, 11, 11, 0.623);
     width: 700px;
     min-height: 180px;
-    padding: 0px 15px;
-    padding-bottom: 2%;
+    padding: 10px;
+    padding-bottom: 1%;
 }
 .datosTitular {
-  background-color: rgba(37, 36, 36, 0.151);
-  padding: 1% 3%;
+  padding: 1% 2%;
   display: flex;
   align-items: center;
+}
+.titlePublicacion {
+  color: rgba(255, 255, 255, 0.882);
+  font-size: 15px;
+  font-weight: 600;
+}
+.descripcionPublicacion {
+  color: rgba(255, 255, 255, 0.882);
+  font-size: 15px;
+  font-weight: 300;
 }
 .commentForm {
     display: flex;
@@ -64,7 +74,7 @@
 @media (max-width: 780px) {
     .CardDiv {
         position: relative;
-        margin: 3px 0%;
+        margin: -0.50px 0%;
         display: flex;
         justify-content: center;
     }
@@ -72,6 +82,21 @@
         border-radius: 0px;
         width: 700px;
         height: 100%;
-        padding: 2% 0%;
+        padding: 3% 2%;
+    }
+    .datosTitular .namePost{
+      color: rgba(255, 255, 255, 0.882);
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .titlePublicacion {
+      color: rgba(255, 255, 255, 0.882);
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .descripcionPublicacion {
+      color: rgba(255, 255, 255, 0.882);
+      font-size: 15px;
+      font-weight: 300;
     }
 }

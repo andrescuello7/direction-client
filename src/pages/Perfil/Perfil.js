@@ -1,47 +1,40 @@
-import UseHome from "../../hooks/home/useHome";
-import UseBusqueda from "../../hooks/search/useSearch";
+import UsePerfil from "../../hooks/profile/usePerfil";
 import BannerProfile from "../../components/profile/Portada/Portada";
-import PostComponent from "../../components/posts/Post";
-import { useLocation } from 'react-router-dom';
-import { Spinner } from "react-bootstrap";
-import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Perfil = () => {
-  const { PublicacionBusqueda, publicacionesBusqueda, usuarioBusqueda } = UseBusqueda();
-  const { usuario, fetchUser } = UseHome();
+  const [user, setUser] = useState({});
+  const [posts, setPosts] = useState([]);
+
   const location = useLocation();
-  let findUserById = location?.pathname.replace("/profile/", "");
-  let userFindById = usuarioBusqueda;
+  const { GetUserAndPostLogged, PostsToComponent, GetUserAndPostById } = UsePerfil();
+  let findUserById = location?.pathname?.replace("/profile/", "");
 
   useEffect(() => {
-    findDateUser()
-  }, [])
+    findDateUser();
+  }, []);
 
   const findDateUser = async () => {
     if (findUserById === "/profile") {
-      userFindById = await fetchUser();
-      PublicacionBusqueda({ idFindUser: userFindById?._id })
+      const { posts, user } = await GetUserAndPostLogged();
+      setPosts(posts);
+      setUser(user);
       return;
     }
-    PublicacionBusqueda({ idFindUser: findUserById })
-  }
+    const { posts, user } = await GetUserAndPostById({
+      idFindUser: findUserById,
+    });
+    setPosts(posts);
+    setUser(user);
+  };
 
   return (
     <div className="ColorDePerfil">
-      <BannerProfile usuario={userFindById} whoami={findUserById === "/profile"} />
-      <div className="mt-5 w-100 d-flex flex-column-reverse"> {
-        publicacionesBusqueda.length > 0 &&
-        publicacionesBusqueda.map((date, i) =>
-          <PostComponent
-            date={date}
-            usuario={usuario}
-            key={i} />) ||
-        <div className="d-flex justify-content-center align-items-center mt-5">
-          <Spinner
-            animation="border"
-            variant="primary" />
-        </div>
-      }
+      <BannerProfile usuario={user} whoami={findUserById === "/profile"} />
+      <div className="mt-5 w-100 d-flex flex-column-reverse">
+        {" "}
+        <PostsToComponent postsList={posts} />
       </div>
     </div>
   );

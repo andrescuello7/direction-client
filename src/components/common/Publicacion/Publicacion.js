@@ -1,7 +1,7 @@
 import "./Publicacion.css";
 import { Modal, Button, Form } from "react-bootstrap";
 import { ImageIcon } from "../../../utils/svg";
-import UsePostPublic from "../../../hooks/posts/usePosts";
+import UsePosts from "../../../hooks/posts/usePosts";
 
 const Publicacion = () => {
   const {
@@ -11,16 +11,19 @@ const Publicacion = () => {
     validationError,
     handleOpenModal,
     handleSubmit,
-    showModal
-  } = UsePostPublic();
+    showModal,
+    formInput
+  } = UsePosts();
+  
   return (
     <div className="p-2 ModalPublicacion">
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <div>
           <input
             onChange={(e) => handleChange(e)}
             placeholder="Titulo"
             type="text"
+            value={formInput?.titulo}
             name="titulo"
             maxLength="30"
           />
@@ -29,6 +32,7 @@ const Publicacion = () => {
           <textarea
             onChange={(e) => handleChange(e)}
             placeholder="Descripcion"
+            value={formInput?.contenido}
             type="text"
             name="contenido"
           />
@@ -50,11 +54,11 @@ const Publicacion = () => {
           <Button variant="outline-secondary" onClick={handleOpenModal}>
             {ImageIcon}
           </Button>
-          <button type="submit" className="btn btn-outline-light">
+          <Button type="submit" variant="btn btn-outline-secondary">
             Publicar
-          </button>
+          </Button>
         </div>
-      </form>
+      </Form>
       <div>
         <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Body>

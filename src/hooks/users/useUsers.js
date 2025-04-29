@@ -9,13 +9,12 @@ import { usePostContext } from "../../context/PostContext";
 import { getUserByToken } from "../../services/auth.services";
 import PostComponent from "../../components/posts/Post";
 
-const usePosts = () => {
+const useHome = () => {
   // Context Post
   const { posts, addPost, updateUser, currentUser } = usePostContext();
 
   // States
-  // const [formInput, setFormInput] = useState({});
-  const [formInput, setFormInput] = useState({ titulo: "", contenido: "" });
+  const [formInput, setFormInput] = useState({});
   const [uploadedImage, setUploadedImage] = useState("");
   const [validationError, setValidationError] = useState(false);
 
@@ -106,7 +105,6 @@ const usePosts = () => {
     try {
       await savePost({ body: formInput });
       fetchPosts();
-      setFormInput({ titulo: "", contenido: "" });
       return true;
     } catch (error) {
       console.error(error);
@@ -152,7 +150,6 @@ const usePosts = () => {
   return {
     posts,
     showModal,
-    formInput,
     identBusqueda,
     publicacionActual,
     validationError,
@@ -171,4 +168,4 @@ const usePosts = () => {
   };
 };
 
-export default usePosts;
+export default useHome;

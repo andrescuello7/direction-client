@@ -1,6 +1,7 @@
 .ModalPublicacion {
   background: rgba(20, 20, 20, 0.74);
-  border-radius: 6px;
+  border: solid 1px var(--border-img-dark);
+  border-radius: 12px;
   margin: 1%;
   width: 700px;
 }
@@ -38,7 +39,7 @@ textarea {
   border: solid 1px var(--border-img-dark);
   margin-top: 20px;
   height: 400px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .PublicacionFotoImg {
   border-radius: 6px;
@@ -59,11 +60,13 @@ textarea {
     width: 90%;
   }
   .ModalPublicacion {
-    margin: 5% 1%;
-    border-radius: 6px;
-    width: 99%;
+    margin: 2% 0%;
+    border-radius: 0px;
   }
   .PublicacionFotoPublicada {
     padding: 0px 5px;
+  }
+  .PublicacionFotoPublicada img {
+    height: 230px;
   }
 }

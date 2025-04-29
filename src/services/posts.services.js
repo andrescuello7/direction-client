@@ -1,13 +1,13 @@
 import axios from "axios";
 
 const token = localStorage.getItem("token");
-
 const headers = {
   "content-type": "application/json",
   "x-auth-token": token,
 };
 
 export const getAllPosts = async () => {
+  //Context Post
   try {
     const { data } = await axios.get("publicacion");
     return data;
@@ -30,6 +30,16 @@ export const getUserById = async ({ userId }) => {
 export const getPostById = async ({ idPost }) => {
   try {
     const { data } = await axios.get(`publicacion/usuario/${idPost}`);
+    return data;
+  } catch (error) {
+    console.error("Error :", error);
+    throw error;
+  }
+};
+
+export const getPostByToken = async () => {
+  try {
+    const { data } = await axios.get(`publicacion/user/getAll/`, { headers });
     return data;
   } catch (error) {
     console.error("Error :", error);
