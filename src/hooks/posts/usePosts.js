@@ -5,6 +5,7 @@ import {
   savePost,
   saveCommentInPost,
 } from "../../services/posts.services";
+import { uploadImage } from "../../services/imgs.services";
 import { usePostContext } from "../../context/PostContext";
 import { getUserByToken } from "../../services/auth.services";
 import PostComponent from "../../components/posts/Post";
@@ -14,12 +15,14 @@ const usePosts = () => {
   const { posts, addPost, updateUser, currentUser } = usePostContext();
 
   // States
-  // const [formInput, setFormInput] = useState({});
-  const [formInput, setFormInput] = useState({ titulo: "", contenido: "" });
-  const [uploadedImage, setUploadedImage] = useState("");
-  const [validationError, setValidationError] = useState(false);
+  const [formInput, setFormInput] = useState({
+    titulo: "",
+    contenido: "",
+    imagenPublicada: "https://res.cloudinary.com/five-drive/image/upload/v1745894779/noxxt2gxhgvw6cirmavc.jpg",
+  });
 
   const [identBusqueda, setIdentBusqueda] = useState("");
+  const [validationError, setValidationError] = useState(false);
   const [publicacionActual, setPublicacionActual] = useState(false);
 
   // Modal States
@@ -39,11 +42,6 @@ const usePosts = () => {
     }
   }, [identBusqueda]);
 
-  useEffect(() => {
-    const updatedInput = { ...formInput, imagenPublicada: uploadedImage };
-    setFormInput(updatedInput);
-  }, [uploadedImage]);
-
   const fetchUser = async () => {
     try {
       const user = await getUserByToken();
@@ -62,22 +60,11 @@ const usePosts = () => {
     }
   };
 
-  // Image Upload
-  const handleImageUpload = async (e) => {
-    const file = e.target.files[0];
-    const updatedInput = { ...formInput, imagenPublicada: uploadedImage };
+  // Codigo de imagenes
+  const handlePic = async (e) => {
+    const url = await uploadImage({ event: e });
+    const updatedInput = { ...formInput, imagenPublicada: url };
     setFormInput(updatedInput);
-
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", process.env.REACT_APP_API_CLOUDINARY_KEY);
-
-    fetch(`${process.env.REACT_APP_API_CLOUDINARY}/v1_1/five-drive/upload`, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((res) => setUploadedImage(res.url));
   };
 
   const resetInputOnClick = (event) => {
@@ -106,8 +93,7 @@ const usePosts = () => {
     try {
       await savePost({ body: formInput });
       fetchPosts();
-      setFormInput({ titulo: "", contenido: "" });
-      return true;
+      setFormInput({ titulo: "", contenido: "", imagenPublicada: "" });
     } catch (error) {
       console.error(error);
       setValidationError(true);
@@ -157,6 +143,7 @@ const usePosts = () => {
     publicacionActual,
     validationError,
     currentUser,
+    handlePic,
     fetchUser,
     fetchPosts,
     handleSubmit,
@@ -166,7 +153,6 @@ const usePosts = () => {
     resetInputOnClick,
     handleConfirmUpload,
     setPublicacionActual,
-    handleImageUpload,
     PostsToComponent,
   };
 };

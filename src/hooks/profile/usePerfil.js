@@ -1,14 +1,12 @@
 import UsePosts from "../posts/usePosts";
 import { getPostByToken } from "../../services/posts.services";
 import { getUserByToken } from "../../services/auth.services";
+import { updateInfoOfAccountByToken } from "../../services/users.services";
+import { uploadImage } from "../../services/imgs.services";
 import PostComponent from "../../components/posts/Post";
 import { Spinner } from "react-bootstrap";
 import axios from "axios";
-import {
-  REACT_APP_API_CLOUDINARY,
-  REACT_APP_API_CLOUDINARY_KEY,
-  exampleImage,
-} from "../../utils/values";
+import { exampleImage } from "../../utils/values";
 
 import { usePostContext } from "../../context/PostContext";
 
@@ -20,36 +18,22 @@ const UsePerfil = () => {
 
   // Codigo de imagenes
   const handlePic = async (e) => {
-    const file = e.target.files[0];
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", REACT_APP_API_CLOUDINARY_KEY);
-
-    fetch(`${REACT_APP_API_CLOUDINARY}/v1_1/five-drive/upload`, {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        onChangeImg(res?.url);
-      });
+    const url = await uploadImage({ event: e });
+    await updateInfoOfAccountByToken({ body: { imagen: url } });
+    
+    // TODO: reload bad
+    window.location.href = "/profile";
   };
 
-  //Codigo para foto base 64
-  const onChangeImg = async (photoUrl) => {
+  const UpdateInfoUser = async ({ input, handleClose }) => {
     try {
-      await axios
-        .put(
-          `usuario/${currentUser._id}`,
-          { imagen: photoUrl },
-          { headers: { "x-auth-token": token } }
-        )
-        .then((response) => console.log(response.data));
+      await updateInfoOfAccountByToken({ body: input });
+      handleClose();
 
-      // TODO: error in reload change this
+      // TODO: reload bad
       window.location.href = "/profile";
     } catch (error) {
-      console.error("Error in change dates of user", error);
+      console.log(error);
     }
   };
 
@@ -113,7 +97,7 @@ const UsePerfil = () => {
     GetUserAndPostById,
     PostsToComponent,
     GetUserAndPostLogged,
-    onChangeImg,
+    UpdateInfoUser,
     exampleImage,
     handlePic,
     token,

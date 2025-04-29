@@ -105,11 +105,11 @@ export const GoogleIcon = (
     className="logo-icon"
   />
 );
-export const ImageIcon = (
+export const ImageIcon = ({width, height}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
+    width={width ?? "16"}
+    height={height ?? "16"}
     fill="currentColor"
     className="bi bi-card-image"
     viewBox="0 0 16 16"

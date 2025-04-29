@@ -9,12 +9,12 @@ const Publicacion = () => {
     handleImageUpload,
     handleCloseModal,
     validationError,
-    handleOpenModal,
+    handlePic,
     handleSubmit,
     showModal,
-    formInput
+    formInput,
   } = UsePosts();
-  
+
   return (
     <div className="p-2 ModalPublicacion">
       <Form onSubmit={handleSubmit}>
@@ -42,18 +42,28 @@ const Publicacion = () => {
             <p>No se puede publicar, modifica los datos!</p>
           </div>
         )}
-        {/* <div className="w-100 d-flex justify-content-center">
-          {base64 && (
+        <div className="w-100 d-flex justify-content-start ml-3">
+          {formInput?.imagenPublicada && (
             <div>
-              <img className="PublicacionFotoImg" src={base64} alt="" />
+              <img className="PublicacionFotoImg" src={formInput?.imagenPublicada} alt="" />
             </div>
           )}
-        </div> */}
-        <hr />
-        <div className="d-flex justify-content-between ml-2 mr-2">
-          <Button variant="outline-secondary" onClick={handleOpenModal}>
-            {ImageIcon}
-          </Button>
+        </div>
+        <div className="optionButtons">
+          <div className="upload-wrapper-profile">
+            <label htmlFor="file-upload" className="custom-upload-button">
+              <ImageIcon height={20} width={20} />{" "}
+            </label>
+            <input
+              id="file-upload"
+              name="img"
+              type="file"
+              accept="image/png, image/jpeg"
+              multiple
+              onChange={(e) => handlePic(e)}
+              className="hidden-file-input"
+            />
+          </div>
           <Button type="submit" variant="btn btn-outline-secondary">
             Publicar
           </Button>
@@ -79,13 +89,6 @@ const Publicacion = () => {
                     multiple
                   />
                 </Form.Group>
-              </div>
-              <div className="w-100 d-flex justify-content-center">
-                {/* {base64 && (
-                  <div>
-                    <img className="PublicacionFotoImg" src={base64} alt="" />
-                  </div>
-                )} */}
               </div>
             </div>
           </Modal.Body>
