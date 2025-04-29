@@ -10,35 +10,37 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Login/Register";
 import Perfil from "./pages/Perfil/Perfil";
+import { PostProvider } from "./context/PostContext";
 
 //Componentes
-import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
+import Navbar from "./components/common/Navbar/Navbar";
+import Footer from "./components/common/Footer/Footer";
 axios.defaults.baseURL = `${process.env.REACT_APP_SERVER_URL_PRODUCTION}/api/`;
-
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-            <Footer />
-          </Route>
-          <Route path="/register">
-            <Register />
-            <Footer />
-          </Route>
-          <Route path="/profile">
-            <Perfil />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <PostProvider>
+      <div className="App">
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+              <Footer />
+            </Route>
+            <Route path="/register">
+              <Register />
+              <Footer />
+            </Route>
+            <Route path="/profile">
+              <Perfil />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </PostProvider>
   );
 }
 

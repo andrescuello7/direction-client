@@ -1,12 +1,10 @@
-import "./Post.css";
-import UsePostPublic from "../../hooks/UsePostPublic";
-import { Card } from "react-bootstrap";
-import { exampleImage } from "../../utils/values";
 import Options from "./Options/Options";
+import { Card, Image } from "react-bootstrap";
+import { exampleImage } from "../../utils/values";
 import { useState } from "react";
+import "./Post.css";
 
-const PostComponent = ({ date, usuario, FindUserById }) => {
-  const { AddCommentToPost } = UsePostPublic();
+const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
   const [viewComments, setViewComments] = useState(false);
   const switchEnable = () => setViewComments(!viewComments);
 
@@ -18,27 +16,27 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
             <div
               className="datosTitular"
               onClick={() => {
-                if (FindUserById) {
+                if (FindUserById && date?.creador?._id) {
                   FindUserById(date?.creador?._id);
                 }
               }}
             >
               <div>
-                <img
+                <Image
                   className="PublicacionFoto"
                   src={date.perfil || exampleImage}
                   alt=""
                 />
               </div>
-              <div>{date.proveedor}</div>
+              <div className="namePost">{date.proveedor}</div>
             </div>
-            {date?.creador?._id === usuario._id && (
-              <Options idPost={date._id} />
+            {date?.creador?._id === usuario?._id && (
+              <Options idPost={date?._id} />
             )}
           </div>
           <div className="d-flex flex-column">
-            <div className="m-2 descripcionPublicacion">{date.titulo}</div>
-            <div className="ml-2">{date.contenido}</div>
+            <div className="m-2 titlePublicacion">{date.titulo}</div>
+            <div className="ml-2 descripcionPublicacion">{date.contenido}</div>
             {date.imagenPublicada && (
               <div className="PublicacionFotoPublicada">
                 <img src={date.imagenPublicada} alt="" />
@@ -46,9 +44,9 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
             )}
           </div>
           <div className="mt-4 w-100 commentForm">
-            <img
+            <Image
               className="PublicacionFoto"
-              src={usuario.imagen || exampleImage}
+              src={usuario?.imagen || exampleImage}
               alt=""
             />
             <input
@@ -56,26 +54,23 @@ const PostComponent = ({ date, usuario, FindUserById }) => {
               placeholder="Agregar Comentario..."
               onKeyDown={(event) =>
                 AddCommentToPost({
-                  event: event,
-                  date: date,
+                  event,
                   userId: usuario?._id,
+                  post: date
                 })
               }
             />
           </div>
           {date?.comments?.length > 0 ? (
             !viewComments ? (
-              <div
-                className="addComment"
-                onClick={switchEnable}
-              >
+              <div className="addComment" onClick={switchEnable}>
                 Ver los {date?.comments?.length} comentarios
               </div>
             ) : (
               <div className="mt-2">
                 {date?.comments.map((item, i) => (
                   <div key={i} className="comment">
-                    <img
+                    <Image
                       className="PublicacionFoto"
                       src={item?.creador?.imagen || exampleImage}
                       alt=""

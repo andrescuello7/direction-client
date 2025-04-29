@@ -1,12 +1,12 @@
 import "./Options.css";
+import DeletePostModal from "./DeletePostModal";
 import { DeleteIcon, OptionsPostIcon, LockIcon } from "../../../utils/svg";
-import UseHome from "../../../hooks/UseHome";
 import { useState } from "react";
 
 const OptionsItem = ({ idPost }) => {
   const [enable, setEnable] = useState(false);
   const switchEnable = () => setEnable(!enable);
-  const { Delete } = UseHome();
+  const [deleteModal, setDeleteModal] = useState(false);
 
   return (
     <>
@@ -18,16 +18,22 @@ const OptionsItem = ({ idPost }) => {
           </div>
           <div
             className="px-2 w-100 d-flex align-items-center text-danger justify-content-start"
-            onClick={() => Delete({ idPost })}
+            onClick={() => setDeleteModal(true)}
           >
             <DeleteIcon height={18} width={18} className="mr-2 " />
             <div>Eliminar</div>
           </div>
         </div>
       )}
-      <div className="mt-3 mx-2 options-tab" onClick={switchEnable}>
+      <div className="options-tab" onClick={switchEnable}>
         {OptionsPostIcon}
       </div>
+
+      <DeletePostModal
+        IdPost={idPost}
+        show={deleteModal}
+        onHide={() => setDeleteModal(false)}
+      />
     </>
   );
 };

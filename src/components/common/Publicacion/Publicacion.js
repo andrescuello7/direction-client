@@ -1,64 +1,66 @@
 import "./Publicacion.css";
 import { Modal, Button, Form } from "react-bootstrap";
-import { ImageIcon } from "../../utils/svg";
-import UsePostPublic from "../../hooks/UsePostPublic";
+import { ImageIcon } from "../../../utils/svg";
+import UsePosts from "../../../hooks/posts/usePosts";
 
 const Publicacion = () => {
   const {
-    HandleSubmit,
-    handleUpload,
-    HandleChange,
-    handleClose,
-    handleShow,
-    handlePic,
-    validation,
-    base64,
-    show,
-  } = UsePostPublic();
+    handleChange,
+    handleImageUpload,
+    handleCloseModal,
+    validationError,
+    handleOpenModal,
+    handleSubmit,
+    showModal,
+    formInput
+  } = UsePosts();
+  
   return (
     <div className="p-2 ModalPublicacion">
-      <form onSubmit={HandleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <div>
           <input
-            onChange={(e) => HandleChange(e)}
+            onChange={(e) => handleChange(e)}
             placeholder="Titulo"
             type="text"
+            value={formInput?.titulo}
             name="titulo"
             maxLength="30"
           />
         </div>
         <div>
           <textarea
-            onChange={(e) => HandleChange(e)}
+            onChange={(e) => handleChange(e)}
             placeholder="Descripcion"
+            value={formInput?.contenido}
             type="text"
             name="contenido"
           />
         </div>
-        {validation === true && (
+        {validationError === true && (
           <div className="ml-2 text-danger">
             <p>No se puede publicar, modifica los datos!</p>
           </div>
         )}
-        <div className="w-100 d-flex justify-content-center">
+        {/* <div className="w-100 d-flex justify-content-center">
           {base64 && (
             <div>
               <img className="PublicacionFotoImg" src={base64} alt="" />
             </div>
           )}
-        </div>
+        </div> */}
         <hr />
         <div className="d-flex justify-content-between ml-2 mr-2">
-          <Button variant="outline-secondary" onClick={handleShow}>
+          <Button variant="outline-secondary" onClick={handleOpenModal}>
             {ImageIcon}
           </Button>
-          <button type="submit" className="btn btn-outline-light">
+          <Button type="submit" variant="btn btn-outline-secondary">
             Publicar
-          </button>
+          </Button>
         </div>
-      </form>
+      </Form>
       <div>
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Body>
             <div>
               <div className="w-100 d-flex justify-content-center mb-3">
@@ -73,23 +75,23 @@ const Publicacion = () => {
                     name="img"
                     accept="image/png, image/jpeg"
                     type="file"
-                    onChange={handlePic}
+                    onChange={handleImageUpload}
                     multiple
                   />
                 </Form.Group>
               </div>
               <div className="w-100 d-flex justify-content-center">
-                {base64 && (
+                {/* {base64 && (
                   <div>
                     <img className="PublicacionFotoImg" src={base64} alt="" />
                   </div>
-                )}
+                )} */}
               </div>
             </div>
           </Modal.Body>
           <Modal.Footer>
             <div className="w-100 d-flex justify-content-between">
-              <Button variant="primary" onClick={handleUpload}>
+              <Button variant="primary" onClick={handleImageUpload}>
                 Seleccionar
               </Button>
             </div>

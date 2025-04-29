@@ -1,8 +1,8 @@
-import UsePerfil from "../../hooks/UsePerfil";
+import UsePerfil from "../../../hooks/profile/usePerfil";
 import axios from "axios";
 import "./Portada.css";
 
-import { EmailIcon, FacebookIcon, PhoneIcon } from "../../utils/svg";
+import { EmailIcon, FacebookIcon, PhoneIcon } from "../../../utils/svg";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useState } from "react";
 
@@ -30,34 +30,35 @@ const Perfil = ({ usuario, whoami }) => {
       console.log(error);
     }
   };
+  
 
   return (
     <div className="w-100 d-flex justify-content-center">
       <div className="PortadaPrincipal">
         <div className="PortadaDatos">
           <div className="ml-5">
-            <h2 className="PortadaNombre">{usuario.usuario}</h2>
+            <h2 className="PortadaNombre">{usuario?.usuario}</h2>
               <div className="PortadaEmail">
-                {usuario.celular !== undefined && (
+                {usuario?.celular !== undefined && (
                   <div className="d-flex">
                     {PhoneIcon}
                     <p className="pl-2">
-                      <b>Celu:</b> {usuario.celular}
+                      <b>Celu:</b> {usuario?.celular}
                     </p>
                   </div>
                 )}
-                {usuario.facebook !== undefined && (
+                {usuario?.facebook !== undefined && (
                   <div className="d-flex">
                     {FacebookIcon}
                     <p className="pl-2">
-                      <b>Face:</b> {usuario.facebook}
+                      <b>Face:</b> {usuario?.facebook}
                     </p>
                   </div>
                 )}
                 <div className="d-flex">
                   {EmailIcon}
                   <p className="pl-2">
-                    <b>Email:</b> {usuario.email}
+                    <b>Email:</b> {usuario?.email}
                   </p>
                 </div>
                 {whoami  && (
@@ -77,7 +78,7 @@ const Perfil = ({ usuario, whoami }) => {
         <div>
           <img
             className="PortadaFoto"
-            src={usuario.imagen || exampleImage}
+            src={usuario?.imagen || exampleImage}
             alt=""
           />
           <div className="diagonal"></div>
