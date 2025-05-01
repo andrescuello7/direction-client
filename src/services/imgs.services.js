@@ -4,6 +4,12 @@ import {
   REACT_APP_API_CLOUDINARY_KEY,
 } from "../utils/values";
 
+const token = localStorage.getItem("token");
+const headers = {
+  "content-type": "application/json",
+  "x-auth-token": token,
+};
+
 export const uploadImage = async ({ event }) => {
   try {
     const file = event.target.files[0];
@@ -18,5 +24,17 @@ export const uploadImage = async ({ event }) => {
     return data?.url;
   } catch (error) {
     console.error("Error upload:", error);
+  }
+};
+
+export const qrGenerate = async ({ idProfile }) => {
+  try {
+    const { data } = await axios.post(`usuario/qr/generate/${idProfile}`, {
+      headers,
+    });
+    return data;
+  } catch (error) {
+    console.error("Error :", error);
+    throw error;
   }
 };

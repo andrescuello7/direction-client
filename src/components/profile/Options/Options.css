@@ -1,0 +1,45 @@
+.sectionProfileOptions {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sectionProfileOptionsButtons {
+    width: 700px;
+    border-top: solid 1px var(--border-img-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family-nunito);
+    font-weight: 700;
+    font-size: smaller;
+}
+
+.optionButton {
+    padding: 0px 5px;
+    padding-top: 12px;
+    cursor: pointer;
+    color: rgba(246, 245, 243, 0.764);
+    display: flex;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+@media (max-Width: 780px) {
+    .sectionProfileOptions {
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+    .sectionProfileOptionsButtons {
+        border-top: none;
+    }
+    .optionButton {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        padding-top: 12px;
+    }
+}
