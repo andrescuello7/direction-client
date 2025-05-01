@@ -105,7 +105,7 @@ export const GoogleIcon = (
     className="logo-icon"
   />
 );
-export const ImageIcon = ({width, height}) => (
+export const ImageIcon = ({ width, height }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width ?? "16"}
@@ -129,5 +129,49 @@ export const OptionsPostIcon = (
     viewBox="0 0 16 16"
   >
     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
+  </svg>
+);
+
+export const MailboxPray = ({ width, height }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={width ?? "16"}
+    height={height ?? "16"}
+    fill="currentColor"
+    className="bi bi-bookmarks"
+    viewBox="0 0 16 16"
+  >
+    <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1z" />
+    <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1" />
+  </svg>
+);
+
+export const PostOption = ({ width, height }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={width ?? "16"}
+    height={height ?? "16"}
+    fill="currentColor"
+    className="bi bi-sticky"
+    viewBox="0 0 16 16"
+  >
+    <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293z" />
+  </svg>
+);
+
+export const QrGeneratorIcon = ({ width, height }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={width ?? "16"}
+    height={height ?? "16"}
+    fill="currentColor"
+    className="bi bi-qr-code"
+    viewBox="0 0 16 16"
+  >
+    <path d="M2 2h2v2H2z" />
+    <path d="M6 0v6H0V0zM5 1H1v4h4zM4 12H2v2h2z" />
+    <path d="M6 10v6H0v-6zm-5 1v4h4v-4zm11-9h2v2h-2z" />
+    <path d="M10 0v6h6V0zm5 1v4h-4V1zM8 1V0h1v2H8v2H7V1zm0 5V4h1v2zM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8zm0 0v1H2V8H1v1H0V7h3v1zm10 1h-1V7h1zm-1 0h-1v2h2v-1h-1zm-4 0h2v1h-1v1h-1zm2 3v-1h-1v1h-1v1H9v1h3v-2zm0 0h3v1h-2v1h-1zm-4-1v1h1v-2H7v1z" />
+    <path d="M7 12h1v3h4v1H7zm9 2v2h-3v-1h2v-1z" />
   </svg>
 );

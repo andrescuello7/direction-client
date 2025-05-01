@@ -9,10 +9,13 @@ import {
 } from "../../../utils/svg";
 import { Modal, Button, Form, Spinner } from "react-bootstrap";
 import { useState } from "react";
+import { QrGeneratorIcon } from "../../../utils/svg";
+import { qrGenerate } from "../../../services/imgs.services";
 
 const Perfil = ({ usuario, whoami }) => {
   const { exampleImage, handlePic, UpdateInfoUser, saveLoading } = UsePerfil();
 
+  const [qrModal, setQrModal] = useState("");
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -24,11 +27,24 @@ const Perfil = ({ usuario, whoami }) => {
     setInput(changedInput);
   };
 
+  const GenerateQR = async () => {
+    const qrGenerateRes = await qrGenerate({ idProfile: usuario?._id });
+    setQrModal(qrGenerateRes?.qr);
+  };
+
   return (
     <div className="w-100 d-flex justify-content-center">
       <div className="PortadaPrincipal">
         <div className="PortadaDatos">
           <div className="profileInfoOptions">
+            <div
+              className="w-100 d-flex justify-content-end"
+              onClick={GenerateQR}
+            >
+              <div className="border border-5 p-2 rounded border-secondary text-secondary">
+                <QrGeneratorIcon width={30} height={30} />
+              </div>
+            </div>
             <div className="BoxUserInfoToPhoto">
               <div className="BoxInfoUser">
                 <h2 className="PortadaNombre">{usuario?.usuario}</h2>
@@ -39,7 +55,8 @@ const Perfil = ({ usuario, whoami }) => {
                 )}
                 {usuario?.facebook !== undefined && (
                   <div className="d-flex mb-2">
-                    {FacebookIcon} <div className="mx-2">{usuario?.facebook}</div>
+                    {FacebookIcon}{" "}
+                    <div className="mx-2">{usuario?.facebook}</div>
                   </div>
                 )}
                 {usuario?.email !== undefined && (
@@ -146,6 +163,30 @@ const Perfil = ({ usuario, whoami }) => {
             </Modal.Body>
           </Modal>
         </Form>
+      </div>
+      <div>
+        <Modal
+          contentClassName="modalUpdateUser mx-3"
+          show={qrModal !== ""}
+          onHide={() => setQrModal("")}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Body>
+            <div className="d-flex flex-column text-center align-items-center justify-content-center m-5">
+              <img
+                className="rounded rounded-4"
+                width={250}
+                height={250}
+                src={qrModal}
+              />
+              <h3 className="mt-5 PortadaNombre" >
+                  {usuario?.usuario}
+              </h3>
+            </div>
+          </Modal.Body>
+        </Modal>
       </div>
     </div>
   );
