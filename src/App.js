@@ -16,6 +16,7 @@ import { PostProvider } from "./context/PostContext";
 import Navbar from "./components/common/Navbar/Navbar";
 import Footer from "./components/common/Footer/Footer";
 axios.defaults.baseURL = `${process.env.REACT_APP_SERVER_URL_PRODUCTION}/api/`;
+
 function App() {
   return (
     <PostProvider>

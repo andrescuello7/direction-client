@@ -7,10 +7,12 @@ import {
   FacebookIcon,
   PhoneIcon,
   ImageIcon,
+  QrGeneratorIcon,
+  CopyIcon,
+  MailboxPray
 } from "../../../utils/svg";
 import { Modal, Button, Form, Spinner, Image } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { CopyIcon } from "../../../utils/svg";
 import { qrGenerate } from "../../../services/imgs.services";
 import { savePrayes } from "../../../services/prayes.services";
 
@@ -46,40 +48,37 @@ const Perfil = ({ usuario, whoami }) => {
     setQrModal(qrGenerateRes?.qr);
   };
 
+  const InfoView = ({ Icon, Info }) => {
+    return (
+      Info !== undefined && (
+        <div className="d-flex mb-2">
+          {Icon} <div className="mx-2">{Info}</div>
+        </div>
+      )
+    );
+  };
+
   return (
     <div className="w-100 d-flex justify-content-center">
       <div className="PortadaPrincipal">
         <div className="PortadaDatos">
           <div className="profileInfoOptions">
-            {/* <div
+            <div
               className="w-100 d-flex justify-content-end"
               onClick={GenerateQR}
             >
               <div className="border border-5 p-2 rounded border-secondary text-secondary">
                 <QrGeneratorIcon width={30} height={30} />
               </div>
-            </div> */}
+            </div>
             <div className="BoxUserInfoToPhoto">
               <div className="BoxInfoUser">
                 <h2 className="PortadaNombre">{usuario?.usuario}</h2>
-                {usuario?.celular !== undefined && (
-                  <div className="d-flex mb-2">
-                    {PhoneIcon} <div className="mx-2">{usuario?.celular}</div>
-                  </div>
-                )}
-                {usuario?.facebook !== undefined && (
-                  <div className="d-flex mb-2">
-                    {FacebookIcon}{" "}
-                    <div className="mx-2">{usuario?.facebook}</div>
-                  </div>
-                )}
-                {usuario?.email !== undefined && (
-                  <div className="d-flex mb-2">
-                    {EmailIcon} <div className="mx-2">{usuario?.email}</div>
-                  </div>
-                )}
+                <InfoView Icon={PhoneIcon} Info={usuario?.celular} />
+                <InfoView Icon={FacebookIcon} Info={usuario?.facebook} />
+                <InfoView Icon={EmailIcon} Info={usuario?.email} />
               </div>
-              <div className="BoxPhoto" onDoubleClick={GenerateQR}>
+              <div className="BoxPhoto">
                 <img
                   className="PortadaFoto"
                   src={usuario?.imagen || exampleImage}
@@ -104,11 +103,13 @@ const Perfil = ({ usuario, whoami }) => {
           </div>
         </div>
       </div>
-      {prayShow !== null && <FormPrayModal
-        handlePrayClose={handlePrayClose}
-        prayShow={prayShow}
-        usuario={usuario}
-      />}
+      {prayShow !== null && (
+        <FormPrayModal
+          handlePrayClose={handlePrayClose}
+          prayShow={prayShow}
+          usuario={usuario}
+        />
+      )}
       <FormChangeUserModal
         HandleChange={HandleChange}
         UpdateInfoUser={UpdateInfoUser}
@@ -129,13 +130,16 @@ const Perfil = ({ usuario, whoami }) => {
         >
           <Modal.Body>
             <div className="d-flex flex-column text-center align-items-center justify-content-center">
+              <h3 className="mt-3 mb-5 w-100 PortadaNombre d-flex justify-content-center align-items-center">
+                <MailboxPray height={30} width={30} /><div className="ml-2">Pedidos</div>
+              </h3>
               <Image
                 className="rounded rounded-4"
-                width={250}
-                height={250}
+                width={220}
+                height={220}
                 src={qrModal}
               />
-              <h3 className="mt-5 w-100 PortadaNombre d-flex justify-content-center" >
+              <h3 className="mt-5 w-100 PortadaNombre d-flex justify-content-center">
                 {usuario?.usuario} <CopyButton idUser={usuario?._id} />
               </h3>
             </div>
@@ -146,12 +150,14 @@ const Perfil = ({ usuario, whoami }) => {
   );
 };
 
-
 function CopyButton({ idUser }) {
   const [copied, setCopied] = useState(false);
   const location = useLocation();
-  let userPray = location?.pathname === '/profile' ? `/profile/${idUser}` : location?.pathname;
-  
+  let userPray =
+    location?.pathname === "/profile"
+      ? `/profile/${idUser}`
+      : location?.pathname;
+
   const urlPath = `${process.env.REACT_APP_URL_WEBSITE}${userPray}?pray=true`;
 
   const handleCopy = async () => {
@@ -160,7 +166,7 @@ function CopyButton({ idUser }) {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Error al copiar al portapapeles: ', err);
+      console.error("Error al copiar al portapapeles: ", err);
     }
   };
 
@@ -182,13 +188,12 @@ function FormPrayModal({ prayShow, handlePrayClose, usuario }) {
   };
 
   const SavePrayFromUser = async () => {
-    setSave(true)
-    await savePrayes({ body: input, idUser: usuario?._id })
-    setSave(false)
-    handlePrayClose()
+    setSave(true);
+    await savePrayes({ body: input, idUser: usuario?._id });
+    setSave(false);
+    handlePrayClose();
   };
   console.log(prayShow);
-  
 
   return (
     <div>
@@ -203,7 +208,8 @@ function FormPrayModal({ prayShow, handlePrayClose, usuario }) {
         >
           <Modal.Body>
             <Modal.Title className="ml-2 mb-2 text-start d-flex">
-              <b>{usuario?.usuario}</b><div className="ml-2">Pedido de Oracion</div>
+              <b>{usuario?.usuario}</b>
+              <div className="ml-2">Pedido de Oracion</div>
             </Modal.Title>
             <div className="d-flex flex-column mb-3">
               <textarea
@@ -250,7 +256,8 @@ function FormChangeUserModal({
   handlePic,
   UpdateInfoUser,
   input,
-  saveLoading }) {
+  saveLoading,
+}) {
   return (
     <div>
       <Form>

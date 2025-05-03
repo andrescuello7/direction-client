@@ -22,13 +22,11 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                 }
               }}
             >
-              <div>
-                <Image
-                  className="PublicacionFoto"
-                  src={date?.creador?.imagen || exampleImage}
-                  alt=""
-                />
-              </div>
+              <Image
+                className="PublicacionFoto"
+                src={date?.creador?.imagen || exampleImage}
+                alt=""
+              />
               <div className="namePost">{date.proveedor}</div>
             </div>
             {date?.creador?._id === usuario?._id && (
