@@ -1,9 +1,11 @@
 import UsePosts from "../posts/usePosts";
 import { getPostByToken } from "../../services/posts.services";
 import { getUserByToken } from "../../services/auth.services";
+import { getAllPrayes } from "../../services/prayes.services";
 import { updateInfoOfAccountByToken } from "../../services/users.services";
 import { uploadImage } from "../../services/imgs.services";
 import PostComponent from "../../components/posts/Post";
+import PrayComponent from "../../components/posts/Pray";
 import { Spinner } from "react-bootstrap";
 import axios from "axios";
 import { exampleImage } from "../../utils/values";
@@ -46,11 +48,13 @@ const UsePerfil = () => {
   const GetUserAndPostLogged = async () => {
     try {
       const postOfUserLogged = await getPostByToken();
+      const prayesOfUser = await getAllPrayes();
       const userLogged = await getUserByToken();
 
       // TODO: error in save posts in Context
       // addPost(postOfUserLogged);
       return {
+        prayes: prayesOfUser,
         posts: postOfUserLogged,
         user: userLogged,
       };
@@ -99,10 +103,26 @@ const UsePerfil = () => {
     );
   };
 
+  const PrayToComponent = ({ prayesList }) => {
+    return prayesList.length === 0 ? (
+      <div className="d-flex justify-content-center align-items-center mt-5">
+        <Spinner animation="border" variant="primary" />
+      </div>
+    ) : (
+      prayesList.map((date, i) => (
+        <PrayComponent
+          date={date}
+          key={i}
+        />
+      ))
+    );
+  };
+
   return {
     saveLoading,
     GetUserAndPostById,
     PostsToComponent,
+    PrayToComponent,
     GetUserAndPostLogged,
     UpdateInfoUser,
     exampleImage,

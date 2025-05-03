@@ -8,12 +8,19 @@ import "./Perfil.css";
 const Perfil = () => {
   const [user, setUser] = useState({});
   const [posts, setPosts] = useState([]);
+  const [prayes, setPrayes] = useState([]);
   const [options, setOptions] = useState("POSTS");
 
   const location = useLocation();
-  const { GetUserAndPostLogged, PostsToComponent, GetUserAndPostById } =
-    UsePerfil();
   let findUserById = location?.pathname?.replace("/profile/", "");
+
+  const { 
+    PrayToComponent, 
+    PostsToComponent, 
+    GetUserAndPostLogged, 
+    GetUserAndPostById 
+  } = UsePerfil();
+  
 
   useEffect(() => {
     findDateUser();
@@ -21,8 +28,9 @@ const Perfil = () => {
 
   const findDateUser = async () => {
     if (findUserById === "/profile") {
-      const { posts, user } = await GetUserAndPostLogged();
+      const { posts, user, prayes } = await GetUserAndPostLogged();
       setPosts(posts);
+      setPrayes(prayes);
       setUser(user);
       return;
     }
@@ -41,7 +49,7 @@ const Perfil = () => {
         {options === "POSTS" ? (
           <PostsToComponent postsList={posts} />
         ) : (
-          <div></div>
+          <PrayToComponent prayesList={prayes} />
         )}
       </div>
     </div>

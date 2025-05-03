@@ -30,7 +30,6 @@ const Perfil = ({ usuario, whoami }) => {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    console.log("action=pray?", params.get("pray") === "true");
     if (params.get("pray") === "true") {
       handlePrayShow();
     }
