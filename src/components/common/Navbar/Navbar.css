@@ -5,9 +5,11 @@
     color: rgb(235, 226, 226);
     font-size: 25px;
     font-weight: 800;
-    font-family: var(--font-family-nunito);
+    /* font-family: var(--font-family-nunito); */
+    font-family: "Bebas Neue", cursive;
     margin-left: 4%;
-    padding: 8px 0px;
+    /* padding: 8px 0px; */
+    padding-top: 8px;
 }
 .NavbarButtonUser{
     right: 0;

@@ -16,13 +16,13 @@ const NavbarPage = () => {
         <Navbar className="NavbarTwo">
           <Container>
             <Navbar.Brand as={Link} to="/">
-              <div className="d-flex">
-                <div>{DirectionIcon}</div>
-                <b className="NavbarTitulo text-light">Direction</b>
+              <div className="d-flex align-items-center">
+                <DirectionIcon width={35} height={35}/>
+                <b className="NavbarTitulo text-light">Lugar Secreto</b>
               </div>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse>
+            <Navbar.Collapse className="w-100 d-flex justify-content-end">
               <Nav className="me-auto">
                 {!token && (
                   <div className="d-flex">
@@ -39,12 +39,12 @@ const NavbarPage = () => {
                   </div>
                 )}
                 {token && (
-                  <div className="d-flex">
+                  <div className="d-flex align-items-center">
                     <Nav.Link as={Link} to="/profile" className="text-light">
-                      Perfil
+                      <b>Perfil</b>
                     </Nav.Link>
-                    <Nav.Link onClick={handleLogOut} className="text-light">
-                      Cerrar Sesion
+                    <Nav.Link onClick={handleLogOut} className="text-danger">
+                      <b>Salir</b>
                     </Nav.Link>
                   </div>
                 )}

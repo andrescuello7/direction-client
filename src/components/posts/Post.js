@@ -5,6 +5,7 @@ import { useState } from "react";
 import "./Post.css";
 
 const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
+  const token = localStorage.getItem("token");
   const [viewComments, setViewComments] = useState(false);
   const switchEnable = () => setViewComments(!viewComments);
 
@@ -24,7 +25,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
               <div>
                 <Image
                   className="PublicacionFoto"
-                  src={date.perfil || exampleImage}
+                  src={date?.creador?.imagen || exampleImage}
                   alt=""
                 />
               </div>
@@ -35,15 +36,17 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
             )}
           </div>
           <div className="d-flex flex-column">
-            <div className="m-2 titlePublicacion">{date.titulo}</div>
-            <div className="ml-2 descripcionPublicacion">{date.contenido}</div>
+            <div className="ml-5">
+              <div className="mt-2 ml-1 titlePublicacion">{date.titulo}</div>
+              <div className="ml-1 descripcionPublicacion">{date.contenido}</div>
+            </div>
             {date.imagenPublicada && (
               <div className="PublicacionFotoPublicada">
-                <img src={date.imagenPublicada} alt="" />
+                <Image src={date.imagenPublicada} alt="" />
               </div>
             )}
           </div>
-          <div className="mt-4 w-100 commentForm">
+          {token && <div className="mt-4 w-100 commentForm">
             <Image
               className="PublicacionFoto"
               src={usuario?.imagen || exampleImage}
@@ -60,7 +63,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                 })
               }
             />
-          </div>
+          </div>}
           {date?.comments?.length > 0 ? (
             !viewComments ? (
               <div className="addComment" onClick={switchEnable}>
