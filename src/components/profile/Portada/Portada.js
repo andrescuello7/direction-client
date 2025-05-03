@@ -150,7 +150,9 @@ const Perfil = ({ usuario, whoami }) => {
 function CopyButton({ idUser }) {
   const [copied, setCopied] = useState(false);
   const location = useLocation();
-  const urlPath = `${process.env.REACT_APP_URL_WEBSITE}${location?.pathname}/${idUser}?pray=true`;
+  let userPray = location?.pathname === '/profile' ? `/profile/${idUser}` : location?.pathname;
+  
+  const urlPath = `${process.env.REACT_APP_URL_WEBSITE}${userPray}?pray=true`;
 
   const handleCopy = async () => {
     try {
