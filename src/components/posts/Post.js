@@ -9,6 +9,8 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
   const [viewComments, setViewComments] = useState(false);
   const switchEnable = () => setViewComments(!viewComments);
 
+  console.log(date);
+  
   return (
     <>
       <div className="CardDiv">
@@ -35,7 +37,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
           </div>
           <div className="d-flex flex-column">
             <div className="ml-5">
-              <div className="mt-2 ml-1 titlePublicacion">{date.titulo}</div>
+              {/* <div className="mt-2 ml-1 titlePublicacion">{date.titulo}</div> */}
               <div className="ml-1 descripcionPublicacion">{date.contenido}</div>
             </div>
             {date.imagenPublicada && (

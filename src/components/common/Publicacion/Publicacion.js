@@ -19,7 +19,7 @@ const Publicacion = () => {
   return (
     <div className="p-2 ModalPublicacion">
       <Form className="content" onSubmit={handleSubmit}>
-        <div>
+        {/* <div>
           <input
             onChange={(e) => handleChange(e)}
             placeholder="Titulo"
@@ -28,11 +28,11 @@ const Publicacion = () => {
             name="titulo"
             maxLength="30"
           />
-        </div>
+        </div> */}
         <div>
           <textarea
             onChange={(e) => handleChange(e)}
-            placeholder="Descripcion"
+            placeholder="Contenido aqui..."
             value={formInput?.contenido}
             type="text"
             name="contenido"
