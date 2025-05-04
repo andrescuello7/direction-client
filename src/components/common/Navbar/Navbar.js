@@ -17,38 +17,35 @@ const NavbarPage = () => {
           <Container>
             <Navbar.Brand as={Link} to="/">
               <div className="d-flex align-items-center">
-                <DirectionIcon width={35} height={35}/>
+                <DirectionIcon width={35} height={35} />
                 <b className="NavbarTitulo text-light">Lugar Secreto</b>
               </div>
             </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse className="w-100 d-flex justify-content-end">
-              <Nav className="me-auto">
-                {!token && (
-                  <div className="d-flex">
-                    <div className="ml-2">
-                      <Button as={Link} to="/login" variant="outline-light">
-                        Entrar
-                      </Button>
+            <Navbar.Collapse className="w-100">
+                {/* <div className="w-75 d-flex justify-content-center">
+                  <input className="form-control inputSearch" />
+                </div> */}
+                <div className="w-100 d-flex justify-content-end">
+                  {!token && (
+                    <div className="d-flex">
+                      <div className="ml-2">
+                        <Nav.Link as={Link} to="/login" className="text-light">
+                          <b>Entrar</b>
+                        </Nav.Link>
+                      </div>
                     </div>
-                    <div className="ml-2">
-                      <Button as={Link} to="/register" variant="outline-light">
-                        Registro
-                      </Button>
+                  )}
+                  {token && (
+                    <div className="d-flex align-items-center">
+                      <Nav.Link as={Link} to="/profile" className="text-light">
+                        <b>Perfil</b>
+                      </Nav.Link>
+                      <Nav.Link onClick={handleLogOut} className="text-danger">
+                        <b>Salir</b>
+                      </Nav.Link>
                     </div>
-                  </div>
-                )}
-                {token && (
-                  <div className="d-flex align-items-center">
-                    <Nav.Link as={Link} to="/profile" className="text-light">
-                      <b>Perfil</b>
-                    </Nav.Link>
-                    <Nav.Link onClick={handleLogOut} className="text-danger">
-                      <b>Salir</b>
-                    </Nav.Link>
-                  </div>
-                )}
-              </Nav>
+                  )}
+                </div>
             </Navbar.Collapse>
           </Container>
         </Navbar>

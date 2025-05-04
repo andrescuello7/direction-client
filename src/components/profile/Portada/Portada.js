@@ -63,14 +63,14 @@ const Perfil = ({ usuario, whoami }) => {
       <div className="PortadaPrincipal">
         <div className="PortadaDatos">
           <div className="profileInfoOptions">
-            <div
+            {/* <div
               className="w-100 d-flex justify-content-end"
               onClick={GenerateQR}
             >
               <div className="border border-5 p-2 rounded border-secondary text-secondary">
                 <QrGeneratorIcon width={30} height={30} />
               </div>
-            </div>
+            </div> */}
             <div className="BoxUserInfoToPhoto">
               <div className="BoxInfoUser">
                 <h2 className="PortadaNombre">{usuario?.usuario}</h2>
@@ -88,15 +88,29 @@ const Perfil = ({ usuario, whoami }) => {
               </div>
             </div>
             {whoami && (
-              <div className="PortadaEmail">
-                <div>
-                  <Button
-                    variant="outline-secondary"
-                    className="w-100"
-                    onClick={handleShow}
-                  >
-                    <b>Editar</b>
-                  </Button>
+              <div className="w-100 d-flex justify-content-between">
+                <div className="mr-2 PortadaEmail">
+                  <div>
+                    <Button
+                      variant="outline-secondary"
+                      className="w-100"
+                      onClick={handleShow}
+                    >
+                      <b>Editar perfil</b>
+                    </Button>
+                  </div>
+                </div>
+                <div className="ml-2 PortadaEmail">
+                  <div>
+                    <Button
+                      variant="outline-secondary"
+                      className="w-100"
+                      onClick={GenerateQR}
+                    >
+                      <QrGeneratorIcon width={15} height={15} />
+                      <b className="ml-2">Oraciones</b>
+                    </Button>
+                  </div>
                 </div>
               </div>
             )}
