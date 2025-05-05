@@ -37,11 +37,11 @@ const NavbarPage = () => {
                   )}
                   {token && (
                     <div className="d-flex justify-content-center align-items-center">
-                      <Nav.Link as={Link} to="/profile" className="text-light">
-                        <ProfileIcon height={20} width={20} /> <b>Perfil</b>
+                      <Nav.Link as={Link} to="/profile" className="p-0 d-flex align-items-center text-light">
+                        <ProfileIcon height={20} width={20} /> <b className="ml-1">Perfil</b>
                       </Nav.Link>
-                      <Nav.Link onClick={handleLogOut} className="text-danger">
-                        <LogoutIcon /> <b>Salir</b>
+                      <Nav.Link onClick={handleLogOut} className="p-0 pl-2 d-flex align-items-center text-danger">
+                        <LogoutIcon height={20} width={20} /> <b className="ml-1">Salir</b>
                       </Nav.Link>
                     </div>
                   )}
