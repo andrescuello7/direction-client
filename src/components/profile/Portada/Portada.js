@@ -3,13 +3,13 @@ import { useLocation } from "react-router-dom";
 import "./Portada.css";
 
 import {
-  EmailIcon,
-  FacebookIcon,
+  CopyIcon,
   PhoneIcon,
   ImageIcon,
+  EmailIcon,
+  MailboxPray,
+  FacebookIcon,
   QrGeneratorIcon,
-  CopyIcon,
-  MailboxPray
 } from "../../../utils/svg";
 import { Modal, Button, Form, Spinner, Image } from "react-bootstrap";
 import { useEffect, useState } from "react";
@@ -63,14 +63,6 @@ const Perfil = ({ usuario, whoami }) => {
       <div className="PortadaPrincipal">
         <div className="PortadaDatos">
           <div className="profileInfoOptions">
-            {/* <div
-              className="w-100 d-flex justify-content-end"
-              onClick={GenerateQR}
-            >
-              <div className="border border-5 p-2 rounded border-secondary text-secondary">
-                <QrGeneratorIcon width={30} height={30} />
-              </div>
-            </div> */}
             <div className="BoxUserInfoToPhoto">
               <div className="BoxInfoUser">
                 <h2 className="PortadaNombre">{usuario?.usuario}</h2>
@@ -133,29 +125,30 @@ const Perfil = ({ usuario, whoami }) => {
         saveLoading={saveLoading}
         show={show}
       />
-      <div>
+      <div className="">
         <Modal
-          contentClassName="modalUpdateUser mx-3"
+          contentClassName="modalUpdateUser w-100"
           show={qrModal !== ""}
           onHide={() => setQrModal("")}
           size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
+          aria-labelledby="example-modal-sizes-title-sm"
           centered
         >
           <Modal.Body>
-            <div className="d-flex flex-column text-center align-items-center justify-content-center">
-              <h3 className="mt-3 mb-5 w-100 PortadaNombre d-flex justify-content-center align-items-center">
-                <MailboxPray height={30} width={30} /><div className="ml-2">Pedidos</div>
-              </h3>
+            <div className="d-flex flex-column align-items-center justify-content-center">
+              <div className="mt-3 mb-5 w-100 PortadaNombre d-flex justify-content-center align-items-center">
+                <MailboxPray height={30} width={30} />
+                <div className="ml-2 d-inline-block text-truncate">Pedidos de Oracion</div>
+              </div>
               <Image
                 className="rounded rounded-4"
-                width={220}
-                height={220}
+                width={200}
+                height={200}
                 src={qrModal}
               />
-              <h3 className="mt-5 w-100 PortadaNombre d-flex justify-content-center">
+              <div className="mt-5 w-100 PortadaNombre d-flex justify-content-center">
                 {usuario?.usuario} <CopyButton idUser={usuario?._id} />
-              </h3>
+              </div>
             </div>
           </Modal.Body>
         </Modal>
@@ -207,7 +200,6 @@ function FormPrayModal({ prayShow, handlePrayClose, usuario }) {
     setSave(false);
     handlePrayClose();
   };
-  console.log(prayShow);
 
   return (
     <div>
@@ -221,16 +213,37 @@ function FormPrayModal({ prayShow, handlePrayClose, usuario }) {
           centered
         >
           <Modal.Body>
-            <Modal.Title className="ml-2 mb-2 text-start d-flex">
-              <b>{usuario?.usuario}</b>
-              <div className="ml-2">Pedido de Oracion</div>
+            <Modal.Title>
+              <div className="w-100 d-flex mb-3 justify-content-center">
+                <MailboxPray height={30} width={30} />
+                <b className="ml-2">Pedido de Oracion</b>
+              </div>
+              <hr className="bg-secondary" />
+              <div className="ml-2 mt-3 mb-2 d-flex justify-content-between">
+                <b>{usuario?.usuario}</b>
+                <div className="w-25 d-flex justify-content-end">
+                  <Button
+                    className="mx-2 btn btn-success"
+                    onClick={SavePrayFromUser}
+                  >
+                    <b>Enviar</b>
+                    {save && (
+                      <Spinner
+                        className="spinnerSize"
+                        animation="border"
+                        variant="light"
+                      />
+                    )}
+                  </Button>
+                </div>
+              </div>
             </Modal.Title>
-            <div className="d-flex flex-column mb-3">
+            <div className="d-flex flex-column">
               <textarea
                 className="form-control prayFormInput m-0 mb-3 mt-3"
                 name="description"
                 type="text"
-                placeholder={`Porque queres que este orando?`}
+                placeholder="Porque queres que este orando?"
                 onChange={HandleChange}
               />
               <input
@@ -240,21 +253,6 @@ function FormPrayModal({ prayShow, handlePrayClose, usuario }) {
                 placeholder="De parte de quien? (Opcional)"
                 onChange={HandleChange}
               />
-            </div>
-            <div className="w-100 d-flex justify-content-end">
-              <Button
-                className="mx-2 btn btn-success"
-                onClick={SavePrayFromUser}
-              >
-                <b>Enviar Oracion</b>
-                {save && (
-                  <Spinner
-                    className="spinnerSize"
-                    animation="border"
-                    variant="light"
-                  />
-                )}
-              </Button>
             </div>
           </Modal.Body>
         </Modal>
