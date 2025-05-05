@@ -4,10 +4,10 @@ import { Button } from "react-bootstrap";
 import "./Portada.css";
 
 import {
-  PhoneIcon,
-  EmailIcon,
   FacebookIcon,
   QrGeneratorIcon,
+  InstagramIcon,
+  WhatsAppIcon,
 } from "../../../utils/svg";
 import { useEffect, useState } from "react";
 import { qrGenerate } from "../../../services/imgs.services";
@@ -17,7 +17,7 @@ import QrModal from "./Modals/QrModal";
 
 const Perfil = ({ usuario, whoami }) => {
   const location = useLocation();
-  const { exampleImage, handlePic, UpdateInfoUser, saveLoading } = UsePerfil();
+  const { exampleImage, handlePic, UpdateInfoUser, saveLoading, currentUser } = UsePerfil();
 
   const [input, setInput] = useState({});
   const [qrModal, setQrModal] = useState("");
@@ -47,12 +47,12 @@ const Perfil = ({ usuario, whoami }) => {
     setQrModal(qrGenerateRes?.qr);
   };
 
-  const InfoView = ({ Icon, Info }) => {
+  const InfoView = ({ Icon, Info, Enable }) => {
     return (
-      Info !== undefined && (
-        <div className="d-flex mb-2">
-          {Icon} <div className="mx-2">{Info}</div>
-        </div>
+      Enable !== undefined && (
+        <a className="text-light d-flex mt-3 mb-2 ml-2" target="_blank" href={Info}>
+          {Icon}
+        </a>
       )
     );
   };
@@ -65,11 +65,9 @@ const Perfil = ({ usuario, whoami }) => {
             <div className="BoxUserInfoToPhoto">
               <div className="BoxInfoUser">
                 <h2 className="PortadaNombre">{usuario?.usuario}</h2>
-                <InfoView Icon={PhoneIcon} Info={usuario?.celular} />
-                <InfoView Icon={FacebookIcon} Info={usuario?.facebook} />
-                <InfoView Icon={EmailIcon} Info={usuario?.email} />
+                <div className="w-75">{usuario?.descripcion}</div>
               </div>
-              <div className="BoxPhoto">
+              <div className="BoxPhoto mt-5">
                 <img
                   className="PortadaFoto"
                   src={usuario?.imagen || exampleImage}
@@ -77,6 +75,23 @@ const Perfil = ({ usuario, whoami }) => {
                 />
                 <div className="diagonal"></div>
               </div>
+            </div>
+            <div className="d-flex mt-2 w-100 justify-content-end">
+              <InfoView
+                Icon={<InstagramIcon height={25} width={25} />}
+                Info={`https://www.instagram.com/${usuario?.instagram}`}
+                Enable={usuario?.instagram}
+              />
+              <InfoView
+                Icon={<WhatsAppIcon height={25} width={25} />}
+                Info={`https://wa.me/${usuario?.celular}`}
+                Enable={usuario?.celular}
+              />
+              <InfoView
+                Icon={<FacebookIcon height={25} width={25} />}
+                Info={`https://web.facebook.com/${usuario?.facebook}`}
+                Enable={usuario?.facebook}
+              />
             </div>
             {whoami && (
               <div className="w-100 d-flex justify-content-between">
@@ -116,6 +131,7 @@ const Perfil = ({ usuario, whoami }) => {
         />
       )}
       <ChangeInfoUser
+        CurrentUser={currentUser}
         HandleChange={HandleChange}
         UpdateInfoUser={UpdateInfoUser}
         handleClose={handleClose}

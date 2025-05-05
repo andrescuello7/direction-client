@@ -5,6 +5,7 @@ import axios from "axios";
 import "./Styles.css";
 
 const Login = () => {
+  const [samepassword, setSamePassword] = useState(true);
   const [openEye, setopenEye] = useState(false);
   const [input, setInput] = useState({});
   const [validation, setValidation] = useState(false);
@@ -14,6 +15,11 @@ const Login = () => {
   const HandleChange = (e) => {
     const { name, value } = e.target;
     const changedInput = { ...input, [name]: value };
+    if (changedInput.email !== null && changedInput?.password !== "") {
+      setSamePassword(false);
+    } else {
+      setSamePassword(true);
+    }
     setInput(changedInput);
   };
 
@@ -61,21 +67,24 @@ const Login = () => {
               <p>No se puede iniciar sesion, modifica los datos!</p>
             </div>
           )}
+          <a href="/" className="ml-1 mt-2">
+            Olvidaste tu contraseña?
+          </a>
           <div className="mt-3 d-flex justify-content-between">
             <a
               href="/register"
-              className="mb-3 btn btn-info btn-login d-flex justify-content-center"
+              className="mb-3 btn btn-outline-light border-light btn-login d-flex justify-content-center"
               type="submit"
             >
-              <div>Crear Cuenta</div>
+              <b>Crear Cuenta</b>
             </a>
             <div className="mx-2"></div>
             <Button
-              disabled={false}
+              disabled={samepassword}
               className="mb-3 btn btn-primary btn-login d-flex justify-content-center"
               type="submit"
             >
-              <div>Iniciar Sesion</div>
+              <b>Iniciar Sesion</b>
             </Button>
           </div>
         </Form>

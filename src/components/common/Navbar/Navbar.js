@@ -1,6 +1,6 @@
-import { Navbar, Container, Button, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { DirectionIcon } from "../../../utils/svg";
+import { DirectionIcon, LogoutIcon, ProfileIcon, SingInIcon } from "../../../utils/svg";
 import "./Navbar.css";
 
 const NavbarPage = () => {
@@ -30,18 +30,18 @@ const NavbarPage = () => {
                     <div className="d-flex">
                       <div className="ml-2">
                         <Nav.Link as={Link} to="/login" className="text-light">
-                          <b>Entrar</b>
+                          <SingInIcon /><b className="ml-2">Entrar</b>
                         </Nav.Link>
                       </div>
                     </div>
                   )}
                   {token && (
-                    <div className="d-flex align-items-center">
+                    <div className="d-flex justify-content-center align-items-center">
                       <Nav.Link as={Link} to="/profile" className="text-light">
-                        <b>Perfil</b>
+                        <ProfileIcon height={20} width={20} /> <b>Perfil</b>
                       </Nav.Link>
                       <Nav.Link onClick={handleLogOut} className="text-danger">
-                        <b>Salir</b>
+                        <LogoutIcon /> <b>Salir</b>
                       </Nav.Link>
                     </div>
                   )}

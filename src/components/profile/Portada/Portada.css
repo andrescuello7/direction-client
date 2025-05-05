@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   width: 700px;
-  min-height: 400px;
+  min-height: 300px;
   border: solid 1px var(--border-img-dark);
   background-color: rgba(12, 11, 11, 0.623);
   border-top-right-radius: 12px;
@@ -36,7 +36,7 @@
   display: block;
   width: 100%;
   font-weight: 300;
-  margin: 10% 0;
+  margin: 4% 0;
   font-size: 1em;
   color: #3a3535;
   text-shadow: 2px 2px 4px #7b7b7b;
@@ -45,14 +45,14 @@
 .profileInfoOptions {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
-  min-height: 400px;
+  min-height: 350px;
   color: #cdc0c0;
 }
 
 .PortadaFoto {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   border-radius: 50%;
   height: 150px;
   width: 150px;
@@ -72,6 +72,16 @@
 .modalUpdateUser input {
   width: 100%;
   height: 45px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  border: #3a3535 1px solid;
+  background-color: #343a4079;
+  margin: 0;
+}
+
+.modalUpdateUser .changeDescription {
+  width: 100%;
+  min-height: 100px;
   border-radius: 8px;
   margin-bottom: 10px;
   border: #3a3535 1px solid;

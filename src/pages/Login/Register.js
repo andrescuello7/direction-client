@@ -21,7 +21,6 @@ const Register = () => {
   const HandleChange = (e) => {
     const { name, value } = e.target;
     const changedInput = { ...input, [name]: value };
-    console.log(changedInput);
     if (
       changedInput?.password === changedInput?.confirmPassword &&
       changedInput.usuario !== null &&
