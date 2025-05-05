@@ -18,7 +18,8 @@ const Perfil = () => {
     PrayToComponent, 
     PostsToComponent, 
     GetUserAndPostLogged, 
-    GetUserAndPostById 
+    GetUserAndPostById,
+    currentUser
   } = UsePerfil();
   
 
@@ -28,6 +29,7 @@ const Perfil = () => {
 
   const findDateUser = async () => {
     if (findUserById === "/profile") {
+      if (currentUser !== null) setUser(currentUser)
       const { posts, user, prayes } = await GetUserAndPostLogged();
       setPosts(posts);
       setPrayes(prayes);

@@ -53,6 +53,7 @@ const UsePerfil = () => {
 
       // TODO: error in save posts in Context
       // addPost(postOfUserLogged);
+      
       return {
         prayes: prayesOfUser,
         posts: postOfUserLogged,
@@ -112,6 +113,7 @@ const UsePerfil = () => {
 
   return {
     saveLoading,
+    currentUser,
     GetUserAndPostById,
     PostsToComponent,
     PrayToComponent,

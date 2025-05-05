@@ -3,7 +3,6 @@ import { deletePosts } from "../../../services/posts.services";
 import { DeleteIcon } from "../../../utils/svg";
 
 function DeletePostModal(props) {
-
   const DeletePost = async () => {
     await deletePosts({ idPost: props.IdPost });
     window.location.href = "/";
@@ -12,29 +11,31 @@ function DeletePostModal(props) {
   return (
     <Modal
       {...props}
-      size="lg"
-      contentClassName="modalDeletePost" 
+      size="sm"
+      contentClassName="modalDeletePost"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
       <Modal.Body>
-        <h5 className="fw-bolder mt-3"><b>Eliminar Post</b></h5>
-        <p>Seguro que quiere eliminar el Post despues no podra recuperarlo.</p>
+        <h5 className="fw-bolder mt-2 mb-5">
+          <b>Eliminar Post</b>
+        </h5>
         <div className="mt-4 d-flex justify-content-between">
-            <Button
-            variant="btn btn-outline-light"
+          <Button
+            variant="w-50 btn btn-outline-danger"
             className="fw-bolder"
             onClick={props.onHide}
-            >
-            <b>Cerrar</b>
-            </Button>
-            <Button
-            variant="btn btn-danger"
+          >
+            <b>Cancelar</b>
+          </Button>
+          <Button
+            variant="btn btn-danger d-flex align-items-center"
             className="fw-bold"
             onClick={DeletePost}
-            >
-            <b>Borrar{" "}<DeleteIcon /></b>
-            </Button>
+          >
+            <DeleteIcon height={15} width={15} />
+            <b className="ml-1">Borrar Post</b>
+          </Button>
         </div>
       </Modal.Body>
     </Modal>

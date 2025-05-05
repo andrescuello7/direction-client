@@ -70,7 +70,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                 Ver los {date?.comments?.length} comentarios
               </div>
             ) : (
-              <div className="mt-2">
+              <div>
                 {date?.comments.map((item, i) => (
                   <div key={i} className="comment">
                     <Image
@@ -81,7 +81,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                     <div className="text-light mr-1">
                       {item?.creador?.usuario}
                     </div>
-                    {item.text}
+                    <div>{item.text}</div>
                   </div>
                 ))}
               </div>
