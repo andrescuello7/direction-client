@@ -87,11 +87,7 @@ const UsePerfil = () => {
   };
 
   const PostsToComponent = ({ postsList }) => {
-    return postsList.length === 0 ? (
-      <div className="d-flex justify-content-center align-items-center mt-5">
-        <Spinner animation="border" variant="primary" />
-      </div>
-    ) : (
+    return postsList.length > 0 && (
       postsList.map((date, i) => (
         <PostComponent
           date={date}
@@ -104,11 +100,7 @@ const UsePerfil = () => {
   };
 
   const PrayToComponent = ({ prayesList }) => {
-    return prayesList.length === 0 ? (
-      <div className="d-flex justify-content-center align-items-center mt-5">
-        <Spinner animation="border" variant="primary" />
-      </div>
-    ) : (
+    return prayesList.length > 0 && (
       prayesList.map((date, i) => (
         <PrayComponent
           date={date}

@@ -123,11 +123,7 @@ const usePosts = () => {
   };
 
   const PostsToComponent = () => {
-    return posts.length === 0 ? (
-      <div className="d-flex justify-content-center align-items-center mt-5">
-        <Spinner animation="border" variant="primary" />
-      </div>
-    ) : (
+    return posts.length > 0 && (
       posts[0].map((date, i) => (
         <PostComponent
           date={date}
