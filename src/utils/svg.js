@@ -282,7 +282,6 @@ export const InstagramIcon = ({ width, height, className }) => {
       width={width ?? "16"}
       height={height ?? "16"}
       fill="currentColor"
-      class="bi bi-instagram"
       className={
         className ? `${className} "bi bi-instagram"` : "bi bi-instagram"
       }

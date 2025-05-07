@@ -14,10 +14,10 @@ const PrayComponent = ({ date }) => {
       <div className="CardDiv">
         <Card className="CardPublica">
           <div className="d-flex mb-3 justify-content-between">
-            <div className="m-2 titlePublicacion">{date?.from ?? "Anonimo"}</div>
+            <div className="m-2 titlePublicacion">{date?.From ?? "Anonimo"}</div>
             <div onClick={DeletePray}><DeleteIconX /></div>
           </div>
-          <div className="ml-2 descripcionPublicacion">{date?.description}</div>
+          <div className="ml-2 descripcionPublicacion">{date?.Description}</div>
         </Card>
       </div>
     </>

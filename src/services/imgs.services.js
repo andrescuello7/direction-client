@@ -29,7 +29,7 @@ export const uploadImage = async ({ event }) => {
 
 export const qrGenerate = async ({ idProfile }) => {
   try {
-    const { data } = await axios.post(`usuario/qr/generate/${idProfile}`, {
+    const { data } = await axios.post(`users/qr/generate/${idProfile}`, {
       headers,
     });
     return data;

@@ -11,7 +11,7 @@ const FormPrayModal = ({ prayShow, handlePrayClose, usuario }) => {
 
   const HandleChange = (e) => {
     const { name, value } = e.target;
-    const changedInput = { ...input, to: usuario?._id, [name]: value };
+    const changedInput = { ...input, To: usuario?._id, [name]: value };
     setInput(changedInput);
   };
 
@@ -41,7 +41,7 @@ const FormPrayModal = ({ prayShow, handlePrayClose, usuario }) => {
               </div>
               <hr className="bg-secondary" />
               <div className="ml-2 mt-3 mb-2 d-flex justify-content-between">
-                <b>{usuario?.usuario}</b>
+                <b>{usuario?.UserName}</b>
                 <div className="w-25 d-flex justify-content-end">
                   <Button
                     className="mx-2 btn btn-success"
@@ -62,14 +62,14 @@ const FormPrayModal = ({ prayShow, handlePrayClose, usuario }) => {
             <div className="d-flex flex-column">
               <textarea
                 className="form-control prayFormInput m-0 mb-3 mt-3"
-                name="description"
+                name="Description"
                 type="text"
                 placeholder="Porque queres que este orando?"
                 onChange={HandleChange}
               />
               <input
                 className="form-control prayFormInput"
-                name="from"
+                name="From"
                 type="text"
                 placeholder="De parte de quien? (Opcional)"
                 onChange={HandleChange}

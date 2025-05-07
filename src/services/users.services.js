@@ -8,7 +8,7 @@ const headers = {
 
 export const createAccountOfUser = async () => {
   try {
-    const { data } = await axios.get("usuario");
+    const { data } = await axios.get("users");
     return data;
   } catch (error) {
     console.error("Error fetching publications:", error);
@@ -18,7 +18,7 @@ export const createAccountOfUser = async () => {
 
 export const updateInfoOfAccountByToken = async ({ body }) => {
   try {
-    const { data } = await axios.put(`usuario/`, body, { headers });
+    const { data } = await axios.put(`users/`, body, { headers });
     return data;
   } catch (error) {
     console.error("Error deleting publication:", error);
@@ -28,7 +28,7 @@ export const updateInfoOfAccountByToken = async ({ body }) => {
 
 export const updateInfoOfAccountById = async ({ body, idPost }) => {
   try {
-    const { data } = await axios.put(`usuario/${idPost}`, body, { headers });
+    const { data } = await axios.put(`users/${idPost}`, body, { headers });
     return data;
   } catch (error) {
     console.error("Error :", error);

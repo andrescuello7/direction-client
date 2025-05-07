@@ -33,7 +33,7 @@ const FormChangeUserModal = ({
                   <div className="BoxPhoto">
                     <img
                       className="PortadaFoto"
-                      src={CurrentUser?.imagen || exampleImage}
+                      src={CurrentUser?.Photo || exampleImage}
                       alt=""
                     />
                     <div className="diagonal"></div>
@@ -54,9 +54,9 @@ const FormChangeUserModal = ({
               <div className="d-flex mb-2">
                 <input
                   className="form-control"
-                  name="instagram"
+                  name="Instagram"
                   type="text"
-                  value={input.instagram ?? CurrentUser?.instagram}
+                  value={input.Instagram ?? CurrentUser?.Instagram}
                   placeholder="Instagram"
                   onChange={HandleChange}
                 />
@@ -64,9 +64,9 @@ const FormChangeUserModal = ({
               <div className="d-flex mb-2">
                 <input
                   className="form-control"
-                  name="whatsapp"
+                  name="PhoneNumber"
                   type="number"
-                  value={input.celular ?? CurrentUser?.celular}
+                  value={input.PhoneNumber ?? CurrentUser?.PhoneNumber}
                   placeholder="Whatsapp"
                   onChange={HandleChange}
                 />
@@ -74,9 +74,9 @@ const FormChangeUserModal = ({
               <div className="d-flex mb-2">
                 <input
                   className="form-control"
-                  name="facebook"
+                  name="Facebook"
                   type="text"
-                  value={input.facebook ?? CurrentUser?.facebook}
+                  value={input.Facebook ?? CurrentUser?.Facebook}
                   placeholder="Facebook"
                   onChange={HandleChange}
                 />
@@ -85,9 +85,9 @@ const FormChangeUserModal = ({
               <div className="d-flex mb-2">
                 <input
                   className="form-control"
-                  name="usuario"
+                  name="UserName"
                   type="text"
-                  value={input.usuario ?? CurrentUser?.usuario}
+                  value={input.UserName ?? CurrentUser?.UserName}
                   placeholder="Usuario"
                   onChange={HandleChange}
                 />
@@ -95,9 +95,9 @@ const FormChangeUserModal = ({
               <div className="d-flex mb-2">
                 <textarea
                   className="form-control changeDescription"
-                  name="descripcion"
+                  name="Description"
                   type="text"
-                  value={input.descripcion ?? CurrentUser?.descripcion}
+                  value={input.Description ?? CurrentUser?.Description}
                   placeholder="Descripcion"
                   onChange={HandleChange}
                 />

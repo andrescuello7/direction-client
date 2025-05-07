@@ -64,13 +64,13 @@ const Perfil = ({ usuario, whoami }) => {
           <div className="profileInfoOptions">
             <div className="BoxUserInfoToPhoto">
               <div className="BoxInfoUser">
-                <h2 className="PortadaNombre">{usuario?.usuario}</h2>
-                <div className="w-75">{usuario?.descripcion}</div>
+                <h2 className="PortadaNombre">{usuario?.UserName}</h2>
+                <div className="w-75">{usuario?.Description}</div>
               </div>
               <div className="BoxPhoto mt-5">
                 <img
                   className="PortadaFoto"
-                  src={usuario?.imagen || exampleImage}
+                  src={usuario?.Photo || exampleImage}
                   alt=""
                 />
                 <div className="diagonal"></div>
@@ -79,18 +79,18 @@ const Perfil = ({ usuario, whoami }) => {
             <div className="d-flex mt-2 w-100 justify-content-end">
               <InfoView
                 Icon={<InstagramIcon height={25} width={25} />}
-                Info={`https://www.instagram.com/${usuario?.instagram}`}
-                Enable={usuario?.instagram}
+                Info={`https://www.instagram.com/${usuario?.Instagram}`}
+                Enable={usuario?.Instagram}
               />
               <InfoView
                 Icon={<WhatsAppIcon height={25} width={25} />}
-                Info={`https://wa.me/${usuario?.celular}`}
-                Enable={usuario?.celular}
+                Info={`https://wa.me/${usuario?.PhoneNumber}`}
+                Enable={usuario?.PhoneNumber}
               />
               <InfoView
                 Icon={<FacebookIcon height={25} width={25} />}
-                Info={`https://web.facebook.com/${usuario?.facebook}`}
-                Enable={usuario?.facebook}
+                Info={`https://web.facebook.com/${usuario?.Facebook}`}
+                Enable={usuario?.Facebook}
               />
             </div>
             {whoami && (

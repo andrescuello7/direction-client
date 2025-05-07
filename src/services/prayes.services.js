@@ -8,7 +8,7 @@ const headers = {
 
 export const getAllPrayes = async () => {
   try {
-    const { data } = await axios.get("oracion", { headers });
+    const { data } = await axios.get("prayes", { headers });
     return data;
   } catch (error) {
     console.error("Error fetching pray:", error);
@@ -18,7 +18,7 @@ export const getAllPrayes = async () => {
 
 export const savePrayes = async ({ body, idUser }) => {
   try {
-    const { data } = await axios.post(`oracion/${idUser}`, body);
+    const { data } = await axios.post(`prayes/${idUser}`, body);
     return data;
   } catch (error) {
     console.error("Error fetching pray:", error);
@@ -28,7 +28,7 @@ export const savePrayes = async ({ body, idUser }) => {
 
 export const deletePrays = async ({ idPray }) => {
   try {
-    const { data } = await axios.delete(`oracion/${idPray}`, { headers });
+    const { data } = await axios.delete(`prayes/${idPray}`, { headers });
     return data;
   } catch (error) {
     console.error("Error :", error);

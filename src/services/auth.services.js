@@ -6,7 +6,7 @@ const headers = { "x-auth-token": token };
 export const getUserByToken = async () => {
   try {
     const { data } = await axios.get(`auth`, { headers });
-    return data?.usuario;
+    return data?.user;
   } catch (error) {
     console.error("Error deleting publication:", error);
     throw error;

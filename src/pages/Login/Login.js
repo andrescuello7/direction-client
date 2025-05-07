@@ -45,7 +45,7 @@ const Login = () => {
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="email"
-              name="email"
+              name="Email"
               className="input"
               placeholder="Correo Electronico"
             />
@@ -54,7 +54,7 @@ const Login = () => {
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type={openEye ? "text" : "password"}
-              name="password"
+              name="Password"
               className="input"
               placeholder="Contraseña"
             />

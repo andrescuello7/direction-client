@@ -50,7 +50,7 @@ const QRModal = ({ idUser, qrModal, setQrModal, usuario }) => {
               src={qrModal}
             />
             <div className="mt-5 w-100 PortadaNombre d-flex justify-content-center">
-              {usuario?.usuario}
+              {usuario?.UserName}
               <div className="ml-3" onClick={handleCopy}>
                 <CopyIcon copy={copied} height={25} width={25} />
               </div>

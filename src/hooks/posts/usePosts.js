@@ -16,9 +16,8 @@ const usePosts = () => {
 
   // States
   const [formInput, setFormInput] = useState({
-    titulo: "",
-    contenido: "",
-    imagenPublicada: "",
+    Content: "",
+    Image: "",
   });
 
   const [saveLoading, setSaveLoading] = useState(false);
@@ -65,7 +64,7 @@ const usePosts = () => {
   const handlePic = async (e) => {
     setSaveLoading(true);
     const url = await uploadImage({ event: e });
-    const updatedInput = { ...formInput, imagenPublicada: url };
+    const updatedInput = { ...formInput, Image: url };
     setSaveLoading(false);
     setFormInput(updatedInput);
   };
@@ -83,9 +82,7 @@ const usePosts = () => {
     const { name, value } = event.target;
     const updatedInput = {
       ...formInput,
-      [name]: value,
-      perfil: currentUser?.imagen,
-      proveedor: currentUser?.usuario,
+      [name]: value
     };
 
     setFormInput(updatedInput);
@@ -98,7 +95,7 @@ const usePosts = () => {
       await savePost({ body: formInput });
       setSaveLoading(false);
       fetchPosts();
-      setFormInput({ titulo: "", contenido: "", imagenPublicada: "" });
+      setFormInput({ Content: "", Image: "" });
     } catch (error) {
       console.error(error);
       setValidationError(true);
@@ -110,8 +107,8 @@ const usePosts = () => {
       try {
         await saveCommentInPost({
           body: {
-            creador: userId,
-            text: event?.target?.value,
+            Creator: userId,
+            Text: event?.target?.value,
           },
           idPost: post?._id,
         });

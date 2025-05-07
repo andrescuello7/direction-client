@@ -22,10 +22,10 @@ const Register = () => {
     const { name, value } = e.target;
     const changedInput = { ...input, [name]: value };
     if (
-      changedInput?.password === changedInput?.confirmPassword &&
-      changedInput.usuario !== null &&
-      changedInput.email !== null &&
-      changedInput?.password !== "" &&
+      changedInput?.Password === changedInput?.confirmPassword &&
+      changedInput.UserName !== null &&
+      changedInput.Email !== null &&
+      changedInput?.Password !== "" &&
       changedInput?.confirmPassword !== ""
     ) {
       setSamePassword(false);
@@ -77,7 +77,7 @@ const Register = () => {
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="text"
-              name="usuario"
+              name="UserName"
               className="input"
               placeholder="Usuario"
             />
@@ -86,7 +86,7 @@ const Register = () => {
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type="email"
-              name="email"
+              name="Email"
               className="input"
               placeholder="Correo Electronico"
             />
@@ -95,7 +95,7 @@ const Register = () => {
             <Form.Control
               onChange={(e) => HandleChange(e)}
               type={openEye ? "text" : "password"}
-              name="password"
+              name="Password"
               className="input"
               placeholder="Contraseña"
             />

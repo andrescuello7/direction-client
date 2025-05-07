@@ -71,9 +71,9 @@ const UsePerfil = () => {
   const GetUserAndPostById = async ({ idFindUser }) => {
     try {
       const postsToUserFindById = await axios.get(
-        `publicacion/usuario/${idFindUser}`
+        `posts/user/${idFindUser}`
       );
-      const userToFindById = await axios.get(`publicacion/${idFindUser}`);
+      const userToFindById = await axios.get(`posts/${idFindUser}`);
       return {
         posts: postsToUserFindById?.data,
         user: userToFindById?.data[0],

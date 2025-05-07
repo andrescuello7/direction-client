@@ -19,23 +19,13 @@ const Publicacion = () => {
   return (
     <div className="p-2 ModalPublicacion">
       <Form className="content" onSubmit={handleSubmit}>
-        {/* <div>
-          <input
-            onChange={(e) => handleChange(e)}
-            placeholder="Titulo"
-            type="text"
-            value={formInput?.titulo}
-            name="titulo"
-            maxLength="30"
-          />
-        </div> */}
         <div>
           <textarea
             onChange={(e) => handleChange(e)}
             placeholder="Contenido aqui..."
             value={formInput?.contenido}
             type="text"
-            name="contenido"
+            name="Content"
           />
         </div>
         {validationError === true && (
@@ -44,11 +34,11 @@ const Publicacion = () => {
           </div>
         )}
         <div className="w-100 d-flex justify-content-start ml-3">
-          {formInput?.imagenPublicada && (
+          {formInput?.Image && (
             <div>
               <img
                 className="PublicacionFotoImg"
-                src={formInput?.imagenPublicada}
+                src={formInput?.Image}
                 alt=""
               />
             </div>

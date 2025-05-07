@@ -9,8 +9,6 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
   const [viewComments, setViewComments] = useState(false);
   const switchEnable = () => setViewComments(!viewComments);
 
-  console.log(date);
-  
   return (
     <>
       <div className="CardDiv">
@@ -19,69 +17,70 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
             <div
               className="datosTitular"
               onClick={() => {
-                if (FindUserById && date?.creador?._id) {
-                  FindUserById(date?.creador?._id);
+                if (FindUserById && date?.Creator?._id) {
+                  FindUserById(date?.Creator?._id);
                 }
               }}
             >
               <Image
                 className="PublicacionFoto"
-                src={date?.creador?.imagen || exampleImage}
+                src={date?.Creator?.Photo || exampleImage}
                 alt=""
               />
-              <div className="namePost">{date.proveedor}</div>
+              <div className="namePost">{date?.Creator?.UserName}</div>
             </div>
-            {date?.creador?._id === usuario?._id && (
+            {date?.Creator?._id === usuario?._id && (
               <Options idPost={date?._id} />
             )}
           </div>
           <div className="d-flex flex-column">
             <div className="ml-5">
-              {/* <div className="mt-2 ml-1 titlePublicacion">{date.titulo}</div> */}
-              <div className="ml-1 descripcionPublicacion">{date.contenido}</div>
+              <div className="ml-1 descripcionPublicacion">{date.Content}</div>
             </div>
-            {date.imagenPublicada && (
+            {date.Image && (
               <div className="PublicacionFotoPublicada">
-                <Image src={date.imagenPublicada} alt="" />
+                <Image src={date.Image} alt="" />
               </div>
             )}
           </div>
-          {token && <div className="mt-4 w-100 commentForm">
-            <Image
-              className="PublicacionFoto"
-              src={usuario?.imagen || exampleImage}
-              alt=""
-            />
-            <input
-              className="m-0 form-control"
-              placeholder="Agregar Comentario..."
-              onKeyDown={(event) =>
-                AddCommentToPost({
-                  event,
-                  userId: usuario?._id,
-                  post: date
-                })
-              }
-            />
-          </div>}
-          {date?.comments?.length > 0 ? (
+          {token && (
+            <div className="mt-4 w-100 commentForm">
+              <Image
+                className="PublicacionFoto"
+                src={usuario?.Photo || exampleImage}
+                alt=""
+              />
+              <input
+                className="m-0 form-control"
+                placeholder="Agregar Comentario..."
+                onKeyDown={(event) =>
+                  AddCommentToPost({
+                    event,
+                    userId: usuario?._id,
+                    post: date,
+                  })
+                }
+              />
+            </div>
+          )}
+          {date?.Comments?.length > 0 ? (
             !viewComments ? (
               <div className="addComment" onClick={switchEnable}>
-                Ver los {date?.comments?.length} comentarios
+                Ver los {date?.Comments?.length} comentarios
               </div>
             ) : (
               <div>
-                {date?.comments.map((item, i) => (
+                {date?.Comments.map((item, i) => (
                   <div key={i} className="comment">
                     <Image
                       className="PublicacionFoto"
-                      src={item?.creador?.imagen || exampleImage}
+                      src={item?.Creator?.Photo || exampleImage}
                       alt=""
                     />
                     <div className="text-light mr-1">
-                      {item?.creador?.usuario}
+                      {item?.Creator?.UserName}
                     </div>
-                    <div>{item.text}</div>
+                    <div>{item.Text}</div>
                   </div>
                 ))}
               </div>
