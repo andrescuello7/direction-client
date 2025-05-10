@@ -93,7 +93,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                       src={item?.Creator?.Photo || exampleImage}
                       alt=""
                     />
-                    <div className="text-light mr-1">
+                    <div className="text-light mx-1">
                       {item?.Creator?.UserName}
                     </div>
                     <div>{item.Text}</div>
