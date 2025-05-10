@@ -54,8 +54,15 @@
     width: 100%;
 }
 
+.offcanvas.show{
+    width: 100%;
+}
+
 @media (max-Width: 780px) {
     .searchIcon {
         display: none;
+    }
+    .offcanvas.show{
+        width: 70%;
     }
 }

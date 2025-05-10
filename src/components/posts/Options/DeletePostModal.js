@@ -34,7 +34,7 @@ function DeletePostModal(props) {
             onClick={DeletePost}
           >
             <DeleteIcon height={15} width={15} />
-            <b className="ml-1">Borrar Post</b>
+            <b className="mx-1">Borrar Post</b>
           </Button>
         </div>
       </Modal.Body>

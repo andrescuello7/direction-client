@@ -15,7 +15,7 @@
   border-radius: 12px;
   background-color: rgba(12, 11, 11, 0.623);
   width: 800px;
-  min-height: 160px;
+  /* min-height: 160px; */
   padding: 10px;
   padding-bottom: 1%;
 }
