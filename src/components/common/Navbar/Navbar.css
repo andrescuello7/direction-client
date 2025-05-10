@@ -1,36 +1,61 @@
-.NavbarTwo{
+.NavbarTwo {
     background-color: rgba(14, 14, 14, 0.986)
 }
-.NavbarTitulo{
+
+.NavbarTitulo {
     color: rgb(235, 226, 226);
     font-size: 25px;
     font-weight: 800;
-    /* font-family: var(--font-family-nunito); */
     font-family: "Bebas Neue", cursive;
     margin-left: 4%;
-    /* padding: 8px 0px; */
     padding-top: 8px;
 }
-.NavbarButtonUser{
+
+.NavbarButtonUser {
     right: 0;
     left: none;
 }
-.NavbarFoto{
+
+.NavbarFoto {
     padding: 0%;
     width: 38px;
     height: 38px;
     border-radius: 50%;
 }
-.NavbarButton{
+
+.NavbarButton {
     margin: 0% 0px;
 }
-.dropdown-menu{
+
+.dropdown-menu {
     right: 0;
     left: none;
 }
-.inputSearch{
+
+.inputSearch {
     background-color: rgba(255, 245, 238, 0);
     border: 1px solid var(--border-img-dark);
 }
-@media (max-Width: 780px){
+
+.offcanvasHeader {
+    color: aliceblue;
+    background-color: var(--background-color-dark);
+}
+
+.offcanvasBody {
+    color: aliceblue;
+    background-color: var(--background-color-dark);
+}
+
+.searchIcon {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    width: 100%;
+}
+
+@media (max-Width: 780px) {
+    .searchIcon {
+        display: none;
+    }
 }

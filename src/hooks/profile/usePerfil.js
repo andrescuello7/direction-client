@@ -6,7 +6,6 @@ import { updateInfoOfAccountByToken } from "../../services/users.services";
 import { uploadImage } from "../../services/imgs.services";
 import PostComponent from "../../components/posts/Post";
 import PrayComponent from "../../components/posts/Pray";
-import { Spinner } from "react-bootstrap";
 import axios from "axios";
 import { exampleImage } from "../../utils/values";
 

@@ -117,7 +117,7 @@ const Register = () => {
               <p>No se puede registrar, modifica los datos!</p>
             </div>
           )}
-          <a className="mx-2 mb-2" href="/login">
+          <a className="m-2" href="/login">
             Quiere iniciar sesion?
           </a>
           <button

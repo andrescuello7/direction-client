@@ -1,6 +1,7 @@
 import "./Publicacion.css";
-import { Modal, Button, Form, Spinner } from "react-bootstrap";
+import { Modal, Button, Form, Spinner, Image } from "react-bootstrap";
 import { ImageIcon } from "../../../utils/svg";
+import { exampleImage } from "../../../utils/values";
 import UsePosts from "../../../hooks/posts/usePosts";
 
 const Publicacion = () => {
@@ -12,6 +13,7 @@ const Publicacion = () => {
     handlePic,
     handleSubmit,
     showModal,
+    currentUser,
     formInput,
     saveLoading
   } = UsePosts();
@@ -19,11 +21,18 @@ const Publicacion = () => {
   return (
     <div className="p-2 ModalPublicacion">
       <Form className="content" onSubmit={handleSubmit}>
-        <div>
+        <div className="d-flex">
+          <Image
+            className="mt-2 mx-2 rounded rounded-5"
+            width={40}
+            height={40}
+            src={currentUser?.Photo || exampleImage}
+            alt=""
+          />
           <textarea
             onChange={(e) => handleChange(e)}
             placeholder="Contenido aqui..."
-            value={formInput?.contenido}
+            value={formInput?.Content}
             type="text"
             name="Content"
           />

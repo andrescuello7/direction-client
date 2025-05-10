@@ -1,0 +1,47 @@
+.notfound-container {
+    height: 100vh;
+    width: 100%;
+    background-color: #0d1117;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c9d1d9;
+    text-align: center;
+    padding: 1rem;
+}
+
+.notfound-content {
+    max-width: 400px;
+}
+
+.emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #f0f6fc;
+}
+
+.description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #8b949e;
+}
+
+.btn-return {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #238636;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-return:hover {
+    background-color: #2ea043;
+}

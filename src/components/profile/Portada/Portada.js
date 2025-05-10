@@ -50,7 +50,7 @@ const Perfil = ({ usuario, whoami }) => {
   const InfoView = ({ Icon, Info, Enable }) => {
     return (
       Enable !== undefined && (
-        <a className="text-light d-flex mt-3 mb-2 ml-2" target="_blank" href={Info}>
+        <a className="text-light d-flex mt-3 mx-1" target="_blank" href={Info}>
           {Icon}
         </a>
       )
@@ -95,7 +95,7 @@ const Perfil = ({ usuario, whoami }) => {
             </div>
             {whoami && (
               <div className="w-100 d-flex justify-content-between">
-                <div className="mr-2 PortadaEmail">
+                <div className="mx-1 PortadaEmail">
                   <div>
                     <Button
                       variant="outline-secondary"
@@ -106,15 +106,15 @@ const Perfil = ({ usuario, whoami }) => {
                     </Button>
                   </div>
                 </div>
-                <div className="ml-2 PortadaEmail">
+                <div className="mx-1 PortadaEmail">
                   <div>
                     <Button
                       variant="outline-secondary"
-                      className="w-100"
+                      className="w-100 d-flex align-items-center justify-content-center"
                       onClick={GenerateQR}
                     >
                       <QrGeneratorIcon width={15} height={15} />
-                      <b className="ml-2">Oraciones</b>
+                      <b className="mx-2">Oraciones</b>
                     </Button>
                   </div>
                 </div>

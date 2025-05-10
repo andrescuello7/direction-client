@@ -3,7 +3,7 @@
   border: solid 1px var(--border-img-dark);
   border-radius: 12px;
   margin: 1%;
-  width: 700px;
+  width: 800px;
 }
 input {
   margin: 1% 2%;
@@ -15,7 +15,7 @@ input {
 textarea {
   color: rgb(122, 126, 126);
   background-color: rgba(240, 255, 255, 0);
-  margin: 2%;
+  margin: 2% 0px;
   border: none;
   width: 96%;
   height: 50px;

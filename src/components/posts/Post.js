@@ -2,12 +2,15 @@ import Options from "./Options/Options";
 import { Card, Image } from "react-bootstrap";
 import { exampleImage } from "../../utils/values";
 import { useState } from "react";
+import { Chat, Cha } from "react-bootstrap-icons";
 import "./Post.css";
 
 const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
   const token = localStorage.getItem("token");
   const [viewComments, setViewComments] = useState(false);
+  const [addComments, setAddComments] = useState(false);
   const switchEnable = () => setViewComments(!viewComments);
+  const switchEnableAddComments = () => setAddComments(!addComments);
 
   return (
     <>
@@ -27,15 +30,17 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                 src={date?.Creator?.Photo || exampleImage}
                 alt=""
               />
-              <div className="namePost">{date?.Creator?.UserName}</div>
+              <div className="namePost text-light">
+                {date?.Creator?.UserName}
+              </div>
             </div>
             {date?.Creator?._id === usuario?._id && (
               <Options idPost={date?._id} />
             )}
           </div>
           <div className="d-flex flex-column">
-            <div className="ml-5">
-              <div className="ml-1 descripcionPublicacion">{date.Content}</div>
+            <div className="mx-5">
+              <div className="mx-2 descripcionPublicacion">{date.Content}</div>
             </div>
             {date.Image && (
               <div className="PublicacionFotoPublicada">
@@ -43,7 +48,21 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
               </div>
             )}
           </div>
-          {token && (
+          <div className="d-flex">
+            <div
+              className="d-flex align-items-center"
+              onClick={switchEnableAddComments}
+            >
+              <Chat className="mx-1 mt-2" width={25} height={25} />
+            </div>
+            {date?.Comments?.length > 0 && (
+              <div className="addComment" onClick={switchEnable}>
+                Ver los {date?.Comments?.length} comentarios
+              </div>
+            )}
+          </div>
+
+          {token && addComments && (
             <div className="mt-4 w-100 commentForm">
               <Image
                 className="PublicacionFoto"
@@ -63,12 +82,9 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
               />
             </div>
           )}
-          {date?.Comments?.length > 0 ? (
-            !viewComments ? (
-              <div className="addComment" onClick={switchEnable}>
-                Ver los {date?.Comments?.length} comentarios
-              </div>
-            ) : (
+
+          {date?.Comments?.length > 0 && viewComments && (
+            <>
               <div>
                 {date?.Comments.map((item, i) => (
                   <div key={i} className="comment">
@@ -84,9 +100,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                   </div>
                 ))}
               </div>
-            )
-          ) : (
-            <></>
+            </>
           )}
         </Card>
       </div>

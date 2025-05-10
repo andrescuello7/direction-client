@@ -55,10 +55,10 @@ const Login = () => {
               onChange={(e) => HandleChange(e)}
               type={openEye ? "text" : "password"}
               name="Password"
-              className="input"
+              className="input mt-3"
               placeholder="Contraseña"
             />
-            <div className="iconSvg" onClick={buttomEye}>
+            <div className="iconSvg mt-2" onClick={buttomEye}>
               {openEye ? <EyeOpen /> : <EyeClose />}
             </div>
           </Form.Group>
@@ -67,7 +67,7 @@ const Login = () => {
               <p>No se puede iniciar sesion, modifica los datos!</p>
             </div>
           )}
-          <a href="/" className="ml-1 mt-2">
+          <a href="/" className="mx-1 mt-3">
             Olvidaste tu contraseña?
           </a>
           <div className="mt-3 d-flex justify-content-between">

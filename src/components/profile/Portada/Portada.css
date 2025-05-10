@@ -2,7 +2,7 @@
   margin-top: 1%;
   display: flex;
   justify-content: center;
-  width: 700px;
+  width: 800px;
   min-height: 300px;
   border: solid 1px var(--border-img-dark);
   background-color: rgba(12, 11, 11, 0.623);
