@@ -3,7 +3,7 @@
   border: solid 1px var(--border-img-dark);
   border-radius: 12px;
   margin: 1%;
-  width: 800px;
+  width: 48%;
 }
 input {
   margin: 1% 2%;
@@ -102,6 +102,7 @@ textarea {
     width: 90%;
   }
   .ModalPublicacion {
+    width: 100%;
     margin: 2% 0%;
     border-radius: 0px;
   }

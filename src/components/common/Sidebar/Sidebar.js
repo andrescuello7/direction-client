@@ -5,9 +5,7 @@ import './Sidebar.css'; // Estilos personalizados
 export default function Sidebar() {
   return (
     <div className="flex-shrink-0 p-3 sidebar">
-      <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span className="fs-4">MyProject</span>
-      </a>
+      <div className='mt-5'></div>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">

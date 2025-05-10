@@ -2,7 +2,7 @@
   margin-top: 1%;
   display: flex;
   justify-content: center;
-  width: 800px;
+  width: 48%;
   min-height: 300px;
   border: solid 1px var(--border-img-dark);
   background-color: rgba(12, 11, 11, 0.623);
@@ -146,7 +146,7 @@
     align-items: center;
     flex-direction: column-reverse;
     width: 100%;
-    padding: 4%;
+    padding: 0px 3%;
     background: rgba(221, 216, 216, 0);
     background-repeat: no-repeat;
     background-size: cover;
@@ -161,9 +161,9 @@
   .BoxInfoUser{
     width: 100%;
   }
-  .profileInfoOptions{
+  /* .profileInfoOptions{
     padding-left: 15px;
-  }
+  } */
 
   .PortadaDatos {
     border-radius: 5px;
@@ -183,7 +183,7 @@
 
   .PortadaEmail {
     font-size: 1em;
-    margin: 8% 0;
+    margin: 8% 0px;
   }
 
   .modalUpdateUser{

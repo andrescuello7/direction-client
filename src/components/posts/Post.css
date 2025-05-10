@@ -14,7 +14,7 @@
   border: solid 1px var(--border-img-dark);
   border-radius: 12px;
   background-color: rgba(12, 11, 11, 0.623);
-  width: 800px;
+  width: 55%;
   /* min-height: 160px; */
   padding: 10px;
   padding-bottom: 1%;
@@ -104,7 +104,7 @@
 
   .CardPublica {
     border-radius: 0px;
-    width: 700px;
+    width: 100%;
     height: 100%;
     padding: 3% 2%;
   }
