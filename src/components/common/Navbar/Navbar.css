@@ -55,7 +55,7 @@
 }
 
 .offcanvas.show{
-    width: 100%;
+    width: 24%;
 }
 
 @media (max-Width: 780px) {
