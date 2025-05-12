@@ -25,46 +25,42 @@ const NavbarPage = () => {
 
   return (
     <div className="sticky-top">
-      <div>
-        <Navbar className="NavbarTwo">
-          <Container>
-            <Navbar.Brand as={Link} to="/">
-              <div className="d-flex align-items-center">
-                <DirectionIcon width={35} height={35} />
-                <b className="NavbarTitulo text-light">Lugar Secreto</b>
+      <Navbar className="NavbarTwo">
+        <Navbar.Brand as={Link} to="/">
+          <div className="d-flex align-items-center">
+            <DirectionIcon width={30} height={30} />
+            <b className="NavbarTitulo text-light">Lugar Secreto</b>
+          </div>
+        </Navbar.Brand>
+        <Navbar.Collapse className="w-100">
+          <div className="w-100 d-flex justify-content-end">
+            {!token && (
+              <div className="d-flex">
+                <div className="ml-2">
+                  <Nav.Link as={Link} to="/login" className="text-light">
+                    <SingInIcon />
+                    <b className="mx-2">Entrar</b>
+                  </Nav.Link>
+                </div>
               </div>
-            </Navbar.Brand>
-            <Navbar.Collapse className="w-100">
-              <div className="w-100 d-flex justify-content-end">
-                {!token && (
-                  <div className="d-flex">
-                    <div className="ml-2">
-                      <Nav.Link as={Link} to="/login" className="text-light">
-                        <SingInIcon />
-                        <b className="mx-2">Entrar</b>
-                      </Nav.Link>
-                    </div>
+            )}
+            {token && (
+              <>
+                <div className="searchIcon ht-100 d-flex align-items-center">
+                  <div className="form-control inputSearch">
+                    <SearchIcon height={20} width={20} />
+                    <div className="mx-3 w-50">Buscar...</div>
                   </div>
-                )}
-                {token && (
-                  <>
-                    <div className="searchIcon">
-                      <div className="d-flex align-items-center form-control inputSearch w-25">
-                        <SearchIcon height={20} width={20} />
-                        <div className="mx-3 w-50">Buscar...</div>
-                      </div>
-                    </div>
-                    <OffCanvasOptions
-                      currentUser={currentUser}
-                      handleLogOut={handleLogOut}
-                    />
-                  </>
-                )}
-              </div>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </div>
+                </div>
+                <OffCanvasOptions
+                  currentUser={currentUser}
+                  handleLogOut={handleLogOut}
+                />
+              </>
+            )}
+          </div>
+        </Navbar.Collapse>
+      </Navbar>
     </div>
   );
 };
@@ -78,8 +74,8 @@ function OffCanvasOptions({ currentUser, handleLogOut }) {
     <>
       <div onClick={handleShow}>
         <Image
-          width={45}
-          height={45}
+          width={35}
+          height={35}
           className="rounded rounded-5"
           src={currentUser?.Photo || exampleImage}
           alt=""

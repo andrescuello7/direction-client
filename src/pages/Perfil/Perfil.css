@@ -1,0 +1,16 @@
+.optionsProjects{
+    width: 48%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.optionsProjects .inputSearch{
+    height: 40px;
+}
+
+@media (max-width: 780px) {
+    .optionsProjects{
+        display: none;
+    }
+}

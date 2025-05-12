@@ -1,5 +1,5 @@
 import React from 'react';
-import { House, Book, Gear } from 'react-bootstrap-icons';
+import { House, Book, Gear, Person } from 'react-bootstrap-icons';
 import './Sidebar.css'; // Estilos personalizados
 
 export default function Sidebar() {
@@ -15,7 +15,13 @@ export default function Sidebar() {
           </a>
         </li>
         <li>
-          <a href="#" className="nav-link text-white">
+          <a href="/profile" className="nav-link text-white">
+            <Person className="me-2" />
+            Perfil
+          </a>
+        </li>
+        <li>
+          <a href="/profile" className="nav-link text-white">
             <Book className="me-2" />
             Proyectos
           </a>

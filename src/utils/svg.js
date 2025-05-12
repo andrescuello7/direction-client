@@ -377,14 +377,67 @@ export const SaveIcon = ({ width, height, className }) => {
 
 export const SearchIcon = ({ width, height, className }) => {
   return (
-    <svg 
-    xmlns="http://www.w3.org/2000/svg" 
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width ?? "16"}
+      height={height ?? "16"}
+      fill="currentColor"
+      className={className ? `${className} "bi bi-search"` : "bi bi-search"}
+      viewBox="0 0 16 16"
+    >
+      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+    </svg>
+  );
+};
+
+export const KanbanPray = ({ width, height, className }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={width ?? "16"}
     height={height ?? "16"}
-    fill="currentColor" 
-    className={className ? `${className} "bi bi-search"` : "bi bi-search"}
-    viewBox="0 0 16 16">
-      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+    fill="currentColor"
+    className={className ? `${className} "bi bi-kanban"` : "bi bi-kanban"}
+    viewBox="0 0 16 16"
+  >
+    <path d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z" />
+    <path d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1z" />
+  </svg>
+);
+
+export const PraySuccessIcon = ({ width, height, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width ?? "16"}
+      height={height ?? "16"}
+      fill="currentColor"
+      className={
+        className
+          ? `${className} "bi bi-calendar-heart"`
+          : "bi bi-calendar-heart"
+      }
+      viewBox="0 0 16 16"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4zM1 14V4h14v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1m7-6.507c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"
+      />
+    </svg>
+  );
+};
+
+export const BookIcon = ({ width, height, className }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width ?? "16"}
+      height={height ?? "16"}
+      fill="currentColor"
+      className={className ? `${className} "bi bi-journals"` : "bi bi-journals"}
+      viewBox="0 0 16 16"
+    >
+      <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2" />
+      <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0" />
     </svg>
   );
 };

@@ -37,10 +37,10 @@ const QRModal = ({ idUser, qrModal, setQrModal, usuario }) => {
       >
         <Modal.Body>
           <div className="d-flex flex-column align-items-center justify-content-center">
-            <div className="mt-3 mb-5 w-100 PortadaNombre d-flex justify-content-center align-items-center">
-              <MailboxPray height={30} width={30} />
-              <div className="ml-2 d-inline-block text-truncate">
-                Pedidos de Oracion
+            <div className="mb-5 mt-2 w-100 PortadaNombre d-flex justify-content-center">
+              {usuario?.UserName}
+              <div className="mx-3" onClick={handleCopy}>
+                <CopyIcon copy={copied} height={25} width={25} />
               </div>
             </div>
             <Image
@@ -49,11 +49,11 @@ const QRModal = ({ idUser, qrModal, setQrModal, usuario }) => {
               height={200}
               src={qrModal}
             />
-            <div className="mt-5 w-100 PortadaNombre d-flex justify-content-center">
-              {usuario?.UserName}
-              <div className="ml-3" onClick={handleCopy}>
-                <CopyIcon copy={copied} height={25} width={25} />
+            <div className="mt-5 w-100 PortadaNombre d-flex justify-content-center align-items-center">
+              <div className="mx-2 d-inline-block text-truncate">
+                Oraciones
               </div>
+              <MailboxPray height={30} width={30} />
             </div>
           </div>
         </Modal.Body>

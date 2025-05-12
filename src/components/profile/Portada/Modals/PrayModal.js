@@ -60,18 +60,18 @@ const FormPrayModal = ({ prayShow, handlePrayClose, usuario }) => {
               </div>
             </Modal.Title>
             <div className="d-flex flex-column">
+              <input
+                className="form-control mt-2 prayFormInput"
+                name="From"
+                type="text"
+                placeholder="Quien? (Opcional)"
+                onChange={HandleChange}
+              />
               <textarea
                 className="form-control prayFormInput m-0 mb-3 mt-3"
                 name="Description"
                 type="text"
                 placeholder="Porque queres que este orando?"
-                onChange={HandleChange}
-              />
-              <input
-                className="form-control prayFormInput"
-                name="From"
-                type="text"
-                placeholder="De parte de quien? (Opcional)"
                 onChange={HandleChange}
               />
             </div>

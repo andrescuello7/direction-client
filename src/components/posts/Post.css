@@ -11,17 +11,19 @@
 }
 
 .CardPublica {
+  display: flex;
+  flex-direction: column;
   border: solid 1px var(--border-img-dark);
   border-radius: 12px;
   background-color: rgba(12, 11, 11, 0.623);
   width: 55%;
-  /* min-height: 160px; */
   padding: 10px;
   padding-bottom: 1%;
 }
 
 .datosTitular {
-  padding: 1% 2%;
+  cursor: pointer;
+  padding: 1% 0%;
   display: flex;
   align-items: center;
 }
@@ -70,8 +72,8 @@
   font-size: 14px;
   color: #666666af;
   font-weight: 500;
-  padding-top: 14px;
-  padding-left: 2px;
+  padding-top: 8px;
+  padding-left: 10px;
 }
 
 .CardPublica .comment {
@@ -89,9 +91,14 @@
   font-weight: 500;
 }
 
-.CardPublica .comment img {
-  width: 25px;
-  height: 25px;
+.pointProject{
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.stateProject{
+  font-size: 11px;
 }
 
 @media (max-width: 780px) {

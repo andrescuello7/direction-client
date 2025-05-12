@@ -36,7 +36,6 @@ function App() {
             </Route>
             <Route path="/profile">
               <Perfil />
-              <SidebBar />
             </Route>
             <Route path="/login">
               <Login />
