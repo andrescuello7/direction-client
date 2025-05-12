@@ -2,7 +2,7 @@ import Options from "./Options/Options";
 import { Card, Image } from "react-bootstrap";
 import { exampleImage } from "../../utils/values";
 import { useState } from "react";
-import { Chat, Cha } from "react-bootstrap-icons";
+import { Chat } from "react-bootstrap-icons";
 import "./Post.css";
 
 const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {

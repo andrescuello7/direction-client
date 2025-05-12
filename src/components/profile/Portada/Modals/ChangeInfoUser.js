@@ -26,8 +26,8 @@ const FormChangeUserModal = ({
           centered
         >
           <Modal.Body>
-            <Modal.Title className="mb-4 text-center">
-              <b>Actualizar Datos</b>
+            <Modal.Title className="mb-4 text-center modalTitle">
+              Actualizar Datos
               <div className="upload-wrapper">
                 <label htmlFor="file-upload">
                   <div className="BoxPhoto">
@@ -61,7 +61,7 @@ const FormChangeUserModal = ({
                   onChange={HandleChange}
                 />
               </div>
-              <div className="d-flex mb-2">
+              <div className="d-flex mb-2  text-danger">
                 <input
                   className="form-control"
                   name="PhoneNumber"
@@ -106,12 +106,12 @@ const FormChangeUserModal = ({
             </div>
             <div className="w-100 d-flex justify-content-end">
               <Button
-                variant="btn btn-outline-primary"
+                variant="btn btn-primary"
                 className="mx-2 d-flex align-items-center"
                 onClick={() => UpdateInfoUser({ input, handleClose })}
               >
                 <SaveIcon />
-                <b className="ml-2">Guardar</b>
+                <b className="mx-1">Guardar</b>
                 {saveLoading && (
                   <Spinner
                     className="spinnerSize"

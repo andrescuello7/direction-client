@@ -6,6 +6,16 @@ const headers = {
   "x-auth-token": token,
 };
 
+export const getAllUsers = async ({ body }) => {
+  try {
+    const { data } = await axios.post("users", body, { headers });
+    return data;
+  } catch (error) {
+    console.error("Error fetching publications:", error);
+    throw error;
+  }
+};
+
 export const createAccountOfUser = async () => {
   try {
     const { data } = await axios.get("users");

@@ -1,5 +1,6 @@
 import Options from "./Options/Options";
 import { Card } from "react-bootstrap";
+import { STATES } from "../../utils/values";
 import { BookIcon } from "../../utils/svg";
 import "./Post.css";
 
@@ -10,10 +11,12 @@ const ProjectComponent = ({ date }) => {
         <div
           className={`pointProject mb-1 ${
             State === "TODO"
-              ? "bg-warning"
-              : State === "IN_PROGRESS"
               ? "bg-primary"
-              : "bg-success"
+              : State === "IN_PROGRESS"
+              ? "bg-warning"
+              : State === "DONE"
+              ? "bg-success"
+              : "bg-danger"
           }`}
         ></div>
         <div className="mx-2 stateProject">
@@ -21,7 +24,9 @@ const ProjectComponent = ({ date }) => {
             ? "No Empezo"
             : State === "IN_PROGRESS"
             ? "En Progreso"
-            : "Terminado"}
+            : State === "DONE"
+            ? "Completado"
+            : "Cancelado"}
         </div>
       </div>
     );
@@ -43,7 +48,7 @@ const ProjectComponent = ({ date }) => {
                 {date?.Description}
               </div>
             </div>
-            <Options idPost={date?._id} Delete={true} />
+            <Options idPost={date?._id} DeleteProject={true} />
           </div>
           <ViewStates State={date?.State} />
         </Card>

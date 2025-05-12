@@ -9,10 +9,11 @@ import {
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
-const OptionsItem = ({ idPost, Private, Delete, PraySuccess }) => {
+const OptionsItem = ({ idPost, Private, Delete, DeleteProject, PraySuccess }) => {
   const [enable, setEnable] = useState(false);
   const switchEnable = () => setEnable(!enable);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [deleteProjectModal, setDeleteProjectModal] = useState(false);
 
   const OptionItemSelect = ({ Icon, SetModal, Label, className, Enable }) => {
     return Enable ? (
@@ -50,12 +51,26 @@ const OptionsItem = ({ idPost, Private, Delete, PraySuccess }) => {
             SetModal={setDeleteModal}
             className={"text-danger"}
           />
+          <OptionItemSelect
+            Enable={DeleteProject}
+            Label={"Eliminar Proyecto"}
+            Icon={DeleteIcon}
+            SetModal={setDeleteProjectModal}
+            className={"text-danger"}
+          />
         </div>
       )}
       <DeletePostModal
         IdPost={idPost}
         show={deleteModal}
+        Title="Eliminar Post"
         onHide={() => setDeleteModal(false)}
+      />
+      <DeletePostModal
+        IdProject={idPost}
+        show={deleteProjectModal}
+        Title="Eliminar Proyecto"
+        onHide={() => setDeleteProjectModal(false)}
       />
       <div className="options-tab" onClick={switchEnable}>
         {OptionsPostIcon}

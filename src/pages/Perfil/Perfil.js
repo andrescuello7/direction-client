@@ -1,5 +1,6 @@
 import UsePerfil from "../../hooks/profile/usePerfil";
 import BannerProfile from "../../components/profile/Portada/Portada";
+import NewProjectModal from "../../components/profile/Portada/Modals/NewProjectModal";
 import OptionsProfile from "../../components/profile/Options/Options";
 import { useLocation } from "react-router-dom";
 import { SearchIcon, BookIcon } from "../../utils/svg";
@@ -12,7 +13,7 @@ const Perfil = () => {
   const [posts, setPosts] = useState([]);
   const [prayes, setPrayes] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [options, setOptions] = useState("POSTS");
+  const [options, setOptions] = useState("PROJECT");
 
   const location = useLocation();
   let findUserById = location?.pathname?.replace("/profile/", "");
@@ -70,14 +71,7 @@ const Perfil = () => {
                 <input className="mx-3 w-100" placeholder="Buscar..." />
               </div>
             </div>
-            <Button
-              disabled={true}
-              variant="outline-success"
-              className="d-flex align-items-center"
-            >
-              <BookIcon className={"text-success"} height={15} width={15} />
-              <b className="mx-1">Nuevo</b>
-            </Button>
+            <NewProjectModal />
           </div>
         </div>
       )

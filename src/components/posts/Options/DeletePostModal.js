@@ -1,11 +1,17 @@
 import { Button, Modal } from "react-bootstrap";
 import { deletePosts } from "../../../services/posts.services";
+import { deleteProject } from "../../../services/projects.services";
 import { DeleteIcon } from "../../../utils/svg";
 
 function DeletePostModal(props) {
-  const DeletePost = async () => {
-    await deletePosts({ idPost: props.IdPost });
-    window.location.href = "/";
+  const Delete = async () => {
+    if (props.IdPost) {
+      await deletePosts({ idPost: props.IdPost });
+    } 
+    if (props.IdProject) {
+      await deleteProject({ idDelete: props.IdProject });
+    }
+    window.location.reload();
   };
 
   return (
@@ -18,7 +24,7 @@ function DeletePostModal(props) {
     >
       <Modal.Body>
         <h5 className="fw-bolder mt-2 mb-5">
-          <b>Eliminar Post</b>
+          <b>{props.Title}</b>
         </h5>
         <div className="mt-4 d-flex justify-content-between">
           <Button
@@ -31,10 +37,10 @@ function DeletePostModal(props) {
           <Button
             variant="btn btn-danger d-flex align-items-center"
             className="fw-bold"
-            onClick={DeletePost}
+            onClick={Delete}
           >
             <DeleteIcon height={15} width={15} />
-            <b className="mx-1">Borrar Post</b>
+            <b className="mx-1">Borrar</b>
           </Button>
         </div>
       </Modal.Body>

@@ -31,7 +31,7 @@ export const getProjectsByUserId = async ({idUser}) => {
 };
 
 // POST /addProject
-export const addPray = async ({body}) => {
+export const addProject = async ({body}) => {
   try {
     const { data } = await axios.post("/projects/addProject", body, {
       headers,
@@ -44,7 +44,7 @@ export const addPray = async ({body}) => {
 };
 
 // POST /addContributor
-export const addContributorToPray = async ({ ProjectId, ContributorId }) => {
+export const addContributorToProject = async ({ ProjectId, ContributorId }) => {
   try {
     const { data } = await axios.post(
       "/projects/addContributor",
@@ -59,7 +59,7 @@ export const addContributorToPray = async ({ ProjectId, ContributorId }) => {
 };
 
 // PATCH /changeState
-export const changePrayState = async ({ ProjectId, State }) => {
+export const changeProjectState = async ({ ProjectId, State }) => {
   try {
     const { data } = await axios.patch(
       "/projects/changeState",
@@ -74,7 +74,7 @@ export const changePrayState = async ({ ProjectId, State }) => {
 };
 
 // DELETE /:idDelete
-export const deletePray = async ({idDelete}) => {
+export const deleteProject = async ({idDelete}) => {
   try {
     const { data } = await axios.delete(`/projects/${idDelete}`, { headers });
     return data;
