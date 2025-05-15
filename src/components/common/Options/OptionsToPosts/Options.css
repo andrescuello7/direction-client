@@ -55,7 +55,7 @@
         cursor: pointer;
     }
     .option{
-        position: relative;
+        position: absolute;
         cursor: pointer;
         z-index: 1;
         font-size: 12px;
