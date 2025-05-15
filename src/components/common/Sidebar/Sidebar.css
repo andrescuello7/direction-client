@@ -2,7 +2,9 @@
 .sidebar {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: fixed;
+    padding: 20px 10px;
     top: 0;
     left: 0;
     width: 20%;
@@ -20,10 +22,16 @@
 .sidebar .nav-link:hover {
     background-color: #21262d !important;
 }
+.navItemSelect{
+    display: block;
+}
 
 
 @media (max-width: 780px) {
-    .sidebar{
+    .navItemSelect {
+        display: none;
+    }
+    .sidebar {
         display: none;
     }
 }

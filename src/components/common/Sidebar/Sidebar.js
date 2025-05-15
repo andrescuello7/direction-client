@@ -12,15 +12,14 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="flex-shrink-0 p-3 sidebar d-flex flex-column justify-content-between">
-      <div className="mt-5">
-        <hr />
+    <div className="sidebar">
+      <div className="mt-5 navItemSelect">
         <ul className="nav nav-pills flex-column mb-auto">
           <li className="nav-item">
-            <a href="/home" className="nav-link active text-white">
+            <Nav.Link as={Link} to="/home" className="nav-link active text-light">
               <House className="me-2" />
               Inicio
-            </a>
+            </Nav.Link>
           </li>
           <li>
             <Nav.Link as={Link} to="/profile" className="text-light">
@@ -42,7 +41,7 @@ export default function Sidebar() {
           </li>
         </ul>
       </div>
-      <div>
+      <div className="navItemSelect">
         <ul className="nav nav-pills flex-column mb-auto">
           <li>
             <div
