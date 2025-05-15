@@ -13,46 +13,40 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      <div className="mt-5 navItemSelect">
-        <ul className="nav nav-pills flex-column mb-auto">
+      <div className="navItemSelect">
+        <ul className="nav nav-pills w-75 flex-column mb-auto">
           <li className="nav-item">
-            <Nav.Link as={Link} to="/home" className="nav-link active text-light">
-              <House className="me-2" />
+            <Nav.Link as={Link} to="/home" className="nav-link active">
+              <House size={18} />
               Inicio
             </Nav.Link>
           </li>
           <li>
-            <Nav.Link as={Link} to="/profile" className="text-light">
-              <Person className="me-2" />
+            <Nav.Link as={Link} to="/profile" className="nav-link">
+              <Person size={18} />
               Perfil
             </Nav.Link>
           </li>
           <li>
-            <Nav.Link as={Link} to="/profile" className="text-light">
-              <Book className="me-2" />
+            <Nav.Link as={Link} to="/projects" className="nav-link">
+              <Book size={18} />
               Proyectos
             </Nav.Link>
           </li>
           <li>
-            <Nav.Link as={Link} to="/profile" className="text-light">
-              <Gear className="me-2" />
+            <Nav.Link as={Link} to="/settings" className="nav-link">
+              <Gear size={18} />
               Configuraciones
             </Nav.Link>
           </li>
         </ul>
       </div>
+
       <div className="navItemSelect">
-        <ul className="nav nav-pills flex-column mb-auto">
-          <li>
-            <div
-              onClick={handleLogOut}
-              className="text-danger d-flex mx-2 align-items-center"
-            >
-              <LogoutIcon className="me-2 text-danger" />
-              <b className="text-danger">Cerrar Sesión</b>
-            </div>
-          </li>
-        </ul>
+        <div onClick={handleLogOut} className="logout w-75 d-flex align-items-center">
+          <LogoutIcon className="me-2" width={18} height={18} />
+          <b>Cerrar Sesión</b>
+        </div>
       </div>
     </div>
   );

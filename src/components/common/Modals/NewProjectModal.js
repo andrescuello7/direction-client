@@ -106,7 +106,7 @@ const NewProjectModal = () => {
                         input?.Colaborators?.map((item, i) => (
                           <div
                             key={i}
-                            className="mx-1 px-2 pt-1 pb-1 border-secondary rounded d-flex align-items-center border"
+                            className="px-2 pt-1 pb-1 border border-0 text-dark bg-secondary rounded d-flex align-items-center"
                           >
                             <div className="mx-2">{item.UserName}</div>
                             <DeleteIconX height={15} width={15} />

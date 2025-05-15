@@ -72,7 +72,7 @@ const Register = () => {
             <div></div>
           </button>
           <br />
-          <hr className="text-light w-100" />
+          <hr className="text-light m-0 p-0 w-100" />
           <Form.Group controlId="formBasicEmail">
             <Form.Control
               onChange={(e) => HandleChange(e)}
@@ -117,12 +117,9 @@ const Register = () => {
               <p>No se puede registrar, modifica los datos!</p>
             </div>
           )}
-          <a className="m-2" href="/login">
-            Quiere iniciar sesion?
-          </a>
           <button
             disabled={samepassword}
-            className="mb-3 btn btn-primary btn-login d-flex justify-content-center"
+            className="mb-3 mt-4 btn btn-primary btn-login d-flex justify-content-center"
             type="submit"
           >
             <div>Registarse</div>

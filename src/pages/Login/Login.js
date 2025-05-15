@@ -67,7 +67,7 @@ const Login = () => {
               <p>No se puede iniciar sesion, modifica los datos!</p>
             </div>
           )}
-          <a href="/" className="mx-1 mt-3">
+          <a href="/" className="mx-1 mt-3 text-decoration-none">
             Olvidaste tu contraseña?
           </a>
           <div className="mt-3 d-flex justify-content-between">

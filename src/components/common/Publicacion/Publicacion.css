@@ -1,9 +1,8 @@
 .ModalPublicacion {
-  background: rgba(20, 20, 20, 0.74);
-  border: solid 1px var(--border-img-dark);
+  background-color: rgba(36, 36, 36, 0.623);
   border-radius: 12px;
   margin: 1%;
-  width: 44%;
+  width: 45%;
 }
 input {
   margin: 1% 2%;
@@ -20,11 +19,11 @@ textarea {
   width: 96%;
   height: 50px;
 }
-.PuclicarEmail {
+/* .PuclicarEmail {
   border-radius: 1rem;
   background-color: azure;
   width: 52%;
-}
+} */
 .PublicacionFoto {
   margin-right: 10px;
   width: 35px;
@@ -58,7 +57,6 @@ textarea {
   color: #b4b2b2;
 }
 
-
 .upload-wrapper-profile {
   display: flex;
   justify-content: center;
@@ -86,18 +84,21 @@ textarea {
 .hidden-file-input {
   display: none;
 }
+
 .ModalPublicacion button{
   height: 40px;
   border-radius: 8px;
   color: white;
   background-color: #343a4022;
 }
+
 .optionButtons{
   display: flex;
   align-items: end;
   justify-content: space-between;
-  margin: 20px;
+  margin: 20px 10px;
 }
+
 @media (max-width: 780px) {
   .PuclicarEmail {
     width: 90%;

@@ -32,7 +32,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
             </div>
             <div className="d-flex justify-content-between flex-column w-100">
               <div
-                className="datosTitular namePost text-light"
+                className="datosTitular"
                 onClick={findUser}
               >
                 {date?.Creator?.UserName}
@@ -51,7 +51,7 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                   onClick={switchEnable}
                   className="mt-1 d-flex align-items-center justify-content-start"
                 >
-                  <Chat width={20} height={20} />
+                  <Chat className={date?.Comments?.length > 0 && "text-secondary"} width={20} height={20} />
                 </div>
                 <div className="addComment" onClick={switchEnableAddComments}>
                   Agregar Comentario
@@ -69,9 +69,9 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                           height={25}
                           alt=""
                         />
-                        <div className="text-light mx-1">
+                        <b className="mx-1 datosTitular">
                           {item?.Creator?.UserName}
-                        </div>
+                        </b>
                         <div>{item.Text}</div>
                       </div>
                     ))}

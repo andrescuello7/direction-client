@@ -121,10 +121,10 @@ function OffCanvasOptions({ currentUser, handleLogOut }) {
                 </div>
               </div>
             </div>
-            <hr className="w-100 bg-light" />
+            {/* <hr className="w-100 bg-light" /> */}
           </div>
         </Offcanvas.Header>
-        <Offcanvas.Body className="offcanvasBody m-0 pt-0">
+        <Offcanvas.Body className="offcanvasBody m-0 pt-2 pt-0">
           <div className="d-flex flex-column align-items-start justify-content-between">
             <Nav.Link
               as={Link}

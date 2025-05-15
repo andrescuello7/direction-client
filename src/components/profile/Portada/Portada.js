@@ -89,13 +89,13 @@ const Perfil = ({ usuario, whoami }) => {
                 Enable={usuario?.PhoneNumber}
               />
               <InfoView
-                Icon={<FacebookIcon height={20} width={20}/>}
+                Icon={<FacebookIcon height={20} width={20} />}
                 Info={`https://web.facebook.com/${usuario?.Facebook}`}
                 Enable={usuario?.Facebook}
               />
             </div>
-            {whoami && (
-              <div className="w-100 d-flex justify-content-between">
+            <div className="w-100 d-flex justify-content-between">
+              {whoami && (
                 <div className="PortadaEmail">
                   <Button
                     variant="outline-secondary"
@@ -105,19 +105,19 @@ const Perfil = ({ usuario, whoami }) => {
                     <b>Editar perfil</b>
                   </Button>
                 </div>
-                <div className="mx-1"></div>
-                <div className="PortadaEmail">
-                  <Button
-                    variant="outline-secondary"
-                    className="w-100 d-flex align-items-center justify-content-center"
-                    onClick={GenerateQR}
-                  >
-                    <QrGeneratorIcon width={15} height={15} />
-                    <b className="mx-2">Oraciones</b>
-                  </Button>
-                </div>
+              )}
+              <div className="mx-1"></div>
+              <div className="PortadaEmail">
+                <Button
+                  variant="outline-secondary"
+                  className="w-100 d-flex align-items-center justify-content-center"
+                  onClick={GenerateQR}
+                >
+                  <QrGeneratorIcon width={15} height={15} />
+                  <b className="mx-2">Oraciones</b>
+                </Button>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>

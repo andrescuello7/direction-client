@@ -1,36 +1,62 @@
-/* src/components/Sidebar.css */
 .sidebar {
+    /* background-color: #18191a; */
+    position: fixed;
+    min-height: 95vh;
+    width: 25%;
+    padding: 1rem 0.5rem;
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: fixed;
-    padding: 20px 10px;
-    top: 0;
-    left: 0;
-    width: 20%;
-    height: 100vh;
-    border-right: 1px solid var(--border-img-dark);
     z-index: 1000;
 }
 
-
 .sidebar .nav-link {
-    color: #c9d1d9 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e4e6eb;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
 }
 
-.sidebar .nav-link.active,
 .sidebar .nav-link:hover {
-    background-color: #21262d !important;
-}
-.navItemSelect{
-    display: block;
+    background-color: #3a3b3c;
+    color: white;
+    text-decoration: none;
 }
 
+.sidebar .nav-link.active {
+    background-color: #3a3b3c;
+    font-weight: 600;
+}
+
+.sidebar .navItemSelect {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem 0;
+}
+
+.sidebar .logout {
+    cursor: pointer;
+    color: #ff4d4f;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+
+.sidebar .logout:hover {
+    background-color: #3a3b3c;
+    color: #da4043;
+}
 
 @media (max-width: 780px) {
     .navItemSelect {
         display: none;
     }
+
     .sidebar {
         display: none;
     }

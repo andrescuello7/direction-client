@@ -13,17 +13,20 @@
 .CardPublica {
   display: flex;
   flex-direction: column;
-  border: solid 1px var(--border-img-dark);
   border-radius: 12px;
-  background-color: rgba(12, 11, 11, 0.623);
-  width: 50%;
+  background-color: rgba(36, 36, 36, 0.623);
+  border: solid 1px var(--border-img-dark);
+  width: 51%;
+  min-height: 100px;
   padding: 10px;
   padding-bottom: 1%;
 }
 
 .datosTitular {
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.882);
   padding: 1% 0%;
+  font-size: 13px;
   display: flex;
   align-items: center;
 }
@@ -36,7 +39,7 @@
 
 .descripcionPublicacion {
   color: rgba(255, 255, 255, 0.882);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 300;
 }
 
