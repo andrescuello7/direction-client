@@ -86,7 +86,6 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
           <>
             {token && addComments && (
               <div className="mx-1 w-100">
-                <hr className="w-100 text-secondary" />
                 <div className="mx-1 w-100 commentForm">
                   <Image
                     className="rounded-circle"
