@@ -1,7 +1,7 @@
 .PortadaPrincipal {
   display: flex;
   justify-content: center;
-  width: 48%;
+  width: 44%;
   min-height: 300px;
   border: solid 1px var(--border-img-dark);
   background-color: rgba(12, 11, 11, 0.623);
@@ -9,7 +9,7 @@
 }
 
 .PortadaDatos {
-  width: 80%;
+  width: 90%;
 }
 
 .BoxUserInfoToPhoto {
@@ -43,14 +43,12 @@
 .profileInfoOptions {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
   min-height: 350px;
   color: #cdc0c0;
 }
 
 .PortadaFoto {
-  /* margin-top: 50px; */
   border-radius: 50%;
   height: 150px;
   width: 150px;
@@ -67,7 +65,7 @@
   border-radius: 12px;
   color: rgb(218, 220, 222);
   background-color: rgba(12, 11, 11, 0.924);
-  min-height: 500px;
+  min-height: 300px;
   padding: 10px;
   padding-bottom: 1%;
 }
@@ -183,6 +181,9 @@
   z-index: 1;
   min-width: 100px;
   min-height: 100px;
+  max-height: 250px;
+  overflow-y: auto;
+  background-attachment: scroll;
   border-radius: 12px;
   background-color: rgb(20, 21, 21);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.388);
@@ -215,10 +216,6 @@
   .BoxInfoUser {
     width: 100%;
   }
-
-  /* .profileInfoOptions{
-    padding-left: 15px;
-  } */
 
   .PortadaDatos {
     border-radius: 5px;

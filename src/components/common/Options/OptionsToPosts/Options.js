@@ -1,18 +1,27 @@
 import "./Options.css";
-import DeletePostModal from "./DeletePostModal";
+import DeletePostModal from "../../Modals/DeletePostModal";
+import SendMessageModal from "../../Modals/SendMessageModal";
 import {
+  LockIcon,
   DeleteIcon,
   OptionsPostIcon,
-  LockIcon,
   PraySuccessIcon,
-} from "../../../utils/svg";
+  WhatsAppIcon,
+} from "../../../../utils/svg";
 import { useState } from "react";
-import { Button } from "react-bootstrap";
 
-const OptionsItem = ({ idPost, Private, Delete, DeleteProject, PraySuccess }) => {
+const OptionsItem = ({
+  idPost,
+  Private,
+  Delete,
+  DeleteProject,
+  PraySuccess,
+  SendMessage,
+}) => {
   const [enable, setEnable] = useState(false);
   const switchEnable = () => setEnable(!enable);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [sendMessageModal, setSendMessageModal] = useState(false);
   const [deleteProjectModal, setDeleteProjectModal] = useState(false);
 
   const OptionItemSelect = ({ Icon, SetModal, Label, className, Enable }) => {
@@ -33,6 +42,13 @@ const OptionsItem = ({ idPost, Private, Delete, DeleteProject, PraySuccess }) =>
     <>
       {enable && (
         <div className="option">
+          <OptionItemSelect
+            Enable={SendMessage}
+            Label={"Enviar Mensaje"}
+            className={"text-light"}
+            Icon={WhatsAppIcon}
+            SetModal={setSendMessageModal}
+          />
           <OptionItemSelect
             Enable={Private}
             Label={"Privado"}
@@ -71,6 +87,11 @@ const OptionsItem = ({ idPost, Private, Delete, DeleteProject, PraySuccess }) =>
         show={deleteProjectModal}
         Title="Eliminar Proyecto"
         onHide={() => setDeleteProjectModal(false)}
+      />
+      <SendMessageModal
+        show={sendMessageModal}
+        Title="Enviar Mensaje"
+        onHide={() => setSendMessageModal(false)}
       />
       <div className="options-tab" onClick={switchEnable}>
         {OptionsPostIcon}

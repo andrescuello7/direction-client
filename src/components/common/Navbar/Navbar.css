@@ -45,12 +45,12 @@
 
 .offcanvasHeader {
     color: aliceblue;
-    background-color: var(--background-color-dark);
+    background: var(--background-color-dark);
 }
 
 .offcanvasBody {
     color: aliceblue;
-    background-color: var(--background-color-dark);
+    background: var(--background-color-dark);
 }
 
 .searchIcon {

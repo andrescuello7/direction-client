@@ -12,14 +12,14 @@
   justify-content: left;
 }
 .bodyLandPage {
-  background-color: var(--background-color-dark);
+  background: var(--background-color-dark);
   background-size: cover;
   background-attachment: fixed;
   color: rgb(10, 10, 10);
   min-height: 100vh;
 }
 .ColorDePerfil {
-  background-color: var(--background-color-dark);
+  background: var(--background-color-dark);
   background-size: cover;
   background-attachment: fixed;
   min-height: 100vh;

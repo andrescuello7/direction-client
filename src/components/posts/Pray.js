@@ -1,4 +1,4 @@
-import Options from "./Options/Options";
+import Options from "../common/Options/OptionsToPosts/Options";
 import { exampleImage } from "../../utils/values";
 import { Card, Image } from "react-bootstrap";
 import "./Post.css";

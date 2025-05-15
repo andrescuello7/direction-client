@@ -1,11 +1,10 @@
 import UsePerfil from "../../hooks/profile/usePerfil";
 import BannerProfile from "../../components/profile/Portada/Portada";
-import NewProjectModal from "../../components/profile/Portada/Modals/NewProjectModal";
-import OptionsProfile from "../../components/profile/Options/Options";
+import NewProjectModal from "../../components/common/Modals/NewProjectModal";
+import OptionsProfile from "../../components/common/Options/OptionsTabProfile/Options";
 import { useLocation } from "react-router-dom";
-import { SearchIcon, BookIcon } from "../../utils/svg";
+import { SearchIcon } from "../../utils/svg";
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import "./Perfil.css";
 
 const Perfil = () => {
@@ -13,7 +12,7 @@ const Perfil = () => {
   const [posts, setPosts] = useState([]);
   const [prayes, setPrayes] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [options, setOptions] = useState("PROJECT");
+  const [options, setOptions] = useState("POSTS");
 
   const location = useLocation();
   let findUserById = location?.pathname?.replace("/profile/", "");
@@ -68,7 +67,11 @@ const Perfil = () => {
             <div className="searchIcon">
               <div className="form-control w-100 inputSearch">
                 <SearchIcon height={20} width={20} />
-                <input className="mx-3 w-100" placeholder="Buscar..." />
+                <input
+                  autoComplete="off"
+                  className="mx-3 w-100"
+                  placeholder="Buscar..."
+                />
               </div>
             </div>
             <NewProjectModal />

@@ -3,7 +3,7 @@
   border: solid 1px var(--border-img-dark);
   border-radius: 12px;
   margin: 1%;
-  width: 48%;
+  width: 44%;
 }
 input {
   margin: 1% 2%;
@@ -34,12 +34,13 @@ textarea {
 .PublicacionFotoPublicada {
   display: flex;
   margin-left: 0px;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .PublicacionFotoPublicada img {
   border: solid 1px var(--border-img-dark);
   margin-top: 20px;
-  max-height: 400px;
+  height: 95%;
+  width: 95%;
   border-radius: 10px;
 }
 .PublicacionFotoImg {

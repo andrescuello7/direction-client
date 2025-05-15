@@ -1,9 +1,9 @@
-import "../Portada.css";
+import "../../profile/Portada/Portada.css";
 
 import { Modal, Button, Form, Spinner } from "react-bootstrap";
 import { useState } from "react";
-import { MailboxPray } from "../../../../utils/svg";
-import { savePrayes } from "../../../../services/prayes.services";
+import { MailboxPray } from "../../../utils/svg";
+import { savePrayes } from "../../../services/prayes.services";
 
 const FormPrayModal = ({ prayShow, handlePrayClose, usuario }) => {
   const [input, setInput] = useState({});

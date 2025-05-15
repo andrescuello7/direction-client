@@ -1,4 +1,3 @@
-import { Spinner } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import {
   getAllPosts,

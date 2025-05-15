@@ -11,13 +11,14 @@ import {
 } from "../../../utils/svg";
 import { useEffect, useState } from "react";
 import { qrGenerate } from "../../../services/imgs.services";
-import ChangeInfoUser from "./Modals/ChangeInfoUser";
-import PrayModal from "./Modals/PrayModal";
-import QrModal from "./Modals/QrModal";
+import ChangeInfoUser from "../../common/Modals/ChangeInfoUser";
+import PrayModal from "../../common/Modals/PrayModal";
+import QrModal from "../../common/Modals/QrModal";
 
 const Perfil = ({ usuario, whoami }) => {
   const location = useLocation();
-  const { exampleImage, handlePic, UpdateInfoUser, saveLoading, currentUser } = UsePerfil();
+  const { exampleImage, handlePic, UpdateInfoUser, saveLoading, currentUser } =
+    UsePerfil();
 
   const [input, setInput] = useState({});
   const [qrModal, setQrModal] = useState("");
@@ -76,47 +77,44 @@ const Perfil = ({ usuario, whoami }) => {
                 <div className="diagonal"></div>
               </div>
             </div>
-            <div className="d-flex mt-2 w-100 justify-content-end">
+            <div className="d-flex mt-3 w-100 justify-content-end">
               <InfoView
-                Icon={<InstagramIcon height={25} width={25} />}
+                Icon={<InstagramIcon height={20} width={20} />}
                 Info={`https://www.instagram.com/${usuario?.Instagram}`}
                 Enable={usuario?.Instagram}
               />
               <InfoView
-                Icon={<WhatsAppIcon height={25} width={25} />}
+                Icon={<WhatsAppIcon height={20} width={20} />}
                 Info={`https://wa.me/${usuario?.PhoneNumber}`}
                 Enable={usuario?.PhoneNumber}
               />
               <InfoView
-                Icon={<FacebookIcon height={25} width={25} />}
+                Icon={<FacebookIcon height={20} width={20}/>}
                 Info={`https://web.facebook.com/${usuario?.Facebook}`}
                 Enable={usuario?.Facebook}
               />
             </div>
             {whoami && (
               <div className="w-100 d-flex justify-content-between">
-                <div className="mx-1 PortadaEmail">
-                  <div>
-                    <Button
-                      variant="outline-secondary"
-                      className="w-100"
-                      onClick={handleShow}
-                    >
-                      <b>Editar perfil</b>
-                    </Button>
-                  </div>
+                <div className="PortadaEmail">
+                  <Button
+                    variant="outline-secondary"
+                    className="w-100"
+                    onClick={handleShow}
+                  >
+                    <b>Editar perfil</b>
+                  </Button>
                 </div>
-                <div className="mx-1 PortadaEmail">
-                  <div>
-                    <Button
-                      variant="outline-secondary"
-                      className="w-100 d-flex align-items-center justify-content-center"
-                      onClick={GenerateQR}
-                    >
-                      <QrGeneratorIcon width={15} height={15} />
-                      <b className="mx-2">Oraciones</b>
-                    </Button>
-                  </div>
+                <div className="mx-1"></div>
+                <div className="PortadaEmail">
+                  <Button
+                    variant="outline-secondary"
+                    className="w-100 d-flex align-items-center justify-content-center"
+                    onClick={GenerateQR}
+                  >
+                    <QrGeneratorIcon width={15} height={15} />
+                    <b className="mx-2">Oraciones</b>
+                  </Button>
                 </div>
               </div>
             )}

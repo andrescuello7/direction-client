@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
-import "../Portada.css";
+import "../../profile/Portada/Portada.css";
 
-import { CopyIcon, MailboxPray } from "../../../../utils/svg";
+import { CopyIcon, MailboxPray } from "../../../utils/svg";
 import { useState } from "react";
-import { Modal, Button, Image } from "react-bootstrap";
+import { Modal, Image } from "react-bootstrap";
 
 const QRModal = ({ idUser, qrModal, setQrModal, usuario }) => {
   const [copied, setCopied] = useState(false);

@@ -1,11 +1,11 @@
-import "../Portada.css";
+import "../../profile/Portada/Portada.css";
 
 import { useEffect, useState } from "react";
 import { Modal, Button, Form, Spinner, Image } from "react-bootstrap";
-import { SaveIcon, BookIcon, DeleteIconX } from "../../../../utils/svg";
-import { getAllUsers } from "../../../../services/users.services";
-import { addProject } from "../../../../services/projects.services";
-import { exampleImage, STATES } from "../../../../utils/values";
+import { SaveIcon, BookIcon, DeleteIconX } from "../../../utils/svg";
+import { getAllUsers } from "../../../services/users.services";
+import { addProject } from "../../../services/projects.services";
+import { exampleImage, STATES } from "../../../utils/values";
 
 const NewProjectModal = () => {
   const [users, setUsers] = useState([]);
@@ -128,6 +128,7 @@ const NewProjectModal = () => {
                     name="State"
                     type="text"
                     placeholder="Estado inicial"
+                    autoComplete="off"
                     value={input?.State?.name}
                     onClick={() => {
                       setShowAddColaborators(false);

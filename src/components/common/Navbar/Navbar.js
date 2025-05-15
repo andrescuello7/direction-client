@@ -112,6 +112,7 @@ function OffCanvasOptions({ currentUser, handleLogOut }) {
             <Nav.Link
               as={Link}
               to="/profile"
+              onClick={handleClose}
               className="p-2 d-flex align-items-center text-light"
             >
               <ProfileIcon height={20} width={20} />{" "}

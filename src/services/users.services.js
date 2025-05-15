@@ -45,3 +45,20 @@ export const updateInfoOfAccountById = async ({ body, idPost }) => {
     throw error;
   }
 };
+
+export const sendMessageByWhatsApp = async ({ body }) => {
+  try {
+    const _headers = {
+      "content-type": "application/json",
+    };
+    const { data } = await axios.post(
+      "http://localhost:3000/api/whatsapp/send",
+      body,
+      { headers: _headers }
+    );
+    return data;
+  } catch (error) {
+    console.error("Error fetching send message by whatsApp:", error);
+    throw error;
+  }
+};

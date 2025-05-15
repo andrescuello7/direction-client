@@ -54,8 +54,8 @@ const UsePerfil = () => {
     try {
       const postOfUserLogged = await getPostByToken();
       const prayesOfUser = await getAllPrayes();
-      const getProjects = await getAllProjects();
       const userLogged = await getUserByToken();
+      const getProjects = await getProjectsByUserId({idUser: currentUser?._id || userLogged?._id});
 
       // TODO: error in save posts in Context
       // addPost(postOfUserLogged);

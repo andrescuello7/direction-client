@@ -1,4 +1,4 @@
-import Options from "./Options/Options";
+import Options from "../common/Options/OptionsToPosts/Options";
 import { Card, Image } from "react-bootstrap";
 import { exampleImage } from "../../utils/values";
 import { useState } from "react";
@@ -45,15 +45,17 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
                   </div>
                 )}
               </div>
-              <div className="d-flex mt-3">
-                <div onClick={switchEnableAddComments}>
+              <div className="d-flex mt-3 align-items-center justify-content-start">
+                <div
+                  role="button"
+                  onClick={switchEnable}
+                  className="mt-1 d-flex align-items-center justify-content-start"
+                >
                   <Chat width={20} height={20} />
                 </div>
-                {date?.Comments?.length > 0 && (
-                  <div className="addComment" onClick={switchEnable}>
-                    Ver los {date?.Comments?.length} comentarios
-                  </div>
-                )}
+                <div className="addComment" onClick={switchEnableAddComments}>
+                  Agregar Comentario
+                </div>
               </div>
               <>
                 {date?.Comments?.length > 0 && viewComments && (
@@ -78,30 +80,33 @@ const PostComponent = ({ date, usuario, AddCommentToPost, FindUserById }) => {
               </>
             </div>
             {date?.Creator?._id === usuario?._id && (
-              <Options idPost={date?._id} Delete={true} Private={true} />
+              <Options idPost={date?._id} Delete={true} />
             )}
           </div>
           <>
             {token && addComments && (
-              <div className="mt-3 mx-1 w-100 commentForm">
-                <Image
-                  className="rounded-circle"
-                  src={usuario?.Photo || exampleImage}
-                  width={30}
-                  height={30}
-                  alt=""
-                />
-                <input
-                  className="m-0 px-2 pb-0 pt-0 form-control"
-                  placeholder="Agregar Comentario..."
-                  onKeyDown={(event) =>
-                    AddCommentToPost({
-                      event,
-                      userId: usuario?._id,
-                      post: date,
-                    })
-                  }
-                />
+              <div className="mx-1 w-100">
+                <hr className="w-100 text-secondary" />
+                <div className="mx-1 w-100 commentForm">
+                  <Image
+                    className="rounded-circle"
+                    src={usuario?.Photo || exampleImage}
+                    width={25}
+                    height={25}
+                    alt=""
+                  />
+                  <input
+                    className="m-0 px-2 pb-0 pt-0 form-control"
+                    placeholder="Comentario..."
+                    onKeyDown={(event) =>
+                      AddCommentToPost({
+                        event,
+                        userId: usuario?._id,
+                        post: date,
+                      })
+                    }
+                  />
+                </div>
               </div>
             )}
           </>

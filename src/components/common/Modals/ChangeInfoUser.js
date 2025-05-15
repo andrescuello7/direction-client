@@ -1,8 +1,8 @@
-import "../Portada.css";
+import "../../profile/Portada/Portada.css";
 
 import { Modal, Button, Form, Spinner } from "react-bootstrap";
-import { SaveIcon } from "../../../../utils/svg";
-import { exampleImage } from "../../../../utils/values";
+import { SaveIcon } from "../../../utils/svg";
+import { exampleImage } from "../../../utils/values";
 
 const FormChangeUserModal = ({
   show,

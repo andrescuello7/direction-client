@@ -1,6 +1,5 @@
-import Options from "./Options/Options";
+import Options from "../common/Options/OptionsToPosts/Options";
 import { Card } from "react-bootstrap";
-import { STATES } from "../../utils/values";
 import { BookIcon } from "../../utils/svg";
 import "./Post.css";
 
@@ -48,7 +47,7 @@ const ProjectComponent = ({ date }) => {
                 {date?.Description}
               </div>
             </div>
-            <Options idPost={date?._id} DeleteProject={true} />
+            <Options idPost={date?._id} DeleteProject={true} SendMessage={true} />
           </div>
           <ViewStates State={date?.State} />
         </Card>
