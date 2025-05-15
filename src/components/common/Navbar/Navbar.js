@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Nav, Offcanvas, Image } from "react-bootstrap";
 import {
@@ -11,6 +10,7 @@ import {
 } from "../../../utils/svg";
 import { exampleImage } from "../../../utils/values";
 import { usePostContext } from "../../../context/PostContext";
+import { useState, useRef, useEffect } from "react";
 
 import "./Navbar.css";
 
@@ -69,10 +69,27 @@ function OffCanvasOptions({ currentUser, handleLogOut }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+    const optionsRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (optionsRef.current && !optionsRef.current.contains(event.target)) {
+        setShow(false);
+      }
+    };
+
+    if (show) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [show]);
 
   return (
     <>
-      <div onClick={handleShow}>
+      <div onClick={handleShow}  ref={optionsRef}>
         <Image
           width={35}
           height={35}

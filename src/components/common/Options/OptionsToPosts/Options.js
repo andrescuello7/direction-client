@@ -8,7 +8,7 @@ import {
   PraySuccessIcon,
   WhatsAppIcon,
 } from "../../../../utils/svg";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const OptionsItem = ({
   idPost,
@@ -19,10 +19,29 @@ const OptionsItem = ({
   SendMessage,
 }) => {
   const [enable, setEnable] = useState(false);
-  const switchEnable = () => setEnable(!enable);
   const [deleteModal, setDeleteModal] = useState(false);
   const [sendMessageModal, setSendMessageModal] = useState(false);
   const [deleteProjectModal, setDeleteProjectModal] = useState(false);
+
+  const optionsRef = useRef(null);
+
+  const switchEnable = () => setEnable(!enable);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (optionsRef.current && !optionsRef.current.contains(event.target)) {
+        setEnable(false);
+      }
+    };
+  
+    if (enable) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+  
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [enable]);
 
   const OptionItemSelect = ({ Icon, SetModal, Label, className, Enable }) => {
     return Enable ? (
@@ -41,7 +60,7 @@ const OptionsItem = ({
   return (
     <>
       {enable && (
-        <div className="option">
+        <div className="option" ref={optionsRef}>
           <OptionItemSelect
             Enable={SendMessage}
             Label={"Enviar Mensaje"}
