@@ -1,5 +1,5 @@
 import "./Options.css";
-import DeletePostModal from "../../Modals/DeletePostModal";
+import ItemSelectModal from "../../Modals/DeletePostModal";
 import SendMessageModal from "../../Modals/SendMessageModal";
 import {
   LockIcon,
@@ -15,12 +15,15 @@ const OptionsItem = ({
   Private,
   Delete,
   DeleteProject,
+  DeletePray,
   PraySuccess,
   SendMessage,
 }) => {
   const [enable, setEnable] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [deletePrayModal, setDeletePrayModal] = useState(false);
   const [sendMessageModal, setSendMessageModal] = useState(false);
+  const [praySuccessModal, setPraySuccessModal] = useState(false);
   const [deleteProjectModal, setDeleteProjectModal] = useState(false);
 
   const optionsRef = useRef(null);
@@ -33,11 +36,9 @@ const OptionsItem = ({
         setEnable(false);
       }
     };
-  
     if (enable) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-  
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -77,6 +78,8 @@ const OptionsItem = ({
           <OptionItemSelect
             Enable={PraySuccess}
             Label={"Oracion exitosa"}
+            className={"text-success"}
+            SetModal={setPraySuccessModal}
             Icon={PraySuccessIcon}
           />
           <OptionItemSelect
@@ -84,6 +87,13 @@ const OptionsItem = ({
             Label={"Eliminar"}
             Icon={DeleteIcon}
             SetModal={setDeleteModal}
+            className={"text-danger"}
+          />
+          <OptionItemSelect
+            Enable={DeletePray}
+            Label={"Eliminar Oracion"}
+            Icon={DeleteIcon}
+            SetModal={setDeletePrayModal}
             className={"text-danger"}
           />
           <OptionItemSelect
@@ -95,17 +105,40 @@ const OptionsItem = ({
           />
         </div>
       )}
-      <DeletePostModal
+      <ItemSelectModal
         IdPost={idPost}
         show={deleteModal}
         Title="Eliminar Post"
+        Icon={<DeleteIcon height={15} width={15} />}
+        Color="danger"
+        LabelButton="Borrar"
         onHide={() => setDeleteModal(false)}
       />
-      <DeletePostModal
+      <ItemSelectModal
+        IdPray={idPost}
+        show={deletePrayModal}
+        Title="Eliminar Oracion"
+        Icon={<DeleteIcon height={15} width={15} />}
+        Color="danger"
+        LabelButton="Borrar"
+        onHide={() => setDeletePrayModal(false)}
+      />
+      <ItemSelectModal
         IdProject={idPost}
         show={deleteProjectModal}
+        Icon={<DeleteIcon height={15} width={15} />}
         Title="Eliminar Proyecto"
+        Color="danger"
+        LabelButton="Borrar"
         onHide={() => setDeleteProjectModal(false)}
+      />
+      <ItemSelectModal
+        IdPray={idPost}
+        show={praySuccessModal}
+        Title="Su oracion el señor cumplio?"
+        Color="success"
+        LabelButton="Lo hizo"
+        onHide={() => setPraySuccessModal(false)}
       />
       <SendMessageModal
         show={sendMessageModal}

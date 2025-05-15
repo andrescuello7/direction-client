@@ -7,7 +7,7 @@ const PrayComponent = ({ date }) => {
   return (
     <>
       <div className="CardDiv">
-        <Card className="CardPublica">
+        <Card className={`${date?.State === "SUCCESS" && "praySuccess"} CardPublica`}>
           <div className="d-flex justify-content-between align-items-start">
             <Image
               className="rounded-circle"
@@ -21,12 +21,12 @@ const PrayComponent = ({ date }) => {
                 {date?.From ?? "Anonimo"}
               </b>
               <div className="d-flex flex-column">
-                <div className="mx-2 descripcionPublicacion">
+                <div className={`mx-2 descripcionPublicacion`}>
                   {date?.Description}
                 </div>
               </div>
             </div>
-            <Options idPost={date?._id} Delete={true} PraySuccess={true} />
+            <Options idPost={date?._id} DeletePray={true} PraySuccess={true} />
           </div>
         </Card>
       </div>

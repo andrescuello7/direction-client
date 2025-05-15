@@ -34,20 +34,20 @@ const ProjectComponent = ({ date }) => {
   return (
     <>
       <div className="CardDiv">
-        <Card className="CardPublica">
+        <Card className={`${date?.Role === "CONTRIBUTOR" && "border border-primary"} CardPublica`}>
           <div className="d-flex justify-content-between align-items-start">
             <div className="mt-1">
-              <BookIcon className={"text-secondary"} height={15} width={15} />
+              <BookIcon className="text-secondary" height={15} width={15} />
             </div>
             <div className="d-flex justify-content-between flex-column w-100">
-              <div className="m-2 text-primary titlePublicacion">
+              <div className={`${date?.Role === "CONTRIBUTOR" ? "text-primary" : "text-secondary"} m-2 titlePublicacion`}>
                 {date?.Title}
               </div>
               <div className="text-secondary descripcionPublicacion">
                 {date?.Description}
               </div>
             </div>
-            <Options idPost={date?._id} DeleteProject={true} SendMessage={true} />
+            <Options idPost={date?._id} DeleteProject={date?.Role === "CREATOR"} SendMessage={true} />
           </div>
           <ViewStates State={date?.State} />
         </Card>

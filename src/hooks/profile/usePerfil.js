@@ -4,6 +4,7 @@ import { getUserByToken } from "../../services/auth.services";
 import { getAllPrayes } from "../../services/prayes.services";
 import {
   getAllProjects,
+  getItAllMine,
   getProjectsByUserId,
 } from "../../services/projects.services";
 import { updateInfoOfAccountByToken } from "../../services/users.services";
@@ -55,7 +56,7 @@ const UsePerfil = () => {
       const postOfUserLogged = await getPostByToken();
       const prayesOfUser = await getAllPrayes();
       const userLogged = await getUserByToken();
-      const getProjects = await getProjectsByUserId({idUser: currentUser?._id || userLogged?._id});
+      const getProjects = await getItAllMine();
 
       // TODO: error in save posts in Context
       // addPost(postOfUserLogged);

@@ -1,15 +1,21 @@
 import { Button, Modal } from "react-bootstrap";
 import { deletePosts } from "../../../services/posts.services";
 import { deleteProject } from "../../../services/projects.services";
-import { DeleteIcon } from "../../../utils/svg";
+import { updateState, deletePrays } from "../../../services/prayes.services";
 
-function DeletePostModal(props) {
+function ItemSelectModal(props) {
   const Delete = async () => {
     if (props.IdPost) {
       await deletePosts({ idPost: props.IdPost });
-    } 
+    }
     if (props.IdProject) {
       await deleteProject({ idDelete: props.IdProject });
+    }
+    if (props.IdPray && props.Color === "success") {
+      await updateState({ idPray: props.IdPray, body: { State: "SUCCESS" } });
+    }
+    if (props.IdPray && props.Color === "danger") {
+      await deletePrays({ idPray: props.IdPray });
     }
     window.location.reload();
   };
@@ -28,23 +34,23 @@ function DeletePostModal(props) {
         </h5>
         <div className="mt-4 d-flex justify-content-between">
           <Button
-            variant="w-50 btn btn-outline-danger"
+            variant={`w-50 btn btn-outline-${props.Color}`}
             className="fw-bolder"
             onClick={props.onHide}
           >
             <b>Cancelar</b>
           </Button>
           <Button
-            variant="btn btn-danger d-flex align-items-center"
+            variant={`btn btn-${props.Color} d-flex align-items-center`}
             className="fw-bold"
             onClick={Delete}
           >
-            <DeleteIcon height={15} width={15} />
-            <b className="mx-1">Borrar</b>
+            {props?.Icon}
+            <b className="mx-1">{props.LabelButton}</b>
           </Button>
         </div>
       </Modal.Body>
     </Modal>
   );
 }
-export default DeletePostModal;
+export default ItemSelectModal;

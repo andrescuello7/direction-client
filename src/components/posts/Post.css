@@ -101,7 +101,10 @@
 .stateProject{
   font-size: 11px;
 }
-
+.praySuccess{
+  border: 1px solid #00ff0035;
+  background-color: #00ff000e;
+}
 @media (max-width: 780px) {
   .CardDiv {
     position: relative;

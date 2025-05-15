@@ -26,6 +26,17 @@ export const savePrayes = async ({ body, idUser }) => {
   }
 };
 
+export const updateState = async ({ body, idPray }) => {
+  try {
+    const { data } = await axios.patch(`prayes/${idPray}`, body, { headers });
+    return data;
+  } catch (error) {
+    console.error("Error fetching pray:", error);
+    throw error;
+  }
+};
+
+
 export const deletePrays = async ({ idPray }) => {
   try {
     const { data } = await axios.delete(`prayes/${idPray}`, { headers });

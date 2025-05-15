@@ -1,6 +1,6 @@
-import "../../profile/Portada/Portada.css";
+import "../../../assets/styles/modalPray.css";
 
-import { Modal, Button, Form, Spinner } from "react-bootstrap";
+import { Modal, Form, Spinner } from "react-bootstrap";
 import { useState } from "react";
 import { MailboxPray } from "../../../utils/svg";
 import { savePrayes } from "../../../services/prayes.services";
@@ -23,62 +23,59 @@ const FormPrayModal = ({ prayShow, handlePrayClose, usuario }) => {
   };
 
   return (
-    <div>
-      <Form>
-        <Modal
-          contentClassName="modalUpdateUser"
-          show={prayShow}
-          onHide={() => handlePrayClose()}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Body>
-            <Modal.Title>
-              <div className="w-100 d-flex mb-3 justify-content-center">
-                <MailboxPray height={30} width={30} />
-                <b className="ml-2">Pedido de Oracion</b>
-              </div>
-              <hr className="bg-secondary" />
-              <div className="ml-2 mt-3 mb-2 d-flex justify-content-between">
-                <b>{usuario?.UserName}</b>
-                <div className="w-25 d-flex justify-content-end">
-                  <Button
-                    className="mx-2 btn btn-success"
-                    onClick={SavePrayFromUser}
-                  >
-                    <b>Enviar</b>
-                    {save && (
-                      <Spinner
-                        className="spinnerSize"
-                        animation="border"
-                        variant="light"
-                      />
-                    )}
-                  </Button>
-                </div>
-              </div>
-            </Modal.Title>
-            <div className="d-flex flex-column">
-              <input
-                className="form-control mt-2 prayFormInput"
+    <Form>
+      <Modal
+        contentClassName="qr-modal-container"
+        show={prayShow}
+        onHide={() => handlePrayClose()}
+        centered
+      >
+        <Modal.Body>
+          <div className="d-flex flex-column align-items-center text-white">
+            <div className="mb-3 text-center">
+              <MailboxPray height={30} width={30} />
+              <h5 className="mt-2">Pedido de Oración</h5>
+              <p className="text-secondary small">
+                Escribí tu pedido y lo enviaremos en oración.
+              </p>
+            </div>
+
+            <div className="w-100 d-flex flex-column align-items-center justify-content-center">
+              <Form.Control
+                className="form-control-dark mb-3"
                 name="From"
                 type="text"
-                placeholder="Quien? (Opcional)"
+                placeholder="¿Para quién es? (opcional)"
                 onChange={HandleChange}
               />
-              <textarea
-                className="form-control prayFormInput m-0 mb-3 mt-3"
+              <Form.Control
+                className="form-control-dark mb-3"
+                as="textarea"
+                rows={4}
                 name="Description"
-                type="text"
-                placeholder="Porque queres que este orando?"
+                placeholder="¿Por qué querés que esté orando?"
                 onChange={HandleChange}
               />
             </div>
-          </Modal.Body>
-        </Modal>
-      </Form>
-    </div>
+
+            <button
+              className="btn btn-primary mt-2 w-100 d-flex justify-content-center align-items-center"
+              onClick={SavePrayFromUser}
+              disabled={save}
+            >
+              <b>Enviar</b>
+              {save && (
+                <Spinner
+                  className="ms-2 spinner-border-sm"
+                  animation="border"
+                  variant="light"
+                />
+              )}
+            </button>
+          </div>
+        </Modal.Body>
+      </Modal>
+    </Form>
   );
 };
 

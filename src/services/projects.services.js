@@ -17,6 +17,30 @@ export const getAllProjects = async () => {
   }
 };
 
+// GET /
+export const getAllProjectsByToken = async () => {
+  try {
+    const { data } = await axios.get("/projects", { headers });
+    return data;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    throw error;
+  }
+};
+
+// GET /getAllById
+export const getItAllMine = async () => {
+  try {
+    const { data } = await axios.get(`/projects/getItAllMine`, {
+      headers,
+    });
+    return data;
+  } catch (error) {
+    console.error("Error fetching projectsers by user:", error);
+    throw error;
+  }
+};
+
 // GET /getAllById/:idUser
 export const getProjectsByUserId = async ({idUser}) => {
   try {

@@ -5,6 +5,7 @@ import { Modal, Button, Form, Spinner, Image } from "react-bootstrap";
 import { SaveIcon, BookIcon, DeleteIconX } from "../../../utils/svg";
 import { getAllUsers } from "../../../services/users.services";
 import { addProject } from "../../../services/projects.services";
+import { usePostContext } from "../../../context/PostContext";
 import { exampleImage, STATES } from "../../../utils/values";
 
 const NewProjectModal = () => {
@@ -12,6 +13,7 @@ const NewProjectModal = () => {
   const [show, setShow] = useState(false);
   const [showStates, setShowStates] = useState(false);
   const [showAddColaborators, setShowAddColaborators] = useState(false);
+  const { currentUser } = usePostContext();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -41,7 +43,8 @@ const NewProjectModal = () => {
     setSave(true);
     const body = {
       ...input,
-      Colaborators: input?.Colaborators?.map((item) => item?._id),
+      Contributors: input?.Colaborators?.map((item) => item?._id),
+      Creator: currentUser?._id,
       State: input?.State?.state,
     };
     await addProject({ body });
