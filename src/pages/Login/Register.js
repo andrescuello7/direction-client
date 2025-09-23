@@ -1,6 +1,7 @@
-import { Form } from "react-bootstrap";
 import axios from "axios";
+import { Form } from "react-bootstrap";
 import { useState } from "react";
+import { createAccountOfUser } from "../../services/users.services";
 import {
   AppleIcon,
   GoogleIcon,
@@ -38,7 +39,7 @@ const Register = () => {
   const HandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("usuario", input);
+      const data = await createAccountOfUser({ body: input });
       localStorage.setItem("token", data);
       window.location.href = "/";
     } catch (error) {

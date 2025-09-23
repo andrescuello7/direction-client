@@ -16,9 +16,9 @@ export const getAllUsers = async ({ body }) => {
   }
 };
 
-export const createAccountOfUser = async () => {
+export const createAccountOfUser = async ({ body }) => {
   try {
-    const { data } = await axios.get("users");
+    const { data } = await axios.post("users", body);
     return data;
   } catch (error) {
     console.error("Error fetching publications:", error);

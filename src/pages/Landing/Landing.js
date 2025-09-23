@@ -19,18 +19,13 @@ function Landing() {
           <p className="d-flex flex-wrap w-50">
             Este es un espacio que fue creado con el fin de podes traer orden a
             las tareas cotidianas de las congraciones para reducir tiempos de
-            organizacion y utilizarlo para el Senor
+            organizacion y utilizarlo para el Señor
           </p>
           <div className="hero-form w-100 d-flex">
             <button onClick={redirect} className="green">
               Empezar Ahora
             </button>
             <button className="white">Informacion</button>
-          </div>
-          <div className="floating-blobs">
-            <div className="blob purple"></div>
-            <div className="blob pink"></div>
-            <div className="blob yellow"></div>
           </div>
         </section>
       </div>
