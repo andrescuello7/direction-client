@@ -23,7 +23,7 @@
     "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build"
   },
   "engines": {
-    "node": "22.x"
+    "node": "20.x"
   },
   "eslintConfig": {
     "extends": [
